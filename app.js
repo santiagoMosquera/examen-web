@@ -21,7 +21,6 @@ function pintarListaVendedores() {
 
     html += "</ul>";
 
-    // Mostrar el HTML en el div contenedorIzquierda usando la función utilitaria
     mostrarHtmlEnDiv("contenedorIzquierda", html);
 }
 
@@ -36,9 +35,36 @@ function pintarListaVendedoresVIP() {
 
     html += "</ul>";
 
-    // Mostrar el HTML en el div contenedorDerecha usando la función utilitaria
+   
     mostrarHtmlEnDiv("contenedorDerecha", html);
 }
+
+//ejercicio 3
+
+function agregarVendedor(vendedor) {
+  vendedores.push(vendedor);
+ pintarListaVendedores();
+}
+
+//agregar 4 
+
+function agregarVendedorAction(){
+let cedula = recuperarTexto("txtCedula");
+let nombre = recuperarTexto("txtNombre");
+let apellido = recuperarTexto("txtApellido");
+let ventas = recuperarEntero("txtVentas");
+
+  
+  let vendedor={
+    cedula:cedula,
+    nombre:nombre,
+    apellido:apellido,
+    ventas:ventas,
+    nivel:""
+  }
+  agregarVendedor(vendedor);
+}
+
 
 inicializar=function(){
   pintarListaVendedores();
