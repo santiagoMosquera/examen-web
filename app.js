@@ -46,7 +46,7 @@ function agregarVendedor(vendedor) {
  pintarListaVendedores();
 }
 
-//agregar 4 
+//ejercicio 4 
 
 function agregarVendedorAction(){
 let cedula = recuperarTexto("txtCedula");
@@ -70,6 +70,10 @@ inicializar=function(){
   pintarListaVendedores();
   pintarListaVendedoresVIP();
 }
+
+//ejercicio5
+
+
 
 
 
