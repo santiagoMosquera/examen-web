@@ -11,7 +11,7 @@ let vendedoresVIP = [
     { cedula:"1945504089",nombre: "Alexandra", apellido: "Analuisa", ventas:10, nivel:"bronce"},
 
 ];
-
+//ejercicio 1 
 function pintarListaVendedores() {
     let html = "<ul class='list'>";
 
@@ -25,10 +25,24 @@ function pintarListaVendedores() {
     mostrarHtmlEnDiv("contenedorIzquierda", html);
 }
 
+//ejercicio 2
 
+function pintarListaVendedoresVIP() {
+    let html = "<ul class='list'>";
+
+    for (let i = 0; i < vendedoresVIP.length; i++) {
+        html += `<li> ${vendedoresVIP[i].nombre} ${vendedoresVIP[i].apellido} | nivel: ${vendedoresVIP[i].nivel}</li>`;
+    }
+
+    html += "</ul>";
+
+    // Mostrar el HTML en el div contenedorDerecha usando la función utilitaria
+    mostrarHtmlEnDiv("contenedorDerecha", html);
+}
 
 inicializar=function(){
   pintarListaVendedores();
+  pintarListaVendedoresVIP();
 }
 
 
