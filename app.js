@@ -12,8 +12,23 @@ let vendedoresVIP = [
 
 ];
 
+function pintarListaVendedores() {
+    let html = "<ul class='list'>";
+
+    for (let i = 0; i < vendedores.length; i++) {
+        html += `<li>${vendedores[i].cedula} | ${vendedores[i].nombre} ${vendedores[i].apellido} | ventas: ${vendedores[i].ventas}</li>`;
+    }
+
+    html += "</ul>";
+
+    // Mostrar el HTML en el div contenedorIzquierda usando la función utilitaria
+    mostrarHtmlEnDiv("contenedorIzquierda", html);
+}
+
+
+
 inicializar=function(){
-  
+  pintarListaVendedores();
 }
 
 
