@@ -65,6 +65,19 @@ let ventas = recuperarEntero("txtVentas");
   agregarVendedor(vendedor);
 }
 
+// ejercicio 5
+
+function buscarVendedor(cedula) {
+  let possition =-1;
+  for (let i = 0; i < vendedores.length; i++) {
+    if (vendedores[i].cedula === cedula) {
+       possition = i;
+      break;
+    }
+  }
+  return possition;
+
+}
 
 inicializar=function(){
   pintarListaVendedores();
