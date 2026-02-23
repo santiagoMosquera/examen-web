@@ -71,12 +71,14 @@ let ventas = recuperarEntero("txtVentas");
   }
   agregarVendedor(vendedor);
   let existente = buscarVendedor(cedula);
-    if (existente) {
+    if (existente !== -1) {
         alert("Ya existe el vendedor,prueba con otro");
+        limpiar();
     } else {
         agregarVendedor(vendedor);
+        limpiar();
     }
-
+    
 
 }
 
@@ -162,8 +164,14 @@ function calcularTotalVentas(){
 
 }; 
 
+//ejercicio 8
 
-
+function limpiar() {
+recuperarTexto("txtCedula","");
+recuperarTexto("txtNombre","");
+recuperarTexto("txtApellido","");
+ recuperarEntero("txtVentas",0);
+}
 
 
 
