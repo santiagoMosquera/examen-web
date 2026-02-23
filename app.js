@@ -70,6 +70,14 @@ let ventas = recuperarEntero("txtVentas");
     nivel:""
   }
   agregarVendedor(vendedor);
+  let existente = buscarVendedor(cedula);
+    if (existente) {
+        alert("Ya existe el vendedor,prueba con otro");
+    } else {
+        agregarVendedor(vendedor);
+    }
+
+
 }
 
 // ejercicio 5
