@@ -93,8 +93,10 @@ mostrarHtmlEnDiv(
     "resultadoBusqueda",
     `<span >
         Vendedor encontrado: ${vendedores[encontrado].nombre} ${vendedores[encontrado].apellido}
-    </span>`
+    </span>` 
 );
+habilitarComponente("btnMover");
+
   } else {
     mostrarHtmlEnDiv(
       "resultadoBusqueda",
@@ -105,6 +107,22 @@ mostrarHtmlEnDiv(
   }
 }
 
+//ejercicio 7
+
+function moverAction(){
+  let cedula = recuperarTexto("txtBuscarCedula");
+  let encontrado = buscarVendedor(cedula);  
+
+  if (encontrado !== -1) {
+    let vendedor = vendedores[encontrado];
+    vendedor.nivel = "plata";
+    vendedoresVIP.push(vendedor);
+    vendedores.splice(encontrado, 1);
+    pintarListaVendedores();
+    pintarListaVendedoresVIP();
+   limpiarBusqueda();
+  }
+}
 
 
 inicializar=function(){
