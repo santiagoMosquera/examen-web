@@ -118,11 +118,29 @@ function moverAction(){
     vendedor.nivel = "plata";
     vendedoresVIP.push(vendedor);
     vendedores.splice(encontrado, 1);
+    let nivel = calcularNivel(vendedor.ventas);
+    vendedor.nivel = nivel;
     pintarListaVendedores();
     pintarListaVendedoresVIP();
    limpiarBusqueda();
   }
 }
+//ejercicio 8
+
+function calcularNivel(ventas) {
+  if (ventas >= 10 && ventas <= 12) {
+        return "bronce";
+    } else if (ventas >= 13 && ventas <= 15) {
+        return "plata";
+    } else if (ventas > 15) {
+        return "oro";
+}
+}
+
+
+
+
+
 
 
 inicializar=function(){
