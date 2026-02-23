@@ -79,15 +79,38 @@ function buscarVendedor(cedula) {
 
 }
 
+
+
+//ejercicio 6
+
+function buscarVendedorAction(){
+  let cedula = recuperarTexto("txtBuscarCedula");
+  let encontrado = buscarVendedor(cedula);
+
+  if (encontrado !== -1) {
+    // Mostrar el resultado en el div resultadoBusqueda
+mostrarHtmlEnDiv(
+    "resultadoBusqueda",
+    `<span >
+        Vendedor encontrado: ${vendedores[encontrado].nombre} ${vendedores[encontrado].apellido}
+    </span>`
+);
+  } else {
+    mostrarHtmlEnDiv(
+      "resultadoBusqueda",
+       `<span >
+       Vendedor no encontrado
+       </span>`
+      );
+  }
+}
+
+
+
 inicializar=function(){
   pintarListaVendedores();
   pintarListaVendedoresVIP();
 }
-
-//ejercicio5
-
-
-
 
 
 // =========================
