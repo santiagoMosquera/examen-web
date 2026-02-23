@@ -24,6 +24,10 @@ function pintarListaVendedores() {
     mostrarHtmlEnDiv("contenedorIzquierda", html);
     let total = calcularTotalVentas();
     mostrarHtmlEnDiv("totalVentas", `<span>Total de Ventas: ${total}</span>`);
+
+    mostrarHtmlEnDiv("contadorVendedores", `<span>Cantidad de Vendedores: ${vendedores.length}</span>`);
+
+
 }
 
 //ejercicio 2
@@ -39,6 +43,7 @@ function pintarListaVendedoresVIP() {
 
    
     mostrarHtmlEnDiv("contenedorDerecha", html);
+      mostrarHtmlEnDiv("contadorVendedoresVIP", `<span>Cantidad de Vendedores VIP: ${vendedoresVIP.length}</span>`);
 }
 
 //ejercicio 3
