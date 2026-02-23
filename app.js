@@ -140,6 +140,10 @@ function moverAction(){
     pintarListaVendedores();
     pintarListaVendedoresVIP();
    limpiarBusqueda();
+
+     btnMover.disabled = true;
+
+
   }
 }
 //ejercicio 8
