@@ -83,10 +83,7 @@ function agregarVendedorAction() {
         
         agregarVendedor(nuevoVendedor);
         
-        mostrarTextoEnCaja("txtCedula", "");
-        mostrarTextoEnCaja("txtNombre", "");
-        mostrarTextoEnCaja("txtApellido", "");
-        mostrarTextoEnCaja("txtVentas", "");
+        limpiar();
     }
 }
 
@@ -176,6 +173,15 @@ function calcularTotalVentas(){
         totalVentas += vendedores[i].ventas;
     }
     return totalVentas;
+}
+
+//EJERCICIO 9
+function limpiar() {
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtVentas", "");
+    mostrarTextoEnCaja("txtBuscarCedula", "");
 }
 
 // =========================
