@@ -36,6 +36,50 @@ pintarListaVendedoresVIP = function() {
   mostrarHtmlEnDiv("contenedorDerecha", html);
 }
 
+agregarVendedor = function(vendedor) {
+  vendedores.push(vendedor);
+}
+
+agregarVendedorAction = function() {
+  let cedula   = recuperarTexto("txtCedula");
+  let nombre   = recuperarTexto("txtNombre");
+  let apellido = recuperarTexto("txtApellido");
+  let ventas   = recuperarEntero("txtVentas");
+
+  let vendedor = {};
+  vendedor.cedula   = cedula;
+  vendedor.nombre   = nombre;
+  vendedor.apellido = apellido;
+  vendedor.ventas   = ventas;
+  vendedor.nivel    = "";
+
+  agregarVendedor(vendedor);
+  pintarListaVendedores();
+}
+
+buscarVendedor = function(cedula) {
+  let posicion = -1;
+  for (let i = 0; i < vendedores.length; i++) {
+    if (vendedores[i].cedula === cedula) {
+      posicion = i;
+    }
+  }
+  return posicion;
+}
+
+buscarVendedorAction = function() {
+  let cedula = recuperarTexto("txtBuscarCedula");
+  let posicion = buscarVendedor(cedula);
+  if (posicion === -1) {
+    mostrarHtmlEnDiv("resultadoBusqueda", "<span class='muted'>El vendedor con dicha cédula no existe</span>");
+    deshabilitarComponente("btnMover");
+  } else {
+    let v = vendedores[posicion];
+    mostrarHtmlEnDiv("resultadoBusqueda", v.nombre + " " + v.apellido);
+    habilitarComponente("btnMover");
+  }
+}
+
 // =========================
 // Búsqueda / movimiento
 // =========================
