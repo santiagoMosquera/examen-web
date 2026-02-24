@@ -59,15 +59,21 @@ function agregarVendedorAction(){
   let nombre = recuperarTexto("txtNombre");
   let apellido = recuperarTexto("txtApellido");
   let ventas = recuperarEntero("txtVentas");
-
   let vendedor = {};
-  vendedor.cedula = cedula;
-  vendedor.nombre = nombre;
-  vendedor.apellido = apellido;
-  vendedor.ventas = ventas;
+
+  let resultado = buscarVendedor(cedula);
+  if(resultado==-1){
+    vendedor.cedula = cedula;
+    vendedor.nombre = nombre;
+    vendedor.apellido = apellido;
+    vendedor.ventas = ventas;
+  }else{
+    alert("El vendedor ya existe no se puede agregar");
+  }
 
   agregarVendedor(vendedor);
   pintarListaVendedores();
+  limpiar();
 }
 
 function buscarVendedor(cedula){
@@ -131,6 +137,14 @@ function limpiarBusqueda() {
   btnMover.disabled = true;
   resultadoBusquedaEl.innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
   telefonoBuscarEl.value = "";
+}
+
+function limpiar(){
+  mostrarTextoEnCaja("txtCedula","");
+  mostrarTextoEnCaja("txtNombre","");
+  mostrarTextoEnCaja("txtApellido","");
+  mostrarTextoEnCaja("txtVentas","");
+  desabilitarComponente("btnMover")
 }
 
 
