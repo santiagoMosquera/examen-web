@@ -100,6 +100,7 @@ moverAction=function(){
   let cedula=recuperarTexto("txtBuscarCedula");
   let posicionVendedor=buscarVendedor(cedula);
   let elementoVendedor=vendedores[posicionVendedor];
+  elementoVendedor.nivel=calcularNivel(elementoVendedor.ventas);
   agregarVenderdorVIP(elementoVendedor);
   vendedores.splice(posicionVendedor,1);
   pintarListaVendedores();
@@ -107,6 +108,17 @@ moverAction=function(){
 
 }
 
+calcularNivel=function(ventas){
+  let nivel;
+  if (ventas>=10 & ventas<=12){
+    nivel="bronce";
+  }else if(ventas>=13 & ventas<=15){
+    nivel="plata";
+  }else if(ventas>15){
+    nivel="oro";
+  }
+  return nivel;
+}
 
 
 // =========================
