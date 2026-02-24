@@ -59,3 +59,16 @@ function pintarListaVendedores(){
     HTML += "</ul>;";
     mostrarHtmlEnDiv(contenedorIzquierda,HTML);
 }
+
+function pintarListaVendedoresVip(){
+    let HTML = '< class="list">';
+    for (let i = 0;i < vendedoresVIP.length; i++){
+        HTML = HTML + "<li>" +
+        vendedores[i].nombre + '>> nivel:'+
+        vendedores[i].nivel
+       
+        "</li>";    
+    }
+    HTML += "</ul>;";
+    mostrarHtmlEnDiv(contenedorDerecha,HTML);
+}
