@@ -54,6 +54,8 @@ agregarVenderdor=function(vendedor){
   alert("Vendedor con CI "+vendedor.cedula+"- Ingresado Correctamente");
 }
 
+
+
 agregarVendedorAction=function(){
   let nuevoVendedor=[];
   nuevoVendedor.cedula=recuperarTexto("txtCedula");
@@ -89,6 +91,16 @@ buscarVendedorAction=function(){
     mostrarTextoEnDiv("resultadoBusqueda","El vendedor con dicha cedula no existe");
   }
 }
+
+
+moverAction=function(){
+  let cedula=recuperarTexto("txtBuscarCedula");
+  let posicionVendedor=buscarVendedor(cedula);
+  let elementoVendedor=vendedores[posicionVendedor];
+  agregarVenderdorVIP(elementoVendedor);
+
+}
+
 
 
 // =========================
