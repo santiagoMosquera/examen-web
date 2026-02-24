@@ -65,6 +65,12 @@ function agregarVendedorAction(){
   pintarListaVendedores();
 }
 
+function buscarVendedor(cedula){
+  for(let i=0;i<vendedores.length;i++){
+      if(vendedores[i].cedula==cedula) return vendedores[i];
+    }
+    return -1;
+}
 
 // =========================
 // Búsqueda / movimiento
