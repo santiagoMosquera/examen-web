@@ -90,3 +90,9 @@ function moverAction() {
 
 
 
+function calcularNivel(ventas) { // 
+    if (ventas >= 10 && ventas <= 12) return "bronce";
+    if (ventas >= 13 && ventas <= 15) return "plata";
+    if (ventas > 15) return "oro";
+    return "bajo";
+}
