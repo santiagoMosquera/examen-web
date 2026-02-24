@@ -61,11 +61,8 @@ agregarVendedorAction = function () {
   let apellido = recuperarTexto("txtApellido");
   let ventas = recuperarEntero("txtVentas");
 
-  // Validar si ya existe el vendedor
   let posicion = buscarVendedor(cedula);
-
   if (posicion !== -1) {
-
     mostrarTextoEnDiv("mensaje", "Ya existe el vendedor, no se puede agregar");
     document.getElementById("mensaje").style.display = "block";
     return;
@@ -80,13 +77,14 @@ agregarVendedorAction = function () {
   };
 
   agregarVendedor(vendedor);
-
   pintarListaVendedores();
-
 
   mostrarTextoEnDiv("mensaje", "Vendedor agregado correctamente");
   document.getElementById("mensaje").style.display = "block";
+
+  limpiar();
 }
+
 
 
 // =========================
@@ -135,9 +133,11 @@ moverAction = function () {
 
     pintarListaVendedores();
     pintarListaVendedoresVIP();
-    limpiarBusqueda();
+
+    deshabilitarComponente("btnMover");
   }
 }
+
 
 calcularTotalVentas = function () {
   let totalVentas = 0;
@@ -164,6 +164,15 @@ inicializar = function () {
   pintarListaVendedores();
   pintarListaVendedoresVIP();
 }
+
+limpiar = function () {
+  document.getElementById("txtCedula").value = "";
+  document.getElementById("txtNombre").value = "";
+  document.getElementById("txtApellido").value = "";
+  document.getElementById("txtVentas").value = "";
+}
+
+
 
 // =========================
 // Búsqueda / movimiento
