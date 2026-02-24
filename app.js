@@ -1,4 +1,4 @@
-// =========================
+//ALUMNO: JEFFERSON  CHILUISA  =========================
 // Datos (arreglos)
 // =========================
 let vendedores = [
