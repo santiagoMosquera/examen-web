@@ -28,7 +28,7 @@ pintarListaVendedoresVIP = function () {
   }
   lista += "</ul>"
   mostrarHtmlEnDiv("contenedorDerecha", lista);
-  mostrarHtmlEnDiv("contadorVendedoresVIP",vendedoresVIP.length);
+  mostrarHtmlEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
 }
 pintarListaVendedores = function () {
   let lista;
@@ -41,7 +41,7 @@ pintarListaVendedores = function () {
   lista += "</ul>"
   mostrarHtmlEnDiv("contenedorIzquierda", lista);
   mostrarHtmlEnDiv("totalVentas", calcularTotalVentas());
-  mostrarHtmlEnDiv("contadorVendedores",vendedores.length);
+  mostrarHtmlEnDiv("contadorVendedores", vendedores.length);
 }
 agregarVendedorAction = function () {
   let txtCedula = recuperarTexto("txtCedula");
@@ -55,10 +55,18 @@ agregarVendedorAction = function () {
     ventas: txtVentas,
     nivel: ""
   }
-  agregarVendedor(auxVendedor);
+  let existe = buscarVendedor(txtCedula);
+  if (existe == -1) {
+    agregarVendedor(auxVendedor);
+    limpiar();
+  }
+  else {
+    alert(" Ya existe el vendedor, no se puede agregar");
+  }
   pintarListaVendedores();
 }
 agregarVendedor = function (vendedor) {
+
   vendedores.push(vendedor);
 }
 // =========================
@@ -66,55 +74,55 @@ agregarVendedor = function (vendedor) {
 // =========================
 buscarVendedor = function (valorCedula) {
   let resultado = -1;
-    for (let i = 0; i < vendedores.length; i++) { 
-        if (valorCedula== vendedores[i].cedula) { 
-            resultado = i; 
-            break; 
-        } 
-    } 
+  for (let i = 0; i < vendedores.length; i++) {
+    if (valorCedula == vendedores[i].cedula) {
+      resultado = i;
+      break;
+    }
+  }
   return resultado;
 }
-buscarVendedorAction=function(){
+buscarVendedorAction = function () {
   let txtBuscarCedula = recuperarTexto("txtBuscarCedula");
-  let encontrado=buscarVendedor(txtBuscarCedula);
-  if(encontrado==-1){
-    alert( "El vendedor con dicha cédula no existe");
+  let encontrado = buscarVendedor(txtBuscarCedula);
+  if (encontrado == -1) {
+    alert("El vendedor con dicha cédula no existe");
   }
-  else{
-     alert( vendedores[encontrado].nombre+" "+vendedores[encontrado].apellido);
-     habilitarComponente("btnMover");
+  else {
+    alert(vendedores[encontrado].nombre + " " + vendedores[encontrado].apellido);
+    habilitarComponente("btnMover");
   }
 }
-moverAction=function(){
-   let txtBuscarCedula = recuperarTexto("txtBuscarCedula");
-  let encontrado=buscarVendedor(txtBuscarCedula);
-  let vendedorSeleccionado=vendedores[encontrado];
-  vendedorSeleccionado.nivel=calcularNivel(vendedorSeleccionado.ventas);
+moverAction = function () {
+  let txtBuscarCedula = recuperarTexto("txtBuscarCedula");
+  let encontrado = buscarVendedor(txtBuscarCedula);
+  let vendedorSeleccionado = vendedores[encontrado];
+  vendedorSeleccionado.nivel = calcularNivel(vendedorSeleccionado.ventas);
   vendedoresVIP.push(vendedorSeleccionado);
-  vendedores.splice(encontrado,1);
+  vendedores.splice(encontrado, 1);
   console.log(encontrado);
   console.log(vendedores);
-   pintarListaVendedores();
+  pintarListaVendedores();
   pintarListaVendedoresVIP();
 }
-calcularNivel=function(numeroVentas){
-let resultado="";
-if(numeroVentas>=10 && numeroVentas<=12){
-  resultado="bronce";
+calcularNivel = function (numeroVentas) {
+  let resultado = "";
+  if (numeroVentas >= 10 && numeroVentas <= 12) {
+    resultado = "bronce";
+  }
+  if (numeroVentas >= 13 && numeroVentas <= 15) {
+    resultado = "plata";
+  }
+  if (numeroVentas > 15) {
+    resultado = "oro";
+  }
+  return resultado;
 }
-if(numeroVentas>=13 && numeroVentas<=15){
-  resultado="plata";
-}
-if(numeroVentas>15){
-  resultado="oro";
-}
-return resultado;
-}
-calcularTotalVentas=function(){
+calcularTotalVentas = function () {
   let resultado = 0;
-    for (let i = 0; i < vendedores.length; i++) { 
-       resultado+= vendedores[i].ventas;
-    } 
+  for (let i = 0; i < vendedores.length; i++) {
+    resultado += vendedores[i].ventas;
+  }
   return resultado;
 }
 function limpiarBusqueda() {
@@ -123,7 +131,13 @@ function limpiarBusqueda() {
   resultadoBusquedaEl.innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
   telefonoBuscarEl.value = "";
 }
-
+limpiar = function () {
+  mostrarTextoEnCaja("txtCedula", "");
+  mostrarTextoEnCaja("txtNombre", "");
+  mostrarTextoEnCaja("txtApellido", "");
+  mostrarTextoEnCaja("txtVentas", "");
+  
+}
 
 
 
