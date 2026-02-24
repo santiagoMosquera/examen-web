@@ -6,17 +6,45 @@
 // Datos (arreglos)
 // =========================
 let vendedores = [
-  { cedula:"1714616123",nombre: "Santiago", apellido: "Mosquera", ventas:10, nivel:""},
-  { cedula:"1708934242",nombre: "Paúl", apellido: "Torres", ventas:12, nivel:""},
- ];
+  { cedula: "1714616123", nombre: "Santiago", apellido: "Mosquera", ventas: 10, nivel: "" },
+  { cedula: "1708934242", nombre: "Paúl", apellido: "Torres", ventas: 12, nivel: "" },
+];
 
 let vendedoresVIP = [
-    { cedula:"0720304056",nombre: "Josselyn", apellido: "Pillajo", ventas:17, nivel:"oro"},
-    { cedula:"1945504089",nombre: "Alexandra", apellido: "Analuisa", ventas:10, nivel:"bronce"},
+  { cedula: "0720304056", nombre: "Josselyn", apellido: "Pillajo", ventas: 17, nivel: "oro" },
+  { cedula: "1945504089", nombre: "Alexandra", apellido: "Analuisa", ventas: 10, nivel: "bronce" },
 
 ];
 
-pintarListaVendedores = function() {
+agregarVendedor = function (vendedorNuevo) {
+  vendedores.push(vendedorNuevo);
+}
+
+agregarVendedorAction = function () {
+
+  let cedula = recuperarTexto("txtCedula");
+  let nombre = recuperarTexto("txtNombre");
+  let apellido = recuperarTexto("txtApellido");
+  let ventas = recuperarEntero("txtVentas");
+
+  let vendedorNuevo = {};
+
+  vendedorNuevo.cedula = cedula;
+  vendedorNuevo.nombre = nombre;
+  vendedorNuevo.apellido = apellido;
+  vendedorNuevo.ventas = ventas;
+  vendedorNuevo.nivel = "";
+
+  agregarVendedor(vendedorNuevo);
+  pintarListaVendedores();
+
+  mostrarTextoEnCaja("txtCedula", "");
+  mostrarTextoEnCaja("txtNombre", "");
+  mostrarTextoEnCaja("txtApellido", "");
+  mostrarTextoEnCaja("txtVentas", "");
+}
+
+pintarListaVendedores = function () {
 
   let listaVendedores = "<ul class='list'>";
   let totalVentas = 0;
@@ -40,7 +68,7 @@ pintarListaVendedores = function() {
   mostrarTextoEnDiv("contadorVendedores", vendedores.length);
 }
 
-pintarListaVendedoresVIP = function() {
+pintarListaVendedoresVIP = function () {
 
   let listaVendedoresVIP = "<ul class='list'>";
 
@@ -61,7 +89,7 @@ pintarListaVendedoresVIP = function() {
   mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
 }
 
-inicializar = function() {
+inicializar = function () {
   pintarListaVendedores();
   pintarListaVendedoresVIP();
 }
