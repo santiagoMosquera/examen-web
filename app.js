@@ -138,10 +138,9 @@ calcularTotalVentas = function() {
 }
 
 
-pintarListaVendedores = function () {
+pintarListaVendedores = function() {
 
   let listaVendedores = "<ul class='list'>";
-  let totalVentas = 0;
 
   for (let i = 0; i < vendedores.length; i++) {
 
@@ -151,13 +150,13 @@ pintarListaVendedores = function () {
     listaVendedores = listaVendedores + vendedores[i].apellido + " | ventas: ";
     listaVendedores = listaVendedores + vendedores[i].ventas;
     listaVendedores = listaVendedores + "</li>";
-
-    totalVentas = totalVentas + vendedores[i].ventas;
   }
 
   listaVendedores = listaVendedores + "</ul>";
 
   mostrarHtmlEnDiv("contenedorIzquierda", listaVendedores);
+  let totalVentas = calcularTotalVentas();
+
   mostrarTextoEnDiv("totalVentas", totalVentas);
   mostrarTextoEnDiv("contadorVendedores", vendedores.length);
 }
