@@ -55,12 +55,13 @@ function agregarVendedorActivo(){
   let txtventas=recuperarEntero("txtVentas");
   let vendedor={cedula:txtcedula, nombre:txtnombre, apellido:txtapellido, ventas:txtventas};
   agregarVendedor(vendedor);
+  pintarListaVendedores();
 }//esta incompleta no se muestra el nuebo vendedor en pantalla
 function buscarVendedor(cedula){
   let vendedor=-1;
   for(let i=0;i<vendedores.length;i++){
         if(vendedores[i].cedula==cedula){
-            return vendedor=vendedores[i];
+            return vendedor=i;
             break;
         }
     }
@@ -70,7 +71,8 @@ function buscarVendedorActivo(){
   let buscarCedula=recuperarTexto("txtBuscarCedula");
   let encontrado=buscarVendedor(buscarCedula);
   if (encontrado!=-1){
-    mostrarTextoEnDiv("resultadoBusqueda",encontrado.nombre);
+    let vendedor=vendedores[encontrado];
+    mostrarTextoEnDiv("resultadoBusqueda",vendedor.nombre);
     habilitarComponente("btnMover");
   }else{
     mostrarTextoEnDiv("resultadoBusqueda","El vendedor con dicha cedula no existe");
@@ -78,9 +80,29 @@ function buscarVendedorActivo(){
 }
 function moverAction(){
   let cedula=recuperarTexto("txtBuscarCedula")
-  let vendedor=buscarVendedor(cedula);
-  if (vendedor!=-1){
+  let indice=buscarVendedor(cedula);
+  if (indice!=-1){
+    let vendedor=vendedores[indice];
+    let nivel=calcularNivel(vendedor.ventas)
+    vendedor.nivel=nivel;
     vendedoresVIP.push(vendedor);
-    vendedores.splice(vendedor,1);
+    vendedores.splice(indice,1);
+    pintarListaVendedoresVIP()
+    pintarListaVendedores()
   }
+  vendedores.splice(vendedor,1);
+  pintarListaVendedoresVIP()
+  pintarListaVendedores()
 }
+function calcularNivel(ventas){
+  let nivel="";
+  if (ventas>=10 && ventas<=12){
+    nivel="bronce";
+  }else if (ventas>=13 && ventas<=15){
+    nivel="plata";
+  }else if (ventas>15){
+    nivel="oro";
+  }
+  return nivel
+}
+function calcularTotalVentas(){}
