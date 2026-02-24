@@ -54,7 +54,10 @@ agregarVenderdor=function(vendedor){
   alert("Vendedor con CI "+vendedor.cedula+"- Ingresado Correctamente");
 }
 
-
+agregarVenderdorVIP=function(vendedor){
+  vendedoresVIP.push(vendedor);
+  alert("Vendedor VIP con CI "+vendedor.cedula+"- Incluido Correctamente");
+}
 
 agregarVendedorAction=function(){
   let nuevoVendedor=[];
@@ -98,6 +101,9 @@ moverAction=function(){
   let posicionVendedor=buscarVendedor(cedula);
   let elementoVendedor=vendedores[posicionVendedor];
   agregarVenderdorVIP(elementoVendedor);
+  vendedores.splice(posicionVendedor,1);
+  pintarListaVendedores();
+  pintarListaVendedoresVIP();
 
 }
 
