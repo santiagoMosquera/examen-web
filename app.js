@@ -41,7 +41,17 @@ pintarListaVendedoresVIP=function(){
   mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length)
 }
 agregarVendedor=function(vendedor){
-  vendedores.push(vendedor);
+  let existencia = false;
+  for(let i = 0; i < vendedores.length; i++){
+    let p1 = vendedores[i]
+     if(p1.cedula  == vendedor.cedula)
+      existencia = true;
+  }
+if(existencia == false){
+     vendedores.push(vendedor);
+  } else {
+    alert("Ya existe un vendedor con esos datos")
+  }
 }
 agregarVendedorAction=function(){
   let vendedor = {};
@@ -58,7 +68,7 @@ buscarVendedor= function(cedula){
    let vendedor = -1;
   for(let i = 0; i < vendedores.length; i++){
      let posicion = vendedores[i];
-     if (cedula == posicion.cedula){
+     if (cedula === posicion.cedula){
       vendedor = posicion;
       break
      }
