@@ -41,7 +41,19 @@ pintarListaVendedores = function () {
   mostrarHtmlEnDiv("contenedorIzquierda", lista);
 }
 agregarVendedorAction = function () {
-
+  let txtCedula = recuperarTexto("txtCedula");
+  let txtNombre = recuperarTexto("txtNombre");
+  let txtApellido = recuperarTexto("txtApellido");
+  let txtVentas = recuperarEntero("txtVentas");
+  let auxVendedor = {
+    cedula: txtCedula,
+    nombre: txtNombre,
+    apellido: txtApellido,
+    ventas: txtVentas,
+    nivel: ""
+  }
+  agregarVendedor(auxVendedor);
+   pintarListaVendedores();
 }
 agregarVendedor = function (vendedor) {
   vendedores.push(vendedor);
