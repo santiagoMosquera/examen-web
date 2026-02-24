@@ -15,9 +15,22 @@ let vendedoresVIP = [
   ];
 
 inicializar=function(){
-  
+  pintarListaVendedores();
 }
 
+
+function pintarListaVendedores(){
+  let tabla=`<table>`;
+
+  for(let i=0;i<vendedores.length;i++){
+      tabla+=`<tr>
+      <td>${vendedores[i].cedula}</td>
+      <td>| ${vendedores[i].nombre}</td>
+      <td>| Ventas: ${vendedores[i].ventas}</td></tr>`;
+  }
+  tabla+="</table>";
+  mostrarHtmlEnDiv("contenedorIzquierda", tabla);
+}
 
 
 // =========================
