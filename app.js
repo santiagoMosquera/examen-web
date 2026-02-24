@@ -2,16 +2,6 @@
 // Datos (arreglos)
 // =========================
 
-pintarListaVendedores = function(){
-  let html = "<ul class='list'>";
-  for (let i = 0; i < vendedores.length; i++){
-    html += "<li>" + vendedores[i].cedula + " | " + vendedores[i].nombre + " " + vendedores[i].apellido + " | ventas: " + vendedores[i].ventas + "</li>";
-  }
-  html += "</ul>";
-  mostrarHtmlEnDiv("contenedorIzquierda", html);
-}
-
-
 let vendedores = [
   { cedula:"1714616123",nombre: "Santiago", apellido: "Mosquera", ventas:10, nivel:""},
   { cedula:"1708934242",nombre: "Paúl", apellido: "Torres", ventas:12, nivel:""},
@@ -23,8 +13,21 @@ let vendedoresVIP = [
 
 ];
 
+pintarListaVendedores = function() {
+  let html = "<ul class='list'>";
+  for (let i = 0; i < vendedores.length; i++) {
+    html += "<li>" + vendedores[i].cedula + " | " 
+                 + vendedores[i].nombre + " " 
+                 + vendedores[i].apellido 
+                 + " | ventas: " + vendedores[i].ventas + "</li>";
+  }
+  html += "</ul>";
+
+  mostrarHtmlEnDiv("contenedorIzquierda", html);
+}
+
 inicializar=function(){
-  
+  pintarListaVendedores();
 }
 
 
