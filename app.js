@@ -158,7 +158,7 @@ pintarListaVendedores = function() {
   let totalVentas = calcularTotalVentas();
 
   mostrarTextoEnDiv("totalVentas", totalVentas);
-  mostrarTextoEnDiv("contadorVendedores", vendedores.length);
+  mostrarTextoEnDiv("contadorVendedores", vendedores.length); //lo realice antes pero me pide en el ejercicio 7
 }
 
 pintarListaVendedoresVIP = function () {
@@ -179,7 +179,7 @@ pintarListaVendedoresVIP = function () {
 
   mostrarHtmlEnDiv("contenedorDerecha", listaVendedoresVIP);
 
-  mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
+  mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length); //lo realice antes pero me pide en el ejercicio 7
 }
 
 inicializar = function () {
