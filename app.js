@@ -25,11 +25,12 @@ pintarListaVendedores = function () {
 
   mostrarHtmlEnDiv("contenedorIzquierda", html);
 
-    let totalVentas = calcularTotalVentas();
+  let totalVentas = calcularTotalVentas();
   mostrarTextoEnDiv("totalVentas", totalVentas);
 
-    mostrarTextoEnDiv("contadorVendedores", vendedores.length);
+  mostrarTextoEnDiv("contadorVendedores", vendedores.length);
 }
+
 
 pintarListaVendedoresVIP = function () {
   let html = "<ul class='list'>";
@@ -44,6 +45,7 @@ pintarListaVendedoresVIP = function () {
 
   mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
 }
+
 
 // =========================
 // Agregar vendedor
