@@ -49,6 +49,7 @@ agregarVendedor=function(vendedor){
   }
 if(existencia == false){
      vendedores.push(vendedor);
+     limpiar()
   } else {
     alert("Ya existe un vendedor con esos datos")
   }
@@ -97,6 +98,7 @@ moverAction= function (){
   vendedores.splice(eliminar,1);
   pintarListaVendedores();
   pintarListaVendedoresVIP();
+  deshabilitarComponente("btnMover")
 }
 
 calcularNivel = function(ventas) {
@@ -124,11 +126,11 @@ calcularTotalVentas = function(){
 // =========================
 // Búsqueda / movimiento
 // =========================
-function limpiarBusqueda() {
-  indiceEncontrado = -1;
-  btnMover.disabled = true;
-  resultadoBusquedaEl.innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
-  telefonoBuscarEl.value = "";
+limpiar = function() {
+  mostrarTextoEnCaja("txtCedula", "");
+  mostrarTextoEnCaja("txtNombre", "");
+  mostrarTextoEnCaja("txtApellido", "");
+  mostrarTextoEnCaja("txtVentas"), "";
 }
 
 
