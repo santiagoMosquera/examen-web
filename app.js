@@ -67,7 +67,49 @@ agregarVendedor = function(vendedor) {
     vendedores.push(vendedor);
 }
 
+// Función que se invoca desde el botón Agregar
+agregarVendedorAction = function() {
+    // a) Tomar valores de las cajas de texto
+    let cedula = recuperarTexto("txtCedula");
+    let nombre = recuperarTexto("txtNombre");
+    let apellido = recuperarTexto("txtApellido");
+    let ventas = recuperarEntero("txtVentas");
+    
+    
+    if(cedula == "" || nombre == "" || apellido =="" || isNaN(ventas)) {
+        mostrarTextoEnDiv("mensaje", "Por favor complete todos los campos");
+                document.getElementById("mensaje").style.display = "block";
+        return;
+    }
 
+    if(isNaN(cedula)){
+        mostrarTextoEnDiv("mensaje", "ingrese numeros");
+        document.getElementById("mensaje").style.display = "block";
+        return;}
+   
+        if(!isNaN(nombre) && !isNaN(apellido))
+        {
+        mostrarTextoEnDiv("mensaje", "ingrese solo letras");
+        document.getElementById("mensaje").style.display = "block";
+        return;}
+    
+    // b) Crear objeto vendedor
+    let nuevoVendedor = {};
+    
+    // c) Agregar los valores
+    nuevoVendedor.cedula = cedula;
+    nuevoVendedor.nombre = nombre;
+    nuevoVendedor.apellido = apellido;
+    nuevoVendedor.ventas = ventas;
+    nuevoVendedor.nivel = ""; 
+    
+    // d) Invocar a agregarVendedor
+    agregarVendedor(nuevoVendedor);
+    
+    // e) Refrescar pantalla
+    pintarListaVendedores();
+    
+}
 // =========================
 // Búsqueda / movimiento
 // =========================
