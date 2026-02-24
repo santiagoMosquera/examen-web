@@ -88,10 +88,26 @@ function buscarVendedorAction(){
 function moverAction(){
   let cedula = recuperarTexto("txtBuscarCedula");
   let resultadoBusqueda = buscarVendedor(cedula);
-  vendedoresVIP.push(vendedores[resultadoBusqueda]);
+
+  if(resultadoBusqueda == -1) return;
+  let vendedor = vendedores[resultadoBusqueda];
+  let nivel = calcularNivel(vendedor.ventas);
+  vendedor.nivel = nivel;
+  vendedoresVIP.push(vendedor);
   vendedores.splice(resultadoBusqueda, 1);
+
   pintarListaVendedores();
   pintarListaVendedoresVIP();
+}
+
+function calcularNivel(ventas){
+  if(ventas >= 10 && ventas <= 12){
+    return "bronce";
+  } else if(ventas <= 15){
+    return "plata";
+  } else {
+    return "oro";
+  }
 }
 
 // =========================
