@@ -12,10 +12,23 @@ let vendedoresVIP = [
     { cedula:"1945504089",nombre: "Alexandra", apellido: "Analuisa", ventas:10, nivel:"bronce"},
 
 ];
+function pintarListaVendedores() {
+    let html = "<ul class='list'>";
+    for (let i = 0; i < vendedores.length; i++) {
+        let v = vendedores[i];
+        // Propiedades correctas según tu imagen image_000e24.png
+        html += `<li>${v.cedula} | ${v.nombre} ${v.apellido} | ventas: ${v.ventas}</li>`;
+    }
+    html += "</ul>";
 
-inicializar=function(){
-  
+    // El ID "contenedorIzquierda" SÍ existe en tu línea 61 del HTML.
+    mostrarHtmlEnDiv(html, "contenedorIzquierda"); 
 }
+
+function inicializar() {
+    pintarListaVendedores();
+}
+
 
 
 
