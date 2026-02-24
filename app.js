@@ -43,7 +43,7 @@ pintarListaVendedores = function() {
 // EJERCICIO 2
 pintarListaVendedoresVIP = function() {
     let vendedor = {};
-    let tabla = "<table class='table'>";
+    let tabla = "<table ";
     
     for(let i = 0; i < vendedoresVIP.length; i++) {
         vendedor = vendedoresVIP[i];
@@ -180,9 +180,25 @@ moverAction = function() {
     mostrarTextoEnDiv("resultadoBusqueda", "Vendedor movido exitosamente");
     desHabilitarComponente("btnMover");
     mostrarTextoEnCaja("txtBuscarCedula", "");
+
+    //parte del ejercioco 5
+    let nivel = calcularNivel(vendedorEncontrado.ventas);
+    vendedorEncontrado.nivel = nivel;
     
 }
 
+// Ejercicio 5
+calcularNivel = function(ventas) {
+    if(ventas >= 10 && ventas <= 12) {
+        return "bronce";
+    } else if(ventas >= 13 && ventas <= 15) {
+        return "plata";
+    } else if(ventas > 15) {
+        return "oro";
+    } else {
+        return "sin nivel"; 
+    }
+}
 
 // =========================
 // Búsqueda / movimiento
