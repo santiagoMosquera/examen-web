@@ -56,6 +56,37 @@ inicializar = function() {
 }
 
 
+// =========================
+// =EJJERCICIO 3
+// =========================
+
+
+
+function buscarVendedor(cedula) {
+    for (let i = 0; i < vendedores.length; i++) { [cite: 42]
+        if (vendedores[i].cedula === cedula) {
+            return i; 
+        }
+    }
+    return -1; 
+}
+
+function buscarVendedorAction() {
+    let cedulaBuscar = recuperarTexto("txtBuscarCedula"); [cite: 44]
+    let indiceEncontrado = buscarVendedor(cedulaBuscar); [cite: 44]
+
+    if (indiceEncontrado !== -1) { [cite: 45]
+        let v = vendedores[indiceEncontrado]; [cite: 45]
+        mostrarHtmlEnDiv("resultadoBusqueda", v.nombre + " " + v.apellido); [cite: 44]
+        
+        habilitarComponente("btnMover"); [cite: 47]
+    } else {
+        mostrarHtmlEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe"); [cite: 44]
+    }
+}
+
+
+
 
 // =========================
 // Búsqueda / movimiento
