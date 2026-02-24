@@ -150,3 +150,10 @@ calcularTotalVentas=function(){
   }
   return total;
 }
+
+limpiar=function(){
+  mostrarTextoEnCaja("txtCedula", "");
+  mostrarTextoEnCaja("txtNombre", "");
+  mostrarTextoEnCaja("txtApellido", "");
+  mostrarTextoEnCaja("txtVentas", "");
+}
