@@ -65,6 +65,20 @@ agregarVendedorAction=function(){
   pintarListaVendedores();
 }
 
+buscarVendedor=function(cedula){
+  let elementoVendedor;
+  let posicion=-1;
+  for(i=0;i<vendedores.length;i++){
+        elementoVendedor=vendedores[i];
+        if(elementoVendedor.cedula==cedula){
+            posicion=i;
+            break;
+        }
+    }
+    return posicion;
+}
+
+
 
 // =========================
 // Búsqueda / movimiento
