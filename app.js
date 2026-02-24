@@ -45,3 +45,17 @@ function limpiarBusqueda() {
   resultadoBusquedaEl.innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
   telefonoBuscarEl.value = "";
 }
+
+//funcion pintar vendedores
+function pintarListaVendedores(){
+    let HTML = '< class="list">';
+    for (let i = 0;i < vendedores.length; i++){
+        HTML = HTML + "<li>" +
+        vendedores[i].cedula + '|'+
+        vendedores[i].nombre + '| ventas:' +
+        vendedores[i].ventas +
+        "</li>";    
+    }
+    HTML += "</ul>;";
+    mostrarHtmlEnDiv(contenedorIzquierda,HTML);
+}
