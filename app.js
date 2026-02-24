@@ -17,16 +17,14 @@ let vendedoresVIP = [
 
 inicializar=function(){
   pintarListaVendedores();
+  pintarListaVendedoresVIP();
 }
 
 // EJERCICIO 1
 
 pintarListaVendedores = function() {
     let vendedor = {};
-    let tabla = "<table >" //+
-              //  "<tr>" +
-             //   "<th>CÉDULA</th><th>NOMBRE</th><th>APELLIDO</th><th>VENTAS</th>" +
-              //  "</tr>";
+    let tabla = "<table >" 
     
     for(let i = 0; i < vendedores.length; i++) {
         vendedor = vendedores[i];
@@ -42,6 +40,35 @@ pintarListaVendedores = function() {
     
     mostrarHtmlEnDiv("contenedorIzquierda", tabla);}
 
+// EJERCICIO 2
+pintarListaVendedoresVIP = function() {
+    let vendedor = {};
+    let tabla = "<table class='table'>";
+    
+    for(let i = 0; i < vendedoresVIP.length; i++) {
+        vendedor = vendedoresVIP[i];
+        
+        // Agregar clase según el nivel para darle estilo
+        let claseNivel = "";
+        if(vendedor.nivel === "oro") {
+            claseNivel = "tag vip";
+        } else if(vendedor.nivel === "plata") {
+            claseNivel = "tag plata";
+        } else if(vendedor.nivel === "bronce") {
+            claseNivel = "tag bronce";
+        }
+        
+        tabla += "<tr>" + 
+                 "<td>" + " * "+ vendedor.nombre+" "+vendedor.apellido + "</td>" +
+                 "<td>"+"nivel" + ">>" + vendedor.nivel + "</td>" +
+                 "</tr>";
+    }
+    
+    tabla += "</table>";
+    
+    mostrarHtmlEnDiv("contenedorDerecha", tabla);
+    
+  }
 // =========================
 // Búsqueda / movimiento
 // =========================
