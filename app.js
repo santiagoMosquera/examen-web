@@ -31,14 +31,21 @@ pintarListaVendedoresVIP = function () {
   let contenido = "<ul class='list'>";
   for (let i = 0; i < vendedoresVIP.length; i++) {
     let vendedorV = vendedoresVIP[i];
-    contenido += "<li>" + vendedorV.nombre + " " 
-    + vendedorV.apellido
+    contenido += "<li>" + vendedorV.nombre + " "
+      + vendedorV.apellido
       + " >> nivel: " + vendedorV.nivel + "</li>";
   }
   contenido += "</ul>";
 
   mostrarHtmlEnDiv("contenedorDerecha", contenido);
 }
+
+//ejercicio 3
+agregarVendedor = function (vendedor) {
+  vendedores.push(vendedor);
+  pintarListaVendedores();
+}
+
 
 inicializar = function () {
   pintarListaVendedores();
