@@ -54,19 +54,24 @@ pintarListaVendedoresVIP=function(){
 agregarVendedor = function(vendedor){
   vendedores.push(vendedor);
   pintarListaVendedores();
+  limpiar();
 }
+
 agregarVendedorAction = function(){
   let cedula = recuperarTexto("txtCedula");
   let nombre = recuperarTexto("txtNombre");
   let apellido = recuperarTexto("txtApellido");
   let ventas = recuperarTexto("txtVentas");
   let vendedor = {};
-
   vendedor.cedula = cedula;
   vendedor.nombre = nombre;
   vendedor.apellido = apellido;
   vendedor.ventas = ventas;
-
+  let indice = buscarVendedor(cedula);
+  if(indice != -1){
+    alert("La cédula ya existe en la lista de vendedores");
+    return; // salir sin agregar
+  }
   agregarVendedor(vendedor);
 }
 buscarVendedor = function(cedula){
@@ -98,6 +103,7 @@ moverAction = function(){
   vendedoresVIP[vendedoresVIP.length - 1].nivel = nivel;
   pintarListaVendedores();
   pintarListaVendedoresVIP();
+  deshabilitarComponente("btnMover")
 
 }
 calularNivel=function(ventas){
@@ -112,4 +118,10 @@ calcularTotalVentas = function(){
     tot += vendedores[i].ventas;
   }
   return tot;
+}
+limpiar = function(){
+  mostrarTextoEnCaja("txtCedula","");
+  mostrarTextoEnCaja("txtNombre","");
+  mostrarTextoEnCaja("txtApellido","");
+  mostrarTextoEnCaja("txtVentas","");
 }
