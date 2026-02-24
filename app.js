@@ -53,7 +53,7 @@ agregarVendedorAction = function () {
     nivel: ""
   }
   agregarVendedor(auxVendedor);
-   pintarListaVendedores();
+  pintarListaVendedores();
 }
 agregarVendedor = function (vendedor) {
   vendedores.push(vendedor);
@@ -61,6 +61,16 @@ agregarVendedor = function (vendedor) {
 // =========================
 // Búsqueda / movimiento
 // =========================
+buscarVendedor = function (valorCedula) {
+  let resultado = -1;
+    for (let i = 0; i < vendedores.length; i++) { 
+        if (valorCedula== vendedores[index].cedula) { 
+            resultado = i; 
+            break; 
+        } 
+    } 
+  return resultado;
+}
 function limpiarBusqueda() {
   indiceEncontrado = -1;
   btnMover.disabled = true;
