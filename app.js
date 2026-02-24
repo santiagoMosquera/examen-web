@@ -29,7 +29,7 @@ pintarListaVendedores=function(){
 }
 pintarListaVendedoresVIP=function(){
   let tablaHtml = "<ul class='list'>";
-  for(let i = 0; i < vendedores.length; i++){
+  for(let i = 0; i < vendedoresVIP.length; i++){
     let vendedorRecuperado = vendedoresVIP[i];
     tablaHtml += "<li>"+vendedorRecuperado.nombre+" "+vendedorRecuperado.apellido+" >> nivel: "+vendedorRecuperado.nivel+"</li>" 
   }
@@ -71,6 +71,16 @@ buscarVendedorAction = function (){
     mostrarTextoEnDiv("resultadoBusqueda", vendedor.nombre+" "+vendedor.apellido);
     habilitarComponente("btnMover");
   }
+}
+
+moverAction= function (){
+  let cedula = recuperarTexto("txtBuscarCedula");
+  let vendedor = buscarVendedor(cedula);
+  vendedoresVIP.push(vendedor);
+  let eliminar = vendedores.indexOf(vendedor.cedula);
+  vendedores.splice(eliminar,1);
+  pintarListaVendedores();
+  pintarListaVendedoresVIP();
 }
 // =========================
 // Búsqueda / movimiento
