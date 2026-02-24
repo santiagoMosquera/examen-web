@@ -115,6 +115,8 @@ let indiceExistente = buscarVendedor(cedula);
     }; 
     agregarVendedor(nuevoVendedor); 
     pintarListaVendedores(); 
+    // --- EJERCICIO 9 ---
+        limpiar(); 
 }
 }
 
