@@ -57,6 +57,12 @@ agregarVendedorAction = function () {
   vendedor.apellido = apellido;
   vendedor.ventas = ventas;
   vendedor.nivel = "";
+  // d
+  agregarVendedor(vendedor);
+
+  // e)
+  pintarListaVendedores();
+
 }
 
 inicializar = function () {
