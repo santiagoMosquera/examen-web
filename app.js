@@ -64,12 +64,23 @@ agregarVendedor = function (vendedor) {
 buscarVendedor = function (valorCedula) {
   let resultado = -1;
     for (let i = 0; i < vendedores.length; i++) { 
-        if (valorCedula== vendedores[index].cedula) { 
+        if (valorCedula== vendedores[i].cedula) { 
             resultado = i; 
             break; 
         } 
     } 
   return resultado;
+}
+buscarVendedorAction=function(){
+  let txtBuscarCedula = recuperarTexto("txtBuscarCedula");
+  let encontrado=buscarVendedor(txtBuscarCedula);
+  if(encontrado==-1){
+    alert( "El vendedor con dicha cédula no existe");
+  }
+  else{
+     alert( vendedores[encontrado].nombre+" "+vendedores[encontrado].apellido);
+     habilitarComponente("btnMover");
+  }
 }
 function limpiarBusqueda() {
   indiceEncontrado = -1;
