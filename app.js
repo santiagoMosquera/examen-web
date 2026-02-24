@@ -33,6 +33,7 @@ pintarListaVendedores=function(){
     mostrarHtmlEnDiv("contenedorIzquierda",contenidoLista);
     totalVentas=calcularTotalVentas();
     mostrarTextoEnDiv("totalVentas",totalVentas);
+    mostrarTextoEnDiv("contadorVendedores",vendedores.length); 
 }
 
 pintarListaVendedoresVIP=function(){
@@ -48,6 +49,7 @@ pintarListaVendedoresVIP=function(){
     contenidoLista+="</ul>";
     
     mostrarHtmlEnDiv("contenedorDerecha",contenidoLista);
+    mostrarTextoEnDiv("contadorVendedoresVIP",vendedoresVIP.length);
 
 }
 
