@@ -76,18 +76,6 @@ buscarVendedorAction = function() {
 };
 
 
-/*=================================================
-función pintarListaVendedores, no recibe y no retorna
-===================================================*/
-pintarListaVendedores = function() {
-    let contenidoLista = "<ul>";
-    for (let vendedor of vendedores) {
-        contenidoLista += "<li>" + vendedor.cedula + " | " + vendedor.nombre + " " + vendedor.apellido + " | " + vendedor.ventas + "</li>";
-
-    }
-    contenidoLista += "</ul>";
-    mostrarHtmlEnDiv("contenedorIzquierda", contenidoLista)
-};
 
 
 /*=================================================
@@ -123,12 +111,36 @@ calcularNivel = function(numeroVentas) {
     if (numeroVentas > 15) {
         return "Bronce";
     }
-
+};
+/*=================================================
+función calcularTotalVentas, no recibe nada y retorna la suma de las ventas totales. 
+===================================================*/
+calcularTotalVentas = function() {
+    let total = 0;
+    for (let vendedor of vendedores) {
+        total += vendedor.ventas;
+    }
+    return total;
 };
 
 
 
+/*=================================================
+función pintarListaVendedores, no recibe y no retorna
+===================================================*/
+pintarListaVendedores = function() {
+    let contenidoLista = "<ul>";
+    for (let vendedor of vendedores) {
+        contenidoLista += "<li>" + vendedor.cedula + " | " + vendedor.nombre + " " + vendedor.apellido + " | " + vendedor.ventas + "</li>";
 
+    }
+    contenidoLista += "</ul>";
+    mostrarHtmlEnDiv("contenedorIzquierda", contenidoLista);
+    totalVentas = calcularTotalVentas();
+    mostrarTextoEnDiv("totalVentas", totalVentas);
+
+
+};
 
 
 
