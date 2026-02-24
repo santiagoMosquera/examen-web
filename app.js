@@ -26,9 +26,23 @@ pintarListaVendedores = function () {
 
   mostrarHtmlEnDiv("contenedorIzquierda", contenido);
 }
+//ejercicio2
+pintarListaVendedoresVIP = function () {
+  let contenido = "<ul class='list'>";
+  for (let i = 0; i < vendedoresVIP.length; i++) {
+    let vendedorV = vendedoresVIP[i];
+    contenido += "<li>" + vendedorV.nombre + " " 
+    + vendedorV.apellido
+      + " >> nivel: " + vendedorV.nivel + "</li>";
+  }
+  contenido += "</ul>";
+
+  mostrarHtmlEnDiv("contenedorDerecha", contenido);
+}
 
 inicializar = function () {
   pintarListaVendedores();
+  pintarListaVendedoresVIP();
 }
 
 
