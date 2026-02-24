@@ -95,9 +95,21 @@ function moverAction() {
     mostrarHtmlEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe");
   } else {
     vendedor = vendedores[posicion];
+    nivel = calcularNivel(vendedor.ventas);
+    vendedor.nivel = nivel;
     vendedoresVIP.push(vendedor);
     vendedores.splice(posicion, 1);
     pintarListaVendedores();
     pintarListaVendedoresVIP();
+  }
+}
+
+function calcularNivel(ventas) {
+  if (ventas >= 10 && ventas <= 12) {
+    return "bronce";
+  } else if (ventas >= 13 && ventas <= 15) {
+    return "plata";
+  } else if (ventas > 15) {
+    return "oro";
   }
 }
