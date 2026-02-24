@@ -40,6 +40,8 @@ pintarListaVendedores = function () {
   }
   contenidoHtml += "</ul>";
   mostrarHtmlEnDiv("contenedorIzquierda", contenidoHtml);
+  let totalVentas=calcularTotalVentas();
+  mostrarHtmlEnDiv("totalVentas", totalVentas);
 }
 
 
@@ -123,4 +125,12 @@ calcularNivel = function (ventas) {
     return "oro";
   }
   return " ";
+}
+
+calcularTotalVentas=function(){
+  let suma=0;
+  for (i=0; i<vendedores.length;i++){
+    suma+=vendedores[i].ventas;
+  }
+  return suma;
 }
