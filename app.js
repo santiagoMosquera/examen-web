@@ -116,4 +116,25 @@ function buscarVendedorAction() {
     }
 };
 
+function moverAction() {
+    let cedulaBuscada = recuperarTexto("txtBuscarCedula");
+    let posicion = buscarVendedor(cedulaBuscada);
+
+    if (posicion != -1) {
+        let vendedor = vendedores[posicion];
+
+        vendedoresVIP.push(vendedor);
+        vendedores.splice(posicion, 1);
+
+        pintarListaVendedores();
+        pintarListaVendedoresVIP();
+
+        mostrarHtmlEnDiv("resultadoBusqueda", "<span class='muted'>Sin búsqueda aún</span>");
+        mostrarTextoEnCaja("txtBuscarCedula", "");
+        deshabilitarComponente("btnMover");
+    }
+};
+
+
+
 
