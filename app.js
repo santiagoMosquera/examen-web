@@ -73,3 +73,14 @@ buscarVendedor = function(cedula){
   }
   return -1;
 }
+
+buscarVendedorAction = function(){
+  let cedula = recuperarTexto("txtBuscarCedula")
+  pos = buscarVendedor(cedula);
+  if (pos != (-1)){
+    mostrarTextoEnDiv("resultadoBusqueda", `${vendedores[pos].nombre} ${vendedores[pos].apellido}` );
+    habilitarComponente("btnMover")
+  }else{
+    mostrarTextoEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe!");
+  }
+}
