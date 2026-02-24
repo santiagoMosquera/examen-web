@@ -136,6 +136,29 @@ buscarVendedorAction = function(){
 }
 
 
+// 4: 
+
+moverAction = function(){
+
+  let cedula = recuperarTexto("txtBuscarCedula");
+  let posicion = buscarVendedor(cedula);
+
+  if (posicion == -1) {
+    return;
+  }
+
+  let vendedorMovido = vendedores[posicion];
+  vendedoresVIP.push(vendedorMovido);
+
+  vendedores.splice(posicion, 1);
+
+  pintarListaVendedores();
+  pintarListaVendedoresVIP();
+  deshabilitarComponente("btnMover");
+  mostrarTextoEnDiv("resultadoBusqueda", "Vendedor movido correctamente");
+  
+}
+
 
 
 

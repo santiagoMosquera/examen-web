@@ -7,6 +7,7 @@ mostrarTextoEnDiv = function (idComponenteDiv, mensaje) {
 }
 
 //Muestra el html en el div
+
 mostrarHtmlEnDiv = function (idComponenteDiv, html) {
     let componente;
     componente = document.getElementById(idComponenteDiv);
