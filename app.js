@@ -30,8 +30,6 @@ inicializar=function(){
   pintarListaVendedores();
 }
 
-
-
 // =========================
 // Búsqueda / movimiento
 // =========================
