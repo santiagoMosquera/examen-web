@@ -101,6 +101,14 @@ agregarVendedorAction = function() {
         document.getElementById("mensaje").style.display = "block";
         return;}
     
+ // EJERCICIO 8
+    let posicion = buscarVendedor(cedula);
+    if(posicion !== -1) {
+        mostrarTextoEnDiv("mensaje", "Ya existe un vendedor con esa cédula");
+        document.getElementById("mensaje").style.display = "block";
+        return;
+    }
+
     // b) Crear objeto vendedor
     let nuevoVendedor = {};
     
