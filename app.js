@@ -30,15 +30,15 @@ function limpiarBusqueda() {
 }
 
 function pintarListaVendedores(){
-  //let cmpTabla=document.getElementById("contenedorIzquierda");
   let tabla="<ul>";
   for(let i=0;i<vendedores.length;i++){
     tabla+="<li>"+vendedores[i].cedula+" | "+vendedores[i].nombre+" "+vendedores[i].apellido+" | ventas: "+vendedores[i].ventas+" "+vendedores[i].nivel+"<li>";
   }tabla+="</ul>";
-  //cmpTabla.innerHTML=tabla;
   mostrarHtmlEnDiv("contenedorIzquierda",tabla);
   let totalVentas=calcularTotalVentas()
   mostrarTextoEnDiv("totalVentas",totalVentas)
+  let lista=vendedores.length;
+  mostrarTextoEnDiv("contadorVendedores",lista);
 }
 function pintarListaVendedoresVIP(){
   let tabla="<ul>";
@@ -46,6 +46,8 @@ function pintarListaVendedoresVIP(){
     tabla+="<li>"+vendedoresVIP[i].cedula+" | "+vendedoresVIP[i].nombre+" "+vendedoresVIP[i].apellido+" | ventas: "+vendedoresVIP[i].ventas+" "+vendedoresVIP[i].nivel+"<li>";
   }tabla+="</ul>";
   mostrarHtmlEnDiv("contenedorDerecha",tabla);
+  let lista=vendedoresVIP.length;
+  mostrarTextoEnDiv("contadorVendedoresVIP",lista);
 }
 function agregarVendedor(vendedor){
   vendedores.push(vendedor);
@@ -55,9 +57,14 @@ function agregarVendedorActivo(){
   let txtnombre=recuperarTexto("txtNombre");
   let txtapellido=recuperarTexto("txtApellido");
   let txtventas=recuperarEntero("txtVentas");
-  let vendedor={cedula:txtcedula, nombre:txtnombre, apellido:txtapellido, ventas:txtventas};
-  agregarVendedor(vendedor);
-  pintarListaVendedores();
+  let vendedor={cedula:txtcedula, nombre:txtnombre, apellido:txtapellido, ventas:txtventas, nivel:""};
+  let nuevoVendedor=buscarVendedor(txtcedula);
+  if(nuevoVendedor==-1){
+    agregarVendedor(vendedor);
+    pintarListaVendedores();
+  }else{
+    alert("EL VENDEDRO "+vendedor.cedula+" YA EXISTE")
+  }
 }//esta incompleta no se muestra el nuebo vendedor en pantalla
 function buscarVendedor(cedula){
   let vendedor=-1;
@@ -78,6 +85,7 @@ function buscarVendedorActivo(){
     habilitarComponente("btnMover");
   }else{
     mostrarTextoEnDiv("resultadoBusqueda","El vendedor con dicha cedula no existe");
+    deshabilitarComponente("btnMover")
   }
 }
 function moverAction(){
@@ -92,9 +100,6 @@ function moverAction(){
     pintarListaVendedoresVIP()
     pintarListaVendedores()
   }
-  vendedores.splice(vendedor,1);
-  pintarListaVendedoresVIP()
-  pintarListaVendedores()
 }
 function calcularNivel(ventas){
   let nivel="";
