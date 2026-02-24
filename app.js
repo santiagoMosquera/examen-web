@@ -110,6 +110,21 @@ function limpiarBusqueda() {
     mostrarTextoEnCaja("txtBuscarCedula", "");
 }
 
+//EJERCICIO 4
+function moverAction(){
+    let recuperarCedula = recuperarTexto("txtBuscarCedula");
+    let posicionEncontrada = buscarVendedor(recuperarCedula);
+    
+    if (posicionEncontrada !== -1) {
+      let vendedorMover = vendedores[posicionEncontrada];
+      vendedoresVIP.push(vendedorMover);
+
+      vendedores.splice(posicionEncontrada, 1);
+
+      pintarListaVendedores();
+      pintarListaVendedoresVIP();
+    }
+}
 
 // =========================
 // Búsqueda / movimiento
