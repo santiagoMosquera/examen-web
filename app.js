@@ -26,7 +26,28 @@ pintarListaVendedores=function(){
     
     document.getElementById("contadorVendedores").innerText = vendedores.length;
 
+function pintarListaVendedoresVIP() {
 
+    let html = "<ul class='list'>";
+
+    for (let i = 0; i < vendedoresVIP.length; i++) {
+
+        let vip = vendedoresVIP[i];
+
+        html += "<li>"
+            + vip.nombre + " " + vip.apellido
+            + " >> nivel: " + vip.nivel
+            + "</li>";
+    }
+
+    html += "</ul>";
+
+  
+    mostrarHtmlEnDiv("contenedorDerecha", html);
+
+    
+    document.getElementById("contadorVendedoresVIP").innerText = vendedoresVIP.length;
+}
 
 
 // =========================
