@@ -20,7 +20,7 @@ pintarListaVendedores = function(){
 
     let totalVentas = calcularTotalVentas();
     document.getElementById("totalVentas").innerText = totalVentas;
-    
+
     document.getElementById("contadorVendedores").innerText = vendedores.length;
 }
 
@@ -176,6 +176,7 @@ function calcularTotalVentas() {
 
     return total;
 }
+
 // =========================
 // Búsqueda / movimiento
 // =========================
