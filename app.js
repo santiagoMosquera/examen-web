@@ -67,9 +67,21 @@ function agregarVendedorAction(){
 
 function buscarVendedor(cedula){
   for(let i=0;i<vendedores.length;i++){
-      if(vendedores[i].cedula==cedula) return vendedores[i];
+      if(vendedores[i].cedula==cedula) return i;
     }
     return -1;
+}
+
+function buscarVendedorAction(){
+  let cedula = recuperarTexto("txtBuscarCedula");
+  let resultadoBusqueda = buscarVendedor(cedula);
+
+  if(resultadoBusqueda != -1) {
+    mostrarTextoEnDiv("resultadoBusqueda",
+      `${vendedores[resultadoBusqueda].nombre} ${vendedores[resultadoBusqueda].apellido}`);
+  }else{
+    mostrarTextoEnDiv("resultadoBusqueda", resultadoBusqueda);
+  }
 }
 
 // =========================
