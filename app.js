@@ -25,8 +25,22 @@ function pintarListaVendedores() {
     mostrarHtmlEnDiv(html, "contenedorIzquierda"); 
 }
 
+function pintarListaVendedoresVIP() {
+    let html = "<ul class='list'>";
+    for (let i = 0; i < vendedoresVIP.length; i++) {
+        let v = vendedoresVIP[i];
+        // Formato solicitado: Nombre Apellido >> nivel: Oro/Bronce
+        html += `<li>${v.nombre} ${v.apellido} >> nivel: ${v.nivel}</li>`;
+    }
+    html += "</ul>";
+
+    // Según tu index.html línea 72, el ID es contenedorDerecha
+    mostrarHtmlEnDiv(html, "contenedorDerecha");
+}
+
 function inicializar() {
     pintarListaVendedores();
+    pintarListaVendedoresVIP();
 }
 
 
