@@ -52,6 +52,11 @@ function pintarListaVendedoresVIP() {
 }
 
 function agregarVendedor(vendedor) {
+  existe = buscarVendedor(vendedor.cedula);
+  if (existe !== -1) {
+    alert("Ya existe el vendedor");
+    return;
+  }
   vendedores.push(vendedor);
 }
 
