@@ -99,6 +99,7 @@ function agregarVendedoresAction(){
 
     agragarVendedor(vendedor);
     pintarListaVendedores();
+    limpiar();
     }
 }
 function buscarVendedor(cedula){
@@ -137,6 +138,7 @@ function moverAction(){
         vendedores.splice(posicion,1);
         pintarListaVendedores();
         pintarListaVendedoresVip();
+        deshabilitarComponente('btnMover');
     }
 }
  
@@ -160,3 +162,14 @@ function calcularTotalVentas(){
     return total;
 }
 
+function limpiar (){
+    let limpiarCedula = recuperarTexto("txtCedula");
+    let limpiarNombre = recuperarTexto("txtNombre");
+    let limpiarApellido = recuperaTexto("txtApellido");
+    let limpiarVentas = recuperarEntero("txtVentas");
+
+    limpiarCedula = '';
+    limpiarNombre = '';
+    limpiarApellido = '';
+    limpiarVentas = '';
+}
