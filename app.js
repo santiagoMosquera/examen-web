@@ -37,8 +37,12 @@ pintarListaVendedores = function() {
     
     tabla += "</table>";
     
+    // del ejercioci 6
+    let total = calcularTotalVentas();
+    mostrarTextoEnDiv("totalVentas", total);
     
-    mostrarHtmlEnDiv("contenedorIzquierda", tabla);}
+    mostrarHtmlEnDiv("contenedorIzquierda", tabla);
+  }
 
 // EJERCICIO 2
 pintarListaVendedoresVIP = function() {
@@ -199,6 +203,17 @@ calcularNivel = function(ventas) {
         return "sin nivel"; 
     }
 }
+
+//Ejercicio 6:
+
+calcularTotalVentas = function() {
+    let total = 0;
+    for(let i = 0; i < vendedores.length; i++) {
+        total += vendedores[i].ventas;
+    }
+    return total;
+}
+
 
 // =========================
 // Búsqueda / movimiento
