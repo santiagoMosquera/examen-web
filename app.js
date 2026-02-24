@@ -103,3 +103,10 @@ function calcularTotalVentas() { // [cite: 56]
     }
     return total;
 }
+
+function limpiar() { // [cite: 67]
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtVentas", "");
+}
