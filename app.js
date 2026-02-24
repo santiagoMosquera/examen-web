@@ -68,6 +68,48 @@ inicializar = function() {
     pintarListaVendedoresVIP();
 }
 
+//EJERCICIO 3 - parte 2
+function buscarVendedor(cedula) {
+    let posicion = -1;
+    
+    for (let i = 0; i < vendedores.length; i++) {
+        if (vendedores[i].cedula === cedula) {
+            posicion = i;
+            break;
+        }
+    } 
+    return posicion;
+}
+
+function buscarVendedorAction() {
+    let cedulaBuscar = recuperarTexto("txtBuscarCedula");
+  
+    let posicionEncontrada = buscarVendedor(cedulaBuscar);
+    
+    let resultadoBusqueda = document.getElementById("resultadoBusqueda");
+    
+    if (posicionEncontrada === -1) {
+        resultadoBusqueda.innerHTML = "<span class='muted'>El vendedor con cédula " + cedulaBuscar + " no existe</span>";
+        
+        deshabilitarComponente("btnMover");
+    } else {
+        let vendedorEncontrado = vendedores[posicionEncontrada];
+        
+        resultadoBusqueda.innerHTML = "<span>Vendedor encontrado: " + vendedorEncontrado.nombre + " " + vendedorEncontrado.apellido + "</span>";
+
+        habilitarComponente("btnMover");
+        indiceEncontrado = posicionEncontrada;
+    }
+}
+
+let indiceEncontrado = -1;
+function limpiarBusqueda() {
+    indiceEncontrado = -1;
+    deshabilitarComponente("btnMover");
+    document.getElementById("resultadoBusqueda").innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
+    mostrarTextoEnCaja("txtBuscarCedula", "");
+}
+
 
 // =========================
 // Búsqueda / movimiento
