@@ -68,6 +68,22 @@ agregarVendedorAction = function () {
   agregarVendedor(nuevoVendedor);
 }
 
+//a)
+buscarVendedor = function(cedulaVendedor){
+  let posicion = -1;
+    for (let i = 0; i < vendedores.length; i++) {
+        if (vendedores[i].cedula == cedulaVendedor) {
+            posicion = i;
+            break;
+        }
+    }
+    return posicion;
+}
+//b)
+
+//c)
+
+//d)
 
 // =========================
 // Búsqueda / movimiento
