@@ -71,6 +71,12 @@ agregarVendedorAction=function(){
   let apellido=recuperarTexto("txtApellido");
   let ventas=recuperarTexto("txtVentas");
 
+  let posicion = buscarVendedor(cedula);
+  if(posicion != -1){
+    mostrarTextoEnDiv("resultadoBusqueda", "No se puede agregar");
+    return;
+  }
+
   let vendedor = {};
 
   vendedor.cedula = cedula;
@@ -83,6 +89,7 @@ agregarVendedorAction=function(){
   pintarListaVendedores();
 
 }
+
 buscarVendedor = function(cedula){
   let posi = -1;
 
