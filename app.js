@@ -61,6 +61,16 @@ agregarVendedorAction = function () {
   let apellido = recuperarTexto("txtApellido");
   let ventas = recuperarEntero("txtVentas");
 
+  // Validar si ya existe el vendedor
+  let posicion = buscarVendedor(cedula);
+
+  if (posicion !== -1) {
+
+    mostrarTextoEnDiv("mensaje", "Ya existe el vendedor, no se puede agregar");
+    document.getElementById("mensaje").style.display = "block";
+    return;
+  }
+
   let vendedor = {
     cedula: cedula,
     nombre: nombre,
@@ -70,8 +80,14 @@ agregarVendedorAction = function () {
   };
 
   agregarVendedor(vendedor);
+
   pintarListaVendedores();
+
+
+  mostrarTextoEnDiv("mensaje", "Vendedor agregado correctamente");
+  document.getElementById("mensaje").style.display = "block";
 }
+
 
 // =========================
 // Buscar vendedor
