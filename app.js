@@ -147,7 +147,12 @@ moverAction = function(){
     return;
   }
 
+  
   let vendedorMovido = vendedores[posicion];
+
+  let nivelCalculado = calcularNivel(vendedorMovido.ventas);
+  vendedorMovido.nivel = nivelCalculado;
+
   vendedoresVIP.push(vendedorMovido);
 
   vendedores.splice(posicion, 1);
@@ -156,9 +161,26 @@ moverAction = function(){
   pintarListaVendedoresVIP();
   deshabilitarComponente("btnMover");
   mostrarTextoEnDiv("resultadoBusqueda", "Vendedor movido correctamente");
-  
+
 }
 
+
+//5: 
+
+calcularNivel = function(numeroVentas){
+
+  let nivel = "";
+
+  if (numeroVentas >= 10 && numeroVentas <= 12) {
+    nivel = "bronce";
+  } else if (numeroVentas >= 13 && numeroVentas <= 15) {
+    nivel = "plata";
+  } else if (numeroVentas > 15) {
+    nivel = "oro";
+  }
+
+  return nivel;
+}
 
 
 
