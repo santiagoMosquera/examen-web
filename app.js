@@ -18,6 +18,15 @@ function pintarListaVendedores(){
         total += v.ventas;
     }
     }
+     html += "</ul>";
+
+    mostrarHtmlEnDiv("contenedorIzquierda", html);
+
+    document.getElementById("totalVentas").innerText = total;
+    
+    document.getElementById("contadorVendedores").innerText = vendedores.length;
+
+
 
 
 // =========================
