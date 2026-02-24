@@ -124,6 +124,9 @@ agregarVendedorAction = function() {
     
     // e) Refrescar pantalla
     pintarListaVendedores();
+
+    // ejercicio 9
+    limpiar();
     
 }
 
@@ -200,6 +203,9 @@ moverAction = function() {
     //parte del ejercioco 5
     let nivel = calcularNivel(vendedorEncontrado.ventas);
     vendedorEncontrado.nivel = nivel;
+
+    // ejercicio 9
+    limpiar();
     
 }
 
@@ -226,7 +232,14 @@ calcularTotalVentas = function() {
     return total;
 }
 
+//Ejercicio 9
 
+limpiar = function() {
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtVentas", "");
+}
 // =========================
 // Búsqueda / movimiento
 // =========================
