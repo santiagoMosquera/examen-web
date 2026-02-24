@@ -74,6 +74,17 @@ buscarVendedor = function (cedula) {
   return -1;
 }
 
+buscarVendedorAction = function () {
+  let cedula = recuperarTexto("txtBuscarCedula");
+  let posicion = buscarVendedor(cedula);
+  if (posicion === -1) {
+    resultadoBusquedaEl.innerHTML = "<span class='muted'>El vendedor con dicha cédula no existe</span>";
+  } else {
+    let vendedor = vendedores[posicion];
+    resultadoBusquedaEl.innerHTML = "<span class='muted'>" + vendedor.nombre + " " + vendedor.apellido + "</span>";
+  }
+}
+
 inicializar = function () {
   pintarListaVendedores();
   pintarListaVendedoresVIP();
