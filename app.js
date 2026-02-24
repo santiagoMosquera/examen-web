@@ -159,6 +159,21 @@ function moverAction() {
         deshabilitarComponente("btnMover");
     }
 }
+// --------
+//ejercicio 6
+//---------
+
+function calcularTotalVentas() {
+    let total = 0; 
+    
+    for (let i = 0; i < vendedores.length; i++) {
+        total += vendedores[i].ventas;
+    }
+    
+    return total;  
+}
+
+
 
 
 
