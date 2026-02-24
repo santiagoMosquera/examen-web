@@ -86,7 +86,6 @@ function pintarListaVendedoresVIP() {
   mostrarHtmlEnDiv("contenedorDerecha", html);
   mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
 }
-
 function limpiar() {
   mostrarTextoEnCaja("txtCedula", "");
   mostrarTextoEnCaja("txtNombre", "");
@@ -97,7 +96,6 @@ function limpiar() {
 function agregarVendedor(vendedor) {
   vendedores.push(vendedor);
 }
-
 function agregarVendedorAction() {
   let cedula = recuperarTexto("txtCedula");
   let nombre = recuperarTexto("txtNombre");
@@ -119,9 +117,6 @@ function agregarVendedorAction() {
     limpiar();
   }
 }
-
-
-
 
 function buscarVendedor(cedula) {
   let indiceEncontrado = -1;
@@ -198,7 +193,7 @@ function calcularNivel(ventas) {
 
 function calcularTotalVentas() {
 
-    
+
   let totalVentas = 0;
   for (let i = 0; i < vendedores.length; i++) {
     totalVentas += vendedores[i].ventas;
