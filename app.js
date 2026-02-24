@@ -39,6 +39,7 @@ function pintarListaVendedores() {
   html += "</ul>";
 
   mostrarHtmlEnDiv("contenedorIzquierda", html);
+  document.getElementById("contadorVendedores").innerHTML = vendedores.length;
 }
 
 // =========================
@@ -62,6 +63,7 @@ function pintarListaVendedoresVIP() {
   html += "</ul>";
 
   mostrarHtmlEnDiv("contenedorDerecha", html);
+  document.getElementById("contadorVendedoresVIP").innerHTML = vendedoresVIP.length;
 }
 
 // =========================
