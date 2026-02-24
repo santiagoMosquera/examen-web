@@ -100,8 +100,7 @@ moverAction = function () {
   vendedorSeleccionado.nivel = calcularNivel(vendedorSeleccionado.ventas);
   vendedoresVIP.push(vendedorSeleccionado);
   vendedores.splice(encontrado, 1);
-  console.log(encontrado);
-  console.log(vendedores);
+  desabilitarComponente("btnMover");
   pintarListaVendedores();
   pintarListaVendedoresVIP();
 }
@@ -136,7 +135,7 @@ limpiar = function () {
   mostrarTextoEnCaja("txtNombre", "");
   mostrarTextoEnCaja("txtApellido", "");
   mostrarTextoEnCaja("txtVentas", "");
-  
+
 }
 
 
