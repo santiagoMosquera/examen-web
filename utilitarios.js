@@ -38,7 +38,7 @@ habilitarComponente = function (idComponente){
     componente.disabled=false;
 }
 //deshabilita el componente
-habilitarComponente = function (idComponente){
+desHabilitarComponente = function (idComponente){
     let componente;
     componente = document.getElementById(idComponente);
     componente.disabled=true;
