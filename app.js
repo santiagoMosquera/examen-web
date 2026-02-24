@@ -16,7 +16,9 @@ let vendedoresVIP = [
 
 inicializar = function() {
     pintarListaVendedores();
-    pintarListaVendedoresVIP()
+    pintarListaVendedoresVIP();
+    deshabilitarComponente("btnMover");
+
 }
 
 /*=================================================
@@ -64,10 +66,12 @@ buscarVendedorAction = function() {
     let cedula = recuperarTexto("txtBuscarCedula");
     let resultadoBusqueda = buscarVendedor(cedula);
     if (resultadoBusqueda == -1) {
+        deshabilitarComponente("btnMover");
         mostrarTextoEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe");
     } else {
         let mensaje = vendedores[resultadoBusqueda].nombre + " " + vendedores[resultadoBusqueda].apellido;
         mostrarTextoEnDiv("resultadoBusqueda", mensaje);
+        habilitarComponente("btnMover");
     }
 };
 
@@ -84,6 +88,31 @@ pintarListaVendedores = function() {
     contenidoLista += "</ul>";
     mostrarHtmlEnDiv("contenedorIzquierda", contenidoLista)
 };
+
+
+/*=================================================
+función moverAction, que será llamada desde el botón Mover
+===================================================*/
+moverAction = function() {
+    let cedula = recuperarTexto("txtBuscarCedula");
+    let posicion = buscarVendedor(cedula);
+    recuperarVendedor = vendedores[posicion];
+    vendedoresVIP.push(recuperarVendedor);
+    vendedores.splice(posicion, 1);
+
+    pintarListaVendedores();
+    pintarListaVendedoresVIP();
+
+};
+
+
+
+
+
+
+
+
+
 
 /*=================================================
 función pintarListaVendedoresVIP, no recibe y no retorna
