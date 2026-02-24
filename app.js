@@ -24,12 +24,6 @@ inicializar=function(){
 // =========================
 // Búsqueda / movimiento
 // =========================
-function limpiarBusqueda() {
-  indiceEncontrado = -1;
-  btnMover.disabled = true;
-  resultadoBusquedaEl.innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
-  telefonoBuscarEl.value = "";
-}
 
 function pintarListaVendedores() {
     let html =  "<ul class='list'>";
@@ -96,6 +90,7 @@ function agregarVendedorAction() {
         vendedor.nivel = "";
         agregarVendedor(vendedor);
         pintarListaVendedores();
+        limpiar();
       }
 };
 
@@ -174,10 +169,14 @@ function calcularTotalVentas() {
         let vendedor = vendedores[i];
         total = total + vendedor.ventas;
     }
-
     return total;
 };
 
 
-
+function limpiar() {
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtVentas", "");
+};
 
