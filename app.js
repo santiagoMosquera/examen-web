@@ -176,7 +176,14 @@ function calcularTotalVentas() {
 
     return total;
 }
+let posicion = buscarVendedor(cedula);
 
+if (posicion !== -1) {
+
+    document.getElementById("mensaje").style.display = "block";
+    document.getElementById("mensaje").innerHTML = "Ya existe un vendedor con esa cédula";
+    return;
+}
 // =========================
 // Búsqueda / movimiento
 // =========================
