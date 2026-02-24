@@ -44,6 +44,9 @@ function pintarListaVendedores() {
     html = html + "</ul>";
 
     mostrarHtmlEnDiv("contenedorIzquierda", html);
+    
+    let totalVentas = calcularTotalVentas();
+    mostrarTextoEnDiv("totalVentas", totalVentas);
 };
 
 function pintarListaVendedoresVIP() {
@@ -151,5 +154,17 @@ function calcularNivel(ventas) {
     }
 
     return nivel;
+};
+
+
+function calcularTotalVentas() {
+    let total = 0;
+
+    for (let i = 0; i < vendedores.length; i++) {
+        let vendedor = vendedores[i];
+        total = total + vendedor.ventas;
+    }
+
+    return total;
 };
 
