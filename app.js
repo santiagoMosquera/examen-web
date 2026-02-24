@@ -58,7 +58,7 @@ pintarListaVendedoresVIP = function(){
 
     html += "</ul>";
   mostrarHtmlEnDiv("contenedorDerecha", html);
-  
+
   mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
 
 }
@@ -76,6 +76,13 @@ agregarVendedorAction = function(){
   let apellido = recuperarTexto("txtApellido");
   let ventas = recuperarEntero("txtVentas")
 
+  let posicion = buscarVendedor(cedula);
+
+  if (posicion != -1) {
+    mostrarTextoEnDiv("mensaje", "Ya existe el vendedor, no se puede agregar. ");
+    return;
+  }
+
   // objeto con vendendor, vacio y agrego con atributos:  { cedula:"1708934242",nombre: "Paúl", apellido: "Torres", ventas:12, nivel:""},
   let vendedor = {};
   vendedor.cedula = cedula;
@@ -86,6 +93,8 @@ agregarVendedorAction = function(){
 
   agregarVendedor(vendedor); 
   pintarListaVendedores();
+
+  mostrarTextoEnDiv("mensaje", "Vendedor agregado correctamente");
 
   mostrarTextoEnCaja("txtCedula", "");
   mostrarTextoEnCaja("txtNombre", "");
