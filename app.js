@@ -115,7 +115,9 @@ moverAction = function() {
     let cedulaABuscar = recuperarTexto("txtBuscarCedula");
     let indice = buscarVendedor(cedulaABuscar);
     let vendedorAMover = vendedores[indice];
- 
+    let nivelCalculado = calcularNivel(vendedorAMover.ventas);
+
+    vendedorAMover.nivel = nivelCalculado;
     vendedoresVIP.push(vendedorAMover);
     vendedores.splice(indice, 1); // splice elimina un elemento del arreglo
 
@@ -124,3 +126,14 @@ moverAction = function() {
     limpiarBusqueda();
 }
 
+calcularNivel = function(ventas) {
+    let nivel = "";
+    if (ventas >= 10 && ventas <= 12) {
+        nivel = "bronce";
+    } else if (ventas >= 13 && ventas <= 15) {
+        nivel = "plata";
+    } else if (ventas > 15) {
+        nivel = "oro";
+    }
+    return nivel;
+}
