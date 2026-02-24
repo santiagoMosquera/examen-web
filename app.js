@@ -49,11 +49,21 @@ pintarListaVendedoresVIP=function(){
 
 }
 
-agregarVenderdor=function(nuevoVendedor){
-  vendedores.push(nuevoVendedor);
+agregarVenderdor=function(vendedor){
+  vendedores.push(vendedor);
+  alert("Vendedor con CI "+vendedor.cedula+"- Ingresado Correctamente");
 }
 
-
+agregarVendedorAction=function(){
+  let nuevoVendedor=[];
+  nuevoVendedor.cedula=recuperarTexto("txtCedula");
+  nuevoVendedor.nombre=recuperarTexto("txtNombre");
+  nuevoVendedor.apellido=recuperarTexto("txtApellido");
+  nuevoVendedor.ventas=recuperarEntero("txtVentas");
+  nuevoVendedor.nivel="";
+  agregarVenderdor(nuevoVendedor);
+  pintarListaVendedores();
+}
 
 
 // =========================
