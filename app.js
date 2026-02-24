@@ -90,6 +90,15 @@ moverAction = function(){
   pos = buscarVendedor(cedula);
   vendedoresVIP.push(vendedores[pos]);
   vendedores.splice(pos,1);
+  let nivel = calularNivel(vendedoresVIP[vendedoresVIP.length - 1].ventas);
+  vendedoresVIP[vendedoresVIP.length - 1].nivel = nivel;
   pintarListaVendedores();
   pintarListaVendedoresVIP();
+
+}
+calularNivel=function(ventas){
+  if (ventas >= 10 && ventas <= 12) return "bronce";
+  if (ventas >= 13 && ventas <= 15) return "plata";
+  if (ventas > 15) return "oro";
+  return "sin nivel";
 }
