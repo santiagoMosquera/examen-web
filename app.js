@@ -99,6 +99,25 @@ agregarVendedorAction = function(){
 
 }
 
+// Ejercicio 3a:
+
+buscarVendedor = function(cedula){
+   let posicionEncontrada = -1;
+
+   for (let i = 0; i < vendedores.length; i++) {
+    let vendedorActual = vendedores[i];
+      if (vendedorActual.cedula == cedula) {
+        posicionEncontrada = i;
+    }
+  }
+
+  return posicionEncontrada;
+
+}
+
+
+
+
 
 // =========================
 // Búsqueda / movimiento
