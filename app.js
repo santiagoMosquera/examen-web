@@ -1,3 +1,4 @@
+//alumno Becker Julian Del Salto Leon
 // =========================
 // Datos (arreglos)
 // =========================
@@ -11,6 +12,8 @@ let vendedoresVIP = [
     { cedula:"1945504089",nombre: "Alexandra", apellido: "Analuisa", ventas:10, nivel:"bronce"},
 
 ];
+
+
 
 inicializar=function(){
   
