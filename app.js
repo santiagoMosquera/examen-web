@@ -26,7 +26,7 @@ pintarListaVendedores=function(){
     
     document.getElementById("contadorVendedores").innerText = vendedores.length;
 
-function pintarListaVendedoresVIP() {
+pintarListaVendedoresVIP=function() {
 
     let html = "<ul class='list'>";
 
@@ -66,6 +66,7 @@ let vendedoresVIP = [
 
 inicializar=function(){
     pintarListaVendedores();
+    pintarListaVendedoresVIP();
 }
 
 
