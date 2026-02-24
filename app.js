@@ -48,3 +48,11 @@ function pintarListaVendedoresVIP(){
 function agregarVendedor(vendedor){
   vendedores.push(vendedor);
 }
+function agregarVendedorActivo(){
+  let txtcedula=recuperarEntero("txtCedula");
+  let txtnombre=recuperarTexto("txtNombre");
+  let txtapellido=recuperarTexto("txtApellido");
+  let txtventas=recuperarEntero("txtVentas");
+  let vendedor={cedula:txtcedula, nombre:txtnombre, apellido:txtapellido, ventas:txtventas};
+  agregarVendedor(vendedor);
+}//esta incompleta no se muestra el nuebo vendedor en pantalla
