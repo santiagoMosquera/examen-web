@@ -28,6 +28,7 @@ pintarListaVendedores=function(){
   mostrarHtmlEnDiv("contenedorIzquierda",tablaHtml);
   let ventas = calcularTotalVentas();
   mostrarTextoEnDiv("totalVentas", ventas);
+  mostrarTextoEnDiv("contadorVendedores", vendedores.length)
 }
 pintarListaVendedoresVIP=function(){
   let tablaHtml = "<ul class='list'>";
@@ -37,6 +38,7 @@ pintarListaVendedoresVIP=function(){
   }
   tablaHtml += "</ul>"
   mostrarHtmlEnDiv("contenedorDerecha",tablaHtml);
+  mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length)
 }
 agregarVendedor=function(vendedor){
   vendedores.push(vendedor);
@@ -107,6 +109,8 @@ calcularTotalVentas = function(){
   }
   return totalVentas;
 }
+
+
 // =========================
 // Búsqueda / movimiento
 // =========================
