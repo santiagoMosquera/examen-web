@@ -96,3 +96,10 @@ function calcularNivel(ventas) { //
     if (ventas > 15) return "oro";
     return "bajo";
 }
+function calcularTotalVentas() { // [cite: 56]
+    let total = 0;
+    for (let i = 0; i < vendedores.length; i++) {
+        total += vendedores[i].ventas;
+    }
+    return total;
+}
