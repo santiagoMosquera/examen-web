@@ -112,6 +112,14 @@ moverAction = function () {
   }
 }
 
+calcularTotalVentas = function() {
+  let totalVentas = 0;
+  for (let i = 0; i < vendedores.length; i++) {
+    totalVentas += vendedores[i].ventas;
+  }
+  return totalVentas;
+}
+
 
 calcularNivel = function (ventas) {
   if (ventas >= 10 && ventas <= 12) {
