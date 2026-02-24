@@ -96,11 +96,7 @@ agregarVendedorAction = function(){
 
   mostrarTextoEnDiv("mensaje", "Vendedor agregado correctamente");
 
-  mostrarTextoEnCaja("txtCedula", "");
-  mostrarTextoEnCaja("txtNombre", "");
-  mostrarTextoEnCaja("txtApellido", "");
-  mostrarTextoEnCaja("txtVentas", "");
-
+  limpiar();
 }
 
 // Ejercicio 3a:
@@ -129,7 +125,8 @@ buscarVendedorAction = function(){
 
   if (posicion == -1) {
     mostrarTextoEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe ");
-    deshabilitarComponente("btnMover");
+
+    deshabilitarComponente("btnMover"); 
   } else {
     let vendedor = vendedores[posicion];
     mostrarTextoEnDiv("resultadoBusqueda", vendedor.nombre + " " + vendedor.apellido);
@@ -199,6 +196,17 @@ calcularTotalVentas = function(){
   return totalVentas;
 }
 
+// 9: 
+
+limpiar = function(){
+
+  mostrarTextoEnCaja("txtCedula", "");
+  mostrarTextoEnCaja("txtNombre", "");
+  mostrarTextoEnCaja("txtApellido", "");
+  mostrarTextoEnCaja("txtVentas", "");
+
+}
+
 
 
 // =========================
@@ -210,7 +218,3 @@ function limpiarBusqueda() {
   resultadoBusquedaEl.innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
   telefonoBuscarEl.value = "";
 }
-
-
-
-
