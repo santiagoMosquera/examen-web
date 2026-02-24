@@ -89,13 +89,56 @@ function agregarVendedorAction() {
   vendedor.nivel = "";
 
   agregarVendedor(vendedor);
-  
+
   pintarListaVendedores();
 }
 
 // =========================
 // Búsqueda / movimiento
 // =========================
+
+
+function buscarVendedor(cedula) {
+
+  let posicion = -1;
+
+  for (let i = 0; i < vendedores.length; i++) {
+    if (vendedores[i].cedula == cedula) {
+      posicion = i;
+      break;
+    }
+  }
+
+  return posicion;
+}
+
+
+function buscarVendedorAction() {
+
+  let cedulaBuscar = document.getElementById("txtBuscarCedula").value;
+  let posicion = buscarVendedor(cedulaBuscar);
+
+  if (posicion == -1) {
+
+    mostrarHtmlEnDiv("resultadoBusqueda",
+      "El vendedor con dicha cédula no existe");
+
+    deshabilitarComponente("btnMover");
+
+  } else {
+
+    let vendedor = vendedores[posicion];
+
+    mostrarHtmlEnDiv("resultadoBusqueda",
+      vendedor.nombre + " " + vendedor.apellido);
+
+    habilitarComponente("btnMover");
+  }
+}
+
+
+
+
 function limpiarBusqueda() {
   indiceEncontrado = -1;
   btnMover.disabled = true;
