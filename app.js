@@ -47,6 +47,7 @@ agregarVendedorAction = function() {
         agregarVendedor(vendedorNuevo);
         pintarListaVendedores();
         alert("REGISTRO EXITOSO ");
+        limpiar();
     } else {
         alert("YA EXISTE LA CEDULA REGISTRADA ");
     }
@@ -101,6 +102,7 @@ moverAction = function() {
 
     pintarListaVendedores();
     pintarListaVendedoresVIP();
+    deshabilitarComponente("btnMover");
 
 };
 
@@ -173,3 +175,10 @@ function limpiarBusqueda() {
     resultadoBusquedaEl.innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
     telefonoBuscarEl.value = "";
 }
+
+limpiar = function() {
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtVentas", "");
+};
