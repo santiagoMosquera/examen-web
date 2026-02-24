@@ -136,6 +136,10 @@ function moverAction() {
 
         let vendedor = vendedores[posicion];
 
+        let nivelCalculado = calcularNivel(vendedor.ventas);
+
+        vendedor.nivel = nivelCalculado;
+
         vendedoresVIP.push(vendedor);
 
         vendedores.splice(posicion, 1);
