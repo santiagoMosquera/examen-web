@@ -15,7 +15,34 @@ let vendedoresVIP = [
 ];
 
 inicializar=function(){
-  
+  pintarListaVendedores()
+}
+
+pintarListaVendedores = function(){
+
+  let html = "<ul class='list'>";
+  for (let i = 0; i < vendedores.length; i++) {
+    let vendedor = vendedores[i];
+    html += "<li>" 
+          + vendedor.cedula + " | "
+          + vendedor.nombre + " " + vendedor.apellido 
+          + " | ventas: " + vendedor.ventas 
+          + "</li>";}
+
+  html += "</ul>";
+  mostrarHtmlEnDiv("contenedorIzquierda", html);
+  mostrarTextoEnDiv("contadorVendedores", vendedores.length);
+
+  // Total pra ventas:
+  let totalVentas = 0;
+
+for (let i = 0; i < vendedores.length; i++) {
+  let vendedorActual = vendedores[i];
+  let ventasActuales = vendedorActual.ventas;
+  totalVentas = totalVentas + ventasActuales;
+}
+  mostrarTextoEnDiv("totalVentas", totalVentas)
+
 }
 
 

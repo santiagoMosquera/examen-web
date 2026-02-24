@@ -11,6 +11,7 @@ mostrarHtmlEnDiv = function (idComponenteDiv, html) {
     componente = document.getElementById(idComponenteDiv);
     componente.innerHTML = html;
 }
+
 //Muestra el mensaje en la caja de texto
 mostrarTextoEnCaja = function (idComponenteCaja, mensaje) {
     let componente;
