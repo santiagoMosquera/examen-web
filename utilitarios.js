@@ -19,7 +19,7 @@ mostrarTextoEnCaja = function (idComponenteCaja, mensaje) {
     componente = document.getElementById(idComponenteCaja);
     componente.value = mensaje;
 }
-//recupera el texto del componente:
+//recupera el texto del componente
 recuperarTexto = function (idComponente) {
     let componente;
     let valorIngresado;
@@ -35,13 +35,13 @@ recuperarEntero = function (idComponente) {
     return valorEntero;
 }
 
-
 //habilita el componente
 habilitarComponente = function (idComponente){
     let componente;
     componente = document.getElementById(idComponente);
     componente.disabled=false;
 }
+
 //deshabilita el componente
 deshabilitarComponente = function (idComponente){
     let componente;

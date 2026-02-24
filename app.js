@@ -64,7 +64,7 @@ pintarListaVendedoresVIP = function(){
 
     html += "</ul>";
   mostrarHtmlEnDiv("contenedorDerecha", html);
-  mostrarTextoEnDiv("contadorVendedoresVIP", vendedores.length);
+  mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
 
 }
 
@@ -108,12 +108,34 @@ buscarVendedor = function(cedula){
     let vendedorActual = vendedores[i];
       if (vendedorActual.cedula == cedula) {
         posicionEncontrada = i;
+        break;
     }
   }
 
   return posicionEncontrada;
 
 }
+
+// 3b:
+
+buscarVendedorAction = function(){
+
+  let cedulaBuscada = recuperarTexto("txtBuscarCedula");
+  let posicion = buscarVendedor(cedulaBuscada);
+
+  if (posicion == -1) {
+    mostrarTextoEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe ");
+    deshabilitarComponente("btnMover");
+  } else {
+    let vendedor = vendedores[posicion];
+    mostrarTextoEnDiv("resultadoBusqueda", vendedor.nombre + " " + vendedor.apellido);
+    habilitarComponente("btnMover");
+  }
+
+
+}
+
+
 
 
 
