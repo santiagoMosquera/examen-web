@@ -40,8 +40,30 @@ pintarListaVendedores = function() {
   mostrarTextoEnDiv("contadorVendedores", vendedores.length);
 }
 
+pintarListaVendedoresVIP = function() {
+
+  let listaVendedoresVIP = "<ul class='list'>";
+
+  for (let i = 0; i < vendedoresVIP.length; i++) {
+
+    listaVendedoresVIP = listaVendedoresVIP + "<li>";
+    listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nombre + " ";
+    listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].apellido;
+    listaVendedoresVIP = listaVendedoresVIP + " >> Nivel: ";
+    listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nivel;
+    listaVendedoresVIP = listaVendedoresVIP + "</li>";
+  }
+
+  listaVendedoresVIP = listaVendedoresVIP + "</ul>";
+
+  mostrarHtmlEnDiv("contenedorDerecha", listaVendedoresVIP);
+
+  mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
+}
+
 inicializar = function() {
   pintarListaVendedores();
+  pintarListaVendedoresVIP();
 }
 
 
