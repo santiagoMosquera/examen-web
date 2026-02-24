@@ -59,11 +59,20 @@ function agregarVendedorActivo(){
 function buscarVendedor(cedula){
   let vendedor={};
   for(let i=0;i<vendedores.length;i++){
-        vendedor=vendedores[i];
-        if(vendedor.cedula==cedula){
-            return vendedor;
+    let vendedor=0;
+        if(vendedores[i].cedula==cedula){
+            return vendedor=vendedores[i];
             break;
         }
     }
-    return null;
+    return -1;
+}
+function buscarVendedorActivo(){
+  let buscarCedula=recuperarTexto("txtBuscarCedula");
+  let encontrado=buscarVendedor(buscarCedula);
+  if (encontrado!=-1){
+    mostrarTextoEnDiv("resultadoBusqueda",encontrado.nombre);
+  }else{
+    mostrarTextoEnDiv("resultadoBusqueda","El vendedor con dicha cedula no existe");
+  }
 }
