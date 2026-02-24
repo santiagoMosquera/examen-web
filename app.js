@@ -79,8 +79,9 @@ function buscarVendedorAction(){
   if(resultadoBusqueda != -1) {
     mostrarTextoEnDiv("resultadoBusqueda",
       `${vendedores[resultadoBusqueda].nombre} ${vendedores[resultadoBusqueda].apellido}`);
+      habilitarComponente("btnMover");
   }else{
-    mostrarTextoEnDiv("resultadoBusqueda", resultadoBusqueda);
+    mostrarTextoEnDiv("resultadoBusqueda", "El vendedor no existe");
   }
 }
 
