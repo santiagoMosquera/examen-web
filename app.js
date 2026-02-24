@@ -78,6 +78,16 @@ buscarVendedor=function(cedula){
     return posicion;
 }
 
+buscarVendedorAction=function(){
+  let cedula=recuperarTexto("txtBuscarCedula");
+  let posicionVendedor=buscarVendedor(cedula);
+  if(posicionVendedor!=-1){
+    let elementoVendedor=vendedores[posicionVendedor];
+    mostrarTextoEnDiv("resultadoBusqueda",elementoVendedor.nombre+" "+elementoVendedor.apellido);
+  }else{
+    mostrarTextoEnDiv("resultadoBusqueda","El vendedor con dicha cedula no existe");
+  }
+}
 
 
 // =========================
