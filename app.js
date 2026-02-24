@@ -30,6 +30,9 @@ function pintarListaVendedores() {
     html += "</ul>";
     
     mostrarHtmlEnDiv("contenedorIzquierda", html);
+
+    let total = calcularTotalVentas();
+    mostrarTextoEnDiv("totalVentas", total);
 }
 
 inicializar = function() {
