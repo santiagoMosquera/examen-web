@@ -86,19 +86,24 @@ function agregarVendedorAction() {
         apellido: apellido,
         ventas: ventas
     };
-
-   
     agregarVendedor(nuevoVendedor);
-
-   
     pintarListaVendedores();
-
     document.getElementById("txtCedula").value = "";
     document.getElementById("txtNombre").value = "";
     document.getElementById("txtApellido").value = "";
     document.getElementById("txtVentas").value = "";
 }
+function buscarVendedor(cedula) {
 
+    for (let i = 0; i < vendedores.length; i++) {
+
+        if (vendedores[i].cedula === cedula) {
+            return i;
+        }
+    }
+
+    return -1;
+}
 
 // =========================
 // Búsqueda / movimiento
