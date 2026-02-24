@@ -46,10 +46,7 @@ agregarVendedorAction = function() {
   agregarVendedor(vendedorNuevo);
   pintarListaVendedores();
 
-  mostrarTextoEnCaja("txtCedula", "");
-  mostrarTextoEnCaja("txtNombre", "");
-  mostrarTextoEnCaja("txtApellido", "");
-  mostrarTextoEnCaja("txtVentas", "");
+  limpiar();
 
   mostrarTextoEnDiv("mensaje", "Vendedor agregado correctamente.");
 }
@@ -197,7 +194,13 @@ inicializar = function () {
   pintarListaVendedoresVIP();
 }
 
+limpiar = function() {
 
+  mostrarTextoEnCaja("txtCedula", "");
+  mostrarTextoEnCaja("txtNombre", "");
+  mostrarTextoEnCaja("txtApellido", "");
+  mostrarTextoEnCaja("txtVentas", "");
+}
 
 // =========================
 // Búsqueda / movimiento
