@@ -44,6 +44,21 @@ agregarVendedorAction = function () {
   mostrarTextoEnCaja("txtVentas", "");
 }
 
+buscarVendedor = function(cedulaBuscar) {
+
+  let posicion = -1;
+
+  for (let i = 0; i < vendedores.length; i++) {
+
+    if (vendedores[i].cedula === cedulaBuscar) {
+      posicion = i;
+      break;
+    }
+  }
+
+  return posicion;
+}
+
 pintarListaVendedores = function () {
 
   let listaVendedores = "<ul class='list'>";
