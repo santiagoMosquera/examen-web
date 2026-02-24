@@ -56,3 +56,14 @@ function agregarVendedorActivo(){
   let vendedor={cedula:txtcedula, nombre:txtnombre, apellido:txtapellido, ventas:txtventas};
   agregarVendedor(vendedor);
 }//esta incompleta no se muestra el nuebo vendedor en pantalla
+function buscarVendedor(cedula){
+  let vendedor={};
+  for(let i=0;i<vendedores.length;i++){
+        vendedor=vendedores[i];
+        if(vendedor.cedula==cedula){
+            return vendedor;
+            break;
+        }
+    }
+    return null;
+}
