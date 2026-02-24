@@ -56,20 +56,38 @@ function agregarVendedor(vendedor) {
     pintarListaVendedores();
 }
 
+// EJERCICIO 3 - parte 1 - (ejercicio 8)
 function agregarVendedorAction() {
     let cedula = recuperarTexto("txtCedula");
     let nombre = recuperarTexto("txtNombre");
     let apellido = recuperarTexto("txtApellido");
     let ventas = recuperarEntero("txtVentas");
     
-    let nuevoVendedor = {
-        cedula: cedula,
-        nombre: nombre,
-        apellido: apellido,
-        ventas: ventas,
-        nivel: ""
-    };
-    agregarVendedor(nuevoVendedor);
+    if (cedula === "") {
+        alert("Debe ingresar una cédula");
+        return;
+    }
+    let posicionExistente = buscarVendedor(cedula);
+    
+    if (posicionExistente !== -1) {
+        alert("Ya existe un vendedor con la cédula " + cedula + ", No se puede agregar");
+        mostrarTextoEnCaja("txtCedula", "");
+    } else {
+        let nuevoVendedor = {
+            cedula: cedula,
+            nombre: nombre,
+            apellido: apellido,
+            ventas: ventas,
+            nivel: ""
+        };
+        
+        agregarVendedor(nuevoVendedor);
+        
+        mostrarTextoEnCaja("txtCedula", "");
+        mostrarTextoEnCaja("txtNombre", "");
+        mostrarTextoEnCaja("txtApellido", "");
+        mostrarTextoEnCaja("txtVentas", "");
+    }
 }
 
 inicializar = function() {
