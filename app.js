@@ -42,6 +42,23 @@ agregarVendedor = function (vendedor) {
   vendedores.push(vendedor);
 }
 
+agregarVendedorAction = function () {
+
+  // a
+  let cedula = recuperarTexto("txtCedula");
+  let nombre = recuperarTexto("txtNombre");
+  let apellido = recuperarTexto("txtApellido");
+  let ventas = recuperarEntero("txtVentas");
+  // b
+  let vendedor = {};
+  // c
+  vendedor.cedula = cedula;
+  vendedor.nombre = nombre;
+  vendedor.apellido = apellido;
+  vendedor.ventas = ventas;
+  vendedor.nivel = "";
+}
+
 inicializar = function () {
   pintarListaVendedores();
   pintarListaVendedoresVIP();
