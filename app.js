@@ -44,12 +44,13 @@ pintarListaVendedoresVIP=function(){
 
   for (let i=0; i<vendedoresVIP.length;i++){
     let v = vendedoresVIP[i];
-    html += "<li>" + v.cedula+ " | " + v.nombre + " " + v.apellido + " | ventas: " + v.ventas + "</li>";
-
+    //html += "<li>" + v.cedula+ " | " + v.nombre + " " + v.apellido + " | ventas: " + v.ventas + "</li>";
+    html += "<li>" + v.cedula+ " | " + v.nombre + " " + v.apellido + " | ventas: " + v.ventas +  " | Nivel: " + v.nivel + "</li>";
   }
   html += "</ul>";
   mostrarHtmlEnDiv("contenedorDerecha", html); 
 }
+
 agregarVendedor=function(vendedor){
   vendedores.push(vendedor);
 }
@@ -101,9 +102,26 @@ moverAction=function(){
   let buscarCedula=recuperarTexto("txtBuscarCedula");
   let posi=buscarVendedor(buscarCedula);
   let vendedor=vendedores[posi];
+
+  let nivelCalculado=calcularNivel(vendedor.ventas);
+  vendedor.nivel=nivelCalculado;
+
   vendedoresVIP.push(vendedor);
   vendedores.splice(posi,1);
 
   pintarListaVendedores();
   pintarListaVendedoresVIP();
+}
+
+calcularNivel=function(ventas){
+  if(ventas>=10 && ventas<=12){
+    return "bronce";
+  }
+  if(ventas>=13 && ventas<=15){
+    return "plata";
+  }
+  if(ventas>15){
+    return "oro";
+  }
+  return "";
 }
