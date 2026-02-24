@@ -54,6 +54,14 @@ function agregarVendedorAction(){
   let nombre = recuperarTexto("txtNombre");
   let apellido = recuperarTexto("txtApellido");
   let ventas = recuperarEntero("txtVentas");
+
+  let vendedor = {};
+  vendedor.cedula = cedula;
+  vendedor.nombre = nombre;
+  vendedor.apellido = apellido;
+  vendedor.ventas = ventas;
+
+  agregarVendedor(vendedor);
 }
 
 
