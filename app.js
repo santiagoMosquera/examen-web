@@ -101,6 +101,11 @@ function agregarVendedorAction() {
     let nombre = recuperarTexto("txtNombre"); 
     let apellido = recuperarTexto("txtApellido"); 
     let ventas = recuperarEntero("txtVentas"); 
+let indiceExistente = buscarVendedor(cedula);
+
+    if (indiceExistente !== -1) {
+        alert("Ya existe el vendedor, no se puede agregar"); 
+} else {
     let nuevoVendedor = {
         cedula: cedula,
         nombre: nombre,
@@ -110,6 +115,7 @@ function agregarVendedorAction() {
     }; 
     agregarVendedor(nuevoVendedor); 
     pintarListaVendedores(); 
+}
 }
 
 // =========================
