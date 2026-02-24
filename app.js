@@ -40,6 +40,9 @@ pintarListaVendedores=function(){
 
   let totalVentas=calcularTotalVentas();
   mostrarTextoEnDiv("totalVentas", totalVentas);
+
+  mostrarTextoEnDiv("contadorVendedores", vendedores.length);
+
 }
 
 pintarListaVendedoresVIP=function(){
@@ -52,10 +55,14 @@ pintarListaVendedoresVIP=function(){
   }
   html += "</ul>";
   mostrarHtmlEnDiv("contenedorDerecha", html); 
+
+  mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
+
 }
 
 agregarVendedor=function(vendedor){
   vendedores.push(vendedor);
+
 }
 
 agregarVendedorAction=function(){
