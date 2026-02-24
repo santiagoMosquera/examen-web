@@ -14,7 +14,7 @@ let vendedoresVIP = [
 ];
 
 inicializar=function(){
-
+  pintarListaVendedores();
 }
 
 pintarListaVendedores=function(){
