@@ -95,6 +95,8 @@ function moverAction() {
     // validar si el vendedor existe 
     if (resultadoBusqueda != -1) {
         let vendedorRecuperado = vendedores[resultadoBusqueda];
+        let nivelCalculado = calcularNivel(vendedorRecuperado.ventas);
+        vendedorRecuperado.nivel = nivelCalculado;
         vendedoresVIP.push(vendedorRecuperado);
         //Borrar el vendedor del arreglo vendedores usando splice 
         vendedores.splice(resultadoBusqueda, 1);
