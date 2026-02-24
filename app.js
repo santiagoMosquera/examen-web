@@ -148,6 +148,11 @@ function moverAction() {
   }
   let vendedor = vendedores[posicion];
 
+
+  // agregamos la funcion calcuar nuvvel
+  let nivelCalculado = calcularNivel(vendedor.ventas);
+  vendedor.nivel = nivelCalculado;
+
   vendedoresVIP.push(vendedor);
 
   vendedores.splice(posicion, 1);
@@ -157,6 +162,25 @@ function moverAction() {
 }
 
 
+// =========================
+// Calcula nivel
+// =========================
+
+
+function calcularNivel(ventas) {
+
+  let nivel = "";
+
+  if (ventas >= 10 && ventas <= 12) {
+    nivel = "bronce";
+  } else if (ventas >= 13 && ventas <= 15) {
+    nivel = "plata";
+  } else if (ventas > 15) {
+    nivel = "oro";
+  }
+
+  return nivel;
+}
 
 function limpiarBusqueda() {
   indiceEncontrado = -1;
