@@ -9,14 +9,16 @@ let vendedores = [
  ];
 
 let vendedoresVIP = [
-    { cedula:"0720304056",nombre: "Josselyn", apellido: "Pillajo", ventas:17, nivel:"oro"},
+    { cedula:"0720304056",nombre: "Josselyn", apellido: "Pillajo", ventas:17, nivel:"oro"}, 
     { cedula:"1945504089",nombre: "Alexandra", apellido: "Analuisa", ventas:10, nivel:"bronce"},
 
 ];
 
 inicializar=function(){
-  pintarListaVendedores()
+  //pintarListaVendedores();
+  pintarListaVendedoresVIP();
 }
+
 
 pintarListaVendedores = function(){
 
@@ -27,7 +29,8 @@ pintarListaVendedores = function(){
           + vendedor.cedula + " | "
           + vendedor.nombre + " " + vendedor.apellido 
           + " | ventas: " + vendedor.ventas 
-          + "</li>";}
+          + "</li>";
+  }
 
   html += "</ul>";
   mostrarHtmlEnDiv("contenedorIzquierda", html);
@@ -45,6 +48,24 @@ for (let i = 0; i < vendedores.length; i++) {
 
 }
 
+// Ejercicio # 2: Funcion VendedoresVip
+
+pintarListaVendedoresVIP = function(){
+
+  let html = "<ul class='list'>";
+  for (let i = 0; i < vendedoresVIP.length; i++) {
+    let vendedorVip = vendedoresVIP[i];
+    html += "<li>"
+          + vendedorVip.nombre + " " + vendedorVip.apellido
+          + " >>  nivel: " + vendedorVip.nivel
+          + "</li>";
+  }
+
+    html += "</ul>";
+  mostrarHtmlEnDiv("contenedorDerecha", html);
+  mostrarTextoEnDiv("contadorVendedoresVIP", vendedores.length);
+  
+}
 
 
 // =========================
