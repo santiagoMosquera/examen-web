@@ -18,8 +18,6 @@ inicializar=function(){
   pintarListaVendedoresVIP();
 }
 
-
-
 // =========================
 // Búsqueda / movimiento
 // =========================
@@ -31,13 +29,21 @@ function limpiarBusqueda() {
 }
 pintarListaVendedores=function(){
   let html = "<ul class='list'>";
-  for(i=0;i<vendedores.length;i++){
+  for(let i=0;i<vendedores.length;i++){
     let v = vendedores[i];
     html += `<li>${v.cedula} | ${v.nombre} ${v.apellido} | ventas: ${v.ventas}</li>`;
   }
-  html += "</u>";
+  html += "</ul>";
   mostrarHtmlEnDiv("contenedorIzquierda", html);
 }
-
-
-
+pintarListaVendedoresVIP=function(){
+  let html = "<ul class='list'>";
+  console.log(vendedoresVIP)
+  for(let i=0;i<vendedoresVIP.length;i++){
+    let v = vendedoresVIP[i];
+    html += `<li>${v.nombre} >> nivel: ${v.nivel}</li>`;
+  }
+  html += "</ul>";
+  console.log(html)
+  mostrarHtmlEnDiv("contenedorDerecha", html);
+}
