@@ -61,6 +61,7 @@ function pintarListaVendedores() {
 
 inicializar = function () {
   pintarListaVendedores();
+  pintarListaVendedoresVIP();
 };
 
 function pintarListaVendedoresVIP() {
@@ -81,7 +82,6 @@ function pintarListaVendedoresVIP() {
   mostrarHtmlEnDiv("contenedorDerecha", html);
 }
 
-
 function agregarVendedor() {
   let cedula = recuperarTexto("cedula");
   let nombre = recuperarTexto("nombre");
@@ -96,10 +96,40 @@ function agregarVendedor() {
   };
   vendedores.push(nuevoVendedor);
   pintarListaVendedores();
+}
+
+function buscarVendedor(cedula) {
+  let indiceEncontrado = -1;
+  for (let i = 0; i < vendedores.length; i++) {
+    if (vendedores[i].cedula === cedula) {
+      indiceEncontrado = i;
+      break;
+    }
   }
+  return indiceEncontrado;
+}
 
+function buscarVendedorAction() {
+  let cedula = recuperarTexto("cedulaBuscar");
+  let indiceEncontrado = buscarVendedor(cedula);
+  if (indiceEncontrado === -1) {
+    mostrarHtmlEnDiv(
+      "resultadoBusqueda ",
+      "<span class='error'>El vendedor  con dicha cédula no  existe</span>",
+    );
+  } else {
+    let vendedorEncontrado = vendedores[indiceEncontrado];
+    mostrarHtmlEnDiv(
+      "resultadoBusqueda",
+      "<span class='success'>Vendedor encontrado: " +
+        vendedorEncontrado.nombre +
+        " " +
+        vendedorEncontrado.apellido +
+        "</span>",
+    );
+  }
+}
 
-  
 // =========================
 // Búsqueda / movimiento
 // =========================
