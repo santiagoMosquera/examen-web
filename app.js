@@ -28,6 +28,9 @@ function limpiarBusqueda() {
   telefonoBuscarEl.value = "";
 }
 pintarListaVendedores=function(){
+  let ven= calcularTotalVentas();
+  mostrarTextoEnDiv("totalVentas",ven);
+  mostrarTextoEnDiv("contadorVendedores",vendedores.length)
   let html = "<ul class='list'>";
   for(let i=0;i<vendedores.length;i++){
     let v = vendedores[i];
@@ -46,6 +49,7 @@ pintarListaVendedoresVIP=function(){
   html += "</ul>";
   console.log(html)
   mostrarHtmlEnDiv("contenedorDerecha", html);
+  mostrarTextoEnDiv("contadorVendedoresVIP",vendedoresVIP.length)
 }
 agregarVendedor = function(vendedor){
   vendedores.push(vendedor);
@@ -101,4 +105,11 @@ calularNivel=function(ventas){
   if (ventas >= 13 && ventas <= 15) return "plata";
   if (ventas > 15) return "oro";
   return "sin nivel";
+}
+calcularTotalVentas = function(){
+  let tot = 0;
+  for(let i=0;i<vendedores.length;i++){
+    tot += vendedores[i].ventas;
+  }
+  return tot;
 }
