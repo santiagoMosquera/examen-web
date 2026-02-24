@@ -70,8 +70,13 @@ agregarVendedorAction=function(){
   nuevoVendedor.apellido=recuperarTexto("txtApellido");
   nuevoVendedor.ventas=recuperarEntero("txtVentas");
   nuevoVendedor.nivel="";
-  agregarVenderdor(nuevoVendedor);
-  pintarListaVendedores();
+  let validaVendedor=buscarVendedor(nuevoVendedor.cedula);
+  if(validaVendedor!=-1){
+    alert("El vendedor ya existe");
+  }else{
+    agregarVenderdor(nuevoVendedor);
+    pintarListaVendedores();
+  }
 }
 
 buscarVendedor=function(cedula){
