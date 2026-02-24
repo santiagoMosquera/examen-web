@@ -16,10 +16,32 @@ let vendedoresVIP = [
 ];
 
 inicializar=function(){
-  
+  pintarListaVendedores();
 }
 
+// EJERCICIO 1
 
+pintarListaVendedores = function() {
+    let vendedor = {};
+    let tabla = "<table class='table'>" +
+                "<tr>" +
+                "<th>CÉDULA</th><th>NOMBRE</th><th>APELLIDO</th><th>VENTAS</th>" +
+                "</tr>";
+    
+    for(let i = 0; i < vendedores.length; i++) {
+        vendedor = vendedores[i];
+        tabla += "<tr>" + 
+                 "<td>" + vendedor.cedula + "</td>" +
+                 "<td>" + vendedor.nombre + "</td>" +
+                 "<td>" + vendedor.apellido + "</td>" +
+                 "<td>" + vendedor.ventas + "</td>" +
+                 "</tr>";
+    }
+    
+    tabla += "</table>";
+    
+    
+    mostrarHtmlEnDiv("contenedorIzquierda", tabla);}
 
 // =========================
 // Búsqueda / movimiento
