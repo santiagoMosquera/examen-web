@@ -96,3 +96,14 @@ buscarVendedorAction=function(){
   }
   habilitarComponente("btnMover");
 }
+
+moverAction=function(){
+  let buscarCedula=recuperarTexto("txtBuscarCedula");
+  let posi=buscarVendedor(buscarCedula);
+  let vendedor=vendedores[posi];
+  vendedoresVIP.push(vendedor);
+  vendedores.splice(posi,1);
+
+  pintarListaVendedores();
+  pintarListaVendedoresVIP();
+}
