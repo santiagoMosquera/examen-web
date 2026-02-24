@@ -82,6 +82,12 @@ function agregarVendedorAction() {
   let apellido = document.getElementById("txtApellido").value;
   let ventas = parseInt(document.getElementById("txtVentas").value);
 
+  let posicion = buscarVendedor(cedula);
+
+  if (posicion != -1) {
+    alert("Ya existe el vendedor, no se puede agregar");
+    return; 
+  }
   
   let vendedor = {};
   vendedor.cedula = cedula;
