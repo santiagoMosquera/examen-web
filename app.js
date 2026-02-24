@@ -20,15 +20,23 @@ agregarVendedor = function (vendedorNuevo) {
   vendedores.push(vendedorNuevo);
 }
 
-agregarVendedorAction = function () {
+agregarVendedorAction = function() {
+  mostrarTextoEnDiv("mensaje", "");
 
   let cedula = recuperarTexto("txtCedula");
   let nombre = recuperarTexto("txtNombre");
   let apellido = recuperarTexto("txtApellido");
   let ventas = recuperarEntero("txtVentas");
 
-  let vendedorNuevo = {};
+  let posicion = buscarVendedor(cedula);
 
+  if (posicion !== -1) {
+
+    mostrarTextoEnDiv("mensaje", "Ya existe el vendedor, no se puede agregar.");
+    return;
+  }
+
+  let vendedorNuevo = {};
   vendedorNuevo.cedula = cedula;
   vendedorNuevo.nombre = nombre;
   vendedorNuevo.apellido = apellido;
@@ -42,6 +50,8 @@ agregarVendedorAction = function () {
   mostrarTextoEnCaja("txtNombre", "");
   mostrarTextoEnCaja("txtApellido", "");
   mostrarTextoEnCaja("txtVentas", "");
+
+  mostrarTextoEnDiv("mensaje", "Vendedor agregado correctamente.");
 }
 
 buscarVendedor = function(cedulaBuscar) {
