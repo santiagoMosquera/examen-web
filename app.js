@@ -71,24 +71,27 @@ agregarVendedor = function(vendedor) {
 agregarVendedorAction = function() {
     
     let cedula = recuperarTexto("txtCedula");
-    let nombre = recuperarTexto("txtNombre");
-    let apellido = recuperarTexto("txtApellido");
-    let ventas = recuperarEntero("txtVentas");
+   let indiceEncontrado = buscarVendedor(cedula);
 
-    
-    let nuevoVendedor = {
-        cedula: cedula,
-        nombre: nombre,
-        apellido: apellido,
-        ventas: ventas,
-        nivel: "" 
-    };
+    if (indiceEncontrado == -1) {
+        let nombre = recuperarTexto("txtNombre");
+        let apellido = recuperarTexto("txtApellido");
+        let ventas = recuperarEntero("txtVentas");
 
-    agregarVendedor(nuevoVendedor);
+        let nuevoVendedor = {
+            cedula: cedula,
+            nombre: nombre,
+            apellido: apellido,
+            ventas: ventas,
+            nivel: "" 
+        };
 
-    pintarListaVendedores();
-} 
-
+        agregarVendedor(nuevoVendedor);
+        pintarListaVendedores();
+    } else {
+        alert("Ya existe el vendedor, no se puede agregar");
+    }
+}
 buscarVendedor = function(cedula) {
     let vendedor;
     let busqueda = -1;
