@@ -28,10 +28,13 @@ agregarVendedorAction = function() {
   let apellido = recuperarTexto("txtApellido");
   let ventas = recuperarEntero("txtVentas");
 
+  if (cedula === "" || nombre === "" || apellido === "" || isNaN(ventas)) {
+    mostrarTextoEnDiv("mensaje", "Debe completar todos los campos.");
+    return;
+  }
   let posicion = buscarVendedor(cedula);
 
   if (posicion !== -1) {
-
     mostrarTextoEnDiv("mensaje", "Ya existe el vendedor, no se puede agregar.");
     return;
   }
@@ -46,6 +49,7 @@ agregarVendedorAction = function() {
   agregarVendedor(vendedorNuevo);
   pintarListaVendedores();
 
+ 
   limpiar();
 
   mostrarTextoEnDiv("mensaje", "Vendedor agregado correctamente.");
@@ -173,20 +177,57 @@ pintarListaVendedoresVIP = function () {
   let listaVendedoresVIP = "<ul class='list'>";
 
   for (let i = 0; i < vendedoresVIP.length; i++) {
+    if (vendedoresVIP[i].nivel === "oro") {
 
-    listaVendedoresVIP = listaVendedoresVIP + "<li>";
-    listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nombre + " ";
-    listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].apellido;
-    listaVendedoresVIP = listaVendedoresVIP + " >> Nivel: ";
-    listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nivel;
-    listaVendedoresVIP = listaVendedoresVIP + "</li>";
+      listaVendedoresVIP = listaVendedoresVIP + "<li>";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nombre + " ";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].apellido;
+      listaVendedoresVIP = listaVendedoresVIP + " >> Nivel: ";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nivel;
+      listaVendedoresVIP = listaVendedoresVIP + "</li>";
+    }
+  }
+
+  for (let i = 0; i < vendedoresVIP.length; i++) {
+    if (vendedoresVIP[i].nivel === "plata") {
+
+      listaVendedoresVIP = listaVendedoresVIP + "<li>";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nombre + " ";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].apellido;
+      listaVendedoresVIP = listaVendedoresVIP + " >> Nivel: ";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nivel;
+      listaVendedoresVIP = listaVendedoresVIP + "</li>";
+    }
+  }
+
+  for (let i = 0; i < vendedoresVIP.length; i++) {
+    if (vendedoresVIP[i].nivel === "bronce") {
+
+      listaVendedoresVIP = listaVendedoresVIP + "<li>";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nombre + " ";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].apellido;
+      listaVendedoresVIP = listaVendedoresVIP + " >> Nivel: ";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nivel;
+      listaVendedoresVIP = listaVendedoresVIP + "</li>";
+    }
+  }
+
+  for (let i = 0; i < vendedoresVIP.length; i++) {
+    if (vendedoresVIP[i].nivel === "sin nivel") {
+
+      listaVendedoresVIP = listaVendedoresVIP + "<li>";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nombre + " ";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].apellido;
+      listaVendedoresVIP = listaVendedoresVIP + " >> Nivel: ";
+      listaVendedoresVIP = listaVendedoresVIP + vendedoresVIP[i].nivel;
+      listaVendedoresVIP = listaVendedoresVIP + "</li>";
+    }
   }
 
   listaVendedoresVIP = listaVendedoresVIP + "</ul>";
 
   mostrarHtmlEnDiv("contenedorDerecha", listaVendedoresVIP);
-
-  mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length); //lo realice antes pero me pide en el ejercicio 7
+  mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
 }
 
 inicializar = function () {
