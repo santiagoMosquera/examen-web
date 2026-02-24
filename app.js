@@ -27,8 +27,24 @@ function pintarListaVendedores() {
     mostrarHtmlEnDiv("contenedorIzquierda", html);
 }
 
+// Función para pintar la lista de vendedores VIP
+function pintarListaVendedoresVIP() {
+    let html = "<ul class='list'>";
+
+    for (let i = 0; i < vendedoresVIP.length; i++) {
+        let vendedorVIP = vendedoresVIP[i];
+        html += "<li>" + vendedorVIP.nombre + " " + vendedorVIP.apellido + " >> nivel: " + vendedorVIP.nivel + "</li>";
+    }
+    
+    html += "</ul>";
+    
+    mostrarHtmlEnDiv("contenedorDerecha", html);
+}
+
+
 inicializar = function() {
     pintarListaVendedores();
+    pintarListaVendedoresVIP();
 }
 
 
