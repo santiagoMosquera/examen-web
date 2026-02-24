@@ -137,6 +137,25 @@ function buscarVendedorAction() {
 }
 
 
+function moverAction() {
+
+  let cedulaBuscar = document.getElementById("txtBuscarCedula").value;
+  let posicion = buscarVendedor(cedulaBuscar);
+
+  
+  if (posicion == -1) {
+    return; 
+  }
+  let vendedor = vendedores[posicion];
+
+  vendedoresVIP.push(vendedor);
+
+  vendedores.splice(posicion, 1);
+
+  pintarListaVendedores();
+  pintarListaVendedoresVIP();
+}
+
 
 
 function limpiarBusqueda() {
