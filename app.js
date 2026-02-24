@@ -70,11 +70,9 @@ function buscarVendedor(cedula) {
     }
     return -1; 
 }
-
 function buscarVendedorAction() {
     let cedulaBuscar = recuperarTexto("txtBuscarCedula"); 
     let indiceEncontrado = buscarVendedor(cedulaBuscar); 
-
     if (indiceEncontrado !== -1) { 
         let v = vendedores[indiceEncontrado]; 
         mostrarHtmlEnDiv("resultadoBusqueda", v.nombre + " " + v.apellido); 
@@ -85,18 +83,14 @@ function buscarVendedorAction() {
         deshabilitarComponente("btnMover");
     }
 }
-
-
 function agregarVendedor(vendedor) {
     vendedores.push(vendedor); 
 }
-
 function agregarVendedorAction() {
     let cedula = recuperarTexto("txtCedula"); 
     let nombre = recuperarTexto("txtNombre"); 
     let apellido = recuperarTexto("txtApellido"); 
     let ventas = recuperarEntero("txtVentas"); 
-
     let nuevoVendedor = {
         cedula: cedula,
         nombre: nombre,
@@ -104,10 +98,32 @@ function agregarVendedorAction() {
         ventas: ventas,
         nivel: ""
     }; 
-
     agregarVendedor(nuevoVendedor); 
-    
     pintarListaVendedores(); 
+}
+
+// =========================
+// EJERCICIO 4:
+// =========================
+
+function moverAction() {
+    let cedulaABuscar = recuperarTexto("txtBuscarCedula");
+
+    let indice = buscarVendedor(cedulaABuscar);
+
+    if (indice !== -1) {
+        let vendedorRecuperado = vendedores[indice];
+
+        vendedoresVIP.push(vendedorRecuperado);
+
+        vendedores.splice(indice, 1);
+
+        pintarListaVendedores();
+        pintarListaVendedoresVIP();
+        
+        deshabilitarComponente("btnMover");
+        mostrarHtmlEnDiv("resultadoBusqueda", "Vendedor movido con exito");
+    }
 }
 
 
