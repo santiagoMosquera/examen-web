@@ -13,9 +13,7 @@ let vendedoresVIP = [
 
 ];
 
-inicializar=function(){
-  
-}
+
 
 
 
@@ -29,6 +27,21 @@ function limpiarBusqueda() {
   telefonoBuscarEl.value = "";
 }
 
+pintarListaVendedores = function () {
+    let contenidoHtml = "<ul class='list'>";
+    let vendedor;
+
+    for (let i = 0; i < vendedores.length; i++) {
+        vendedor = vendedores[i];
+        contenidoHtml += "<li>" + vendedor.cedula + " | " + vendedor.nombre + " " + vendedor.apellido + " | ventas: " + vendedor.ventas + "</li>";
+    }
+
+    contenidoHtml += "</ul>";
+    mostrarHtmlEnDiv("contenedorIzquierda", contenidoHtml);
+}
 
 
+inicializar=function(){
+ pintarListaVendedores();
+}
 
