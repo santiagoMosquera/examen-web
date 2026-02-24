@@ -74,9 +74,11 @@ agregarVendedorAction = function () {
       nivel: ""
     };
     agregarVendedor(nuevoVendedor);
-    alert("Vendedor agregado correctamente!!")
+    alert("Vendedor agregado correctamente!!");
+    limpiar();
   }
   
+
 }
 
 //a)
@@ -119,6 +121,8 @@ function moverAction() {
     // 6. Refrescar en pantalla las dos listas para ver los cambios 
     pintarListaVendedores();
     pintarListaVendedoresVIP();
+
+    deshabilitarComponente("btnMover");
   }
 }
 
@@ -145,6 +149,14 @@ function calcularTotalVentas() {
     totalVentas = totalVentas + vendedores[i].ventas;
   }
   return totalVentas;
+}
+
+//ejercicio 9
+limpiar = function () {
+  mostrarTextoEnCaja("txtCedula", "");
+  mostrarTextoEnCaja("txtNombre", "");
+  mostrarTextoEnCaja("txtApellido", "");
+  mostrarTextoEnCaja("txtVentas", "");
 }
 
 
