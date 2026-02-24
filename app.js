@@ -16,6 +16,7 @@ let vendedoresVIP = [
 
 inicializar=function(){
   pintarListaVendedores();
+  pintarListaVendedoresVIP();
 }
 
 
@@ -30,6 +31,18 @@ function pintarListaVendedores(){
   }
   tabla+="</table>";
   mostrarHtmlEnDiv("contenedorIzquierda", tabla);
+}
+
+function pintarListaVendedoresVIP(){
+  let tabla=`<table>`;
+
+  for(let i=0;i<vendedoresVIP.length;i++){
+      tabla+=`<tr>
+      <td>${vendedoresVIP[i].nombre}</td>
+      <td> >>nivel: ${vendedoresVIP[i].nivel}</td></tr>`;
+  }
+  tabla+="</table>";
+  mostrarHtmlEnDiv("contenedorDerecha", tabla);
 }
 
 
