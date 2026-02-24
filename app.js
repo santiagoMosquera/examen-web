@@ -80,6 +80,16 @@ buscarVendedorAction = function() {
   }
 }
 
+moverAction = function() {
+  let cedula = recuperarTexto("txtBuscarCedula");
+  let posicion = buscarVendedor(cedula);
+  let vendedor = vendedores[posicion];
+  vendedoresVIP.push(vendedor);
+  vendedores.splice(posicion, 1);
+  pintarListaVendedores();
+  pintarListaVendedoresVIP();
+}
+
 // =========================
 // Búsqueda / movimiento
 // =========================
