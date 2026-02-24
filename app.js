@@ -50,6 +50,28 @@ agregarVendedorAction=function(){
   pintarListaVendedores();
 }
 
+buscarVendedor= function(cedula){
+   let vendedor = -1;
+  for(let i = 0; i < vendedores.length; i++){
+     let posicion = vendedores[i];
+     if (cedula == posicion.cedula){
+      vendedor = posicion;
+      break
+     }
+  }
+  return vendedor;
+}
+
+buscarVendedorAction = function (){
+  let cedula = recuperarTexto("txtBuscarCedula");
+  let vendedor = buscarVendedor(cedula);
+  if (vendedor === -1){
+    mostrarTextoEnDiv("resultadoBusqueda","El vendedor con dicha cedula no existe");
+  } else{
+    mostrarTextoEnDiv("resultadoBusqueda", vendedor.nombre+" "+vendedor.apellido);
+    habilitarComponente("btnMover");
+  }
+}
 // =========================
 // Búsqueda / movimiento
 // =========================
