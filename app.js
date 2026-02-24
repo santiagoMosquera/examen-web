@@ -82,6 +82,17 @@ buscarVendedorAction=function(){
      habilitarComponente("btnMover");
   }
 }
+moverAction=function(){
+   let txtBuscarCedula = recuperarTexto("txtBuscarCedula");
+  let encontrado=buscarVendedor(txtBuscarCedula);
+  let vendedorSeleccionado=vendedores[encontrado];
+  vendedoresVIP.push(vendedorSeleccionado);
+  vendedores.splice(encontrado,1);
+  console.log(encontrado);
+  console.log(vendedores);
+   pintarListaVendedores();
+  pintarListaVendedoresVIP();
+}
 function limpiarBusqueda() {
   indiceEncontrado = -1;
   btnMover.disabled = true;
