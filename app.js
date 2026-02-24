@@ -1,4 +1,23 @@
 //Ismael Hernandez
+function pintarListaVendedores(){
+
+    let html = "<ul class='list'>";
+    let total = 0;
+
+  
+    for (let i = 0; i < vendedores.length; i++) {
+
+        let v = vendedores[i];
+
+        html += "<li>" 
+            + v.cedula + " | "
+            + v.nombre + " " + v.apellido 
+            + " | ventas: " + v.ventas 
+            + "</li>";
+
+        total += v.ventas;
+    }
+    }
 
 
 // =========================
