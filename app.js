@@ -49,7 +49,7 @@ function agregarVendedorAction() {
         let nuevo = { cedula, nombre, apellido, ventas, nivel: "" };
         vendedores.push(nuevo);
         pintarListaVendedores();
-        limpiar(); // [cite: 67]
+        limpiar(); 
     }
 }
 
@@ -72,7 +72,21 @@ function buscarVendedorAction() {
     }
 }
 
-
+function moverAction() { 
+    let cedula = recuperarTexto("txtBuscarCedula");
+    let indice = buscarVendedor(cedula);
+    if (indice !== -1) {
+        let v = vendedores[indice];
+        v.nivel = calcularNivel(v.ventas); 
+        vendedoresVIP.push(v);
+        vendedores.splice(indice, 1); 
+        
+        pintarListaVendedores();
+        pintarListaVendedoresVIP();
+        deshabilitarComponente("btnMover"); 
+        mostrarHtmlEnDiv("resultadoBusqueda", "<span class='muted'>Sin búsqueda aún</span>");
+    }
+}
 
 
 
