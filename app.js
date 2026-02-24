@@ -75,15 +75,24 @@ buscarVendedor = function (cedula) {
 }
 
 buscarVendedorAction = function () {
+
   let cedula = recuperarTexto("txtBuscarCedula");
+
   let posicion = buscarVendedor(cedula);
+  let resultadoBusquedaEl = document.getElementById("resultadoBusqueda");
+
   if (posicion === -1) {
     resultadoBusquedaEl.innerHTML = "<span class='muted'>El vendedor con dicha cédula no existe</span>";
+
+    deshabilitarComponente("btnMover");
   } else {
     let vendedor = vendedores[posicion];
     resultadoBusquedaEl.innerHTML = "<span class='muted'>" + vendedor.nombre + " " + vendedor.apellido + "</span>";
+
+    habilitarComponente("btnMover");
   }
 }
+
 
 inicializar = function () {
   pintarListaVendedores();
