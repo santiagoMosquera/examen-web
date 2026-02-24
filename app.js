@@ -1,5 +1,5 @@
 //Ismael Hernandez
-function pintarListaVendedores(){
+pintarListaVendedores=function(){
 
     let html = "<ul class='list'>";
     let total = 0;
@@ -44,7 +44,7 @@ let vendedoresVIP = [
 ];
 
 inicializar=function(){
-  
+    pintarListaVendedores();
 }
 
 
