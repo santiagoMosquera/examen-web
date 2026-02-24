@@ -38,6 +38,10 @@ pintarListaVendedoresVIP = function () {
   mostrarHtmlEnDiv("contenedorDerecha", html);
 }
 
+agregarVendedor = function (vendedor) {
+  vendedores.push(vendedor);
+}
+
 inicializar = function () {
   pintarListaVendedores();
   pintarListaVendedoresVIP();
