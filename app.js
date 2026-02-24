@@ -121,9 +121,24 @@ function moverAction(){
 
     if (posicion !== -1){
         let vendedor = vendedores[posicion];
+        let nivel = calcularNivel(vendedor.ventas);
+        vendedor.nivel = nivel;
+
         vendedoresVIP.push(vendedor);
         vendedores.splice(posicion,1);
         pintarListaVendedores();
         pintarListaVendedoresVip();
     }
+}
+ 
+function calcularNivel(NumVentas){
+    let nivel = '';
+    if ( NumVentas >= 10 && NumVentas <= 12){
+        nivel= 'bronce';
+    }else if (NumVentas >= 13 && NumVentas <= 15){
+        nivel= 'plata';
+    }else if (NumVentas > 15){
+        nivel = 'oro';
+    }
+    return nivel;
 }
