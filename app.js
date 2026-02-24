@@ -43,8 +43,14 @@ agregarVendedorAction = function() {
     vendedorNuevo.apellido = apellido;
     vendedorNuevo.ventas = ventas;
 
-    agregarVendedor(vendedorNuevo);
-    pintarListaVendedores();
+    if (buscarVendedor(cedula) == -1) {
+        agregarVendedor(vendedorNuevo);
+        pintarListaVendedores();
+        alert("REGISTRO EXITOSO ");
+    } else {
+        alert("YA EXISTE LA CEDULA REGISTRADA ");
+    }
+
 };
 
 /*=================================================
