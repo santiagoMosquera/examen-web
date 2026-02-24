@@ -14,11 +14,20 @@ let vendedoresVIP = [
 ];
 
 inicializar=function(){
-  
+  pintarListaVendedores();
 }
 
-
-
+pintarListaVendedores=function(){
+   let lista; 
+    lista = "<ul class='list'>" 
+    for (let i = 0; i < vendedores.length; i++) { 
+        let element = vendedores[i]; 
+        lista += "<li>" + element.cedula + " | " + element.nombre + " " + element.apellido + " | Ventas: " + element.ventas+"</li>";
+ 
+    } 
+    lista += "</ul>" 
+   mostrarHtmlEnDiv ("contenedorIzquierda",lista); 
+}
 // =========================
 // Búsqueda / movimiento
 // =========================
