@@ -42,6 +42,9 @@ pintarListaVendedores = function() {
     mostrarTextoEnDiv("totalVentas", total);
     
     mostrarHtmlEnDiv("contenedorIzquierda", tabla);
+
+    // EJERCICIO 7
+    mostrarTextoEnDiv("contadorVendedores", vendedores.length);
   }
 
 // EJERCICIO 2
@@ -61,7 +64,8 @@ pintarListaVendedoresVIP = function() {
     tabla += "</table>";
     
     mostrarHtmlEnDiv("contenedorDerecha", tabla);
-    
+     // EJERCICIO 7
+    mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
   }
 
   //EJERCICIO 3
