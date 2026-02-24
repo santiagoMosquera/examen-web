@@ -38,15 +38,8 @@ pintarListaVendedores = function(){
   mostrarTextoEnDiv("contadorVendedores", vendedores.length);
 
   // Total pra ventas:
-  let totalVentas = 0;
-
-for (let i = 0; i < vendedores.length; i++) {
-  let vendedorActual = vendedores[i];
-  let ventasActuales = vendedorActual.ventas;
-  totalVentas = totalVentas + ventasActuales;
-}
+  let totalVentas = calcularTotalVentas();
   mostrarTextoEnDiv("totalVentas", totalVentas)
-
 }
 
 // Ejercicio # 2: Funcion VendedoresVip
@@ -183,6 +176,17 @@ calcularNivel = function(numeroVentas){
 }
 
 
+// 6: 
+
+calcularTotalVentas = function(){
+  let totalVentas = 0;
+
+  for (let i = 0; i < vendedores.length; i++) {
+    let vendedorActual = vendedores[i];
+    totalVentas += vendedorActual.ventas;
+  }
+  return totalVentas;
+}
 
 
 
