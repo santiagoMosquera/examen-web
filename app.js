@@ -64,7 +64,7 @@ function agregarVendedorAction() {
   }
   agregarVendedor(vendedor);
   pintarListaVendedores();
-
+  pintarListaVendedoresVIP();
 }
 
 function buscarVendedor(cedula) {
@@ -85,5 +85,19 @@ function buscarVendedorAction() {
   } else {
     let vendedor = vendedores[posicion];
     mostrarHtmlEnDiv("resultadoBusqueda", `${vendedor.nombre} ${vendedor.apellido}`);
+  }
+}
+
+function moverAction() {
+  cedula = recuperarEntero("txtBuscarCedula");
+  posicion = buscarVendedor(cedula);
+  if (posicion == -1) {
+    mostrarHtmlEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe");
+  } else {
+    vendedor = vendedores[posicion];
+    vendedoresVIP.push(vendedor);
+    vendedores.splice(posicion, 1);
+    pintarListaVendedores();
+    pintarListaVendedoresVIP();
   }
 }
