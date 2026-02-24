@@ -16,8 +16,32 @@ let vendedoresVIP = [
 
 ];
 
-inicializar=function(){
-  
+pintarListaVendedores = function() {
+
+  let listaVendedores = "<ul class='list'>";
+  let totalVentas = 0;
+
+  for (let i = 0; i < vendedores.length; i++) {
+
+    listaVendedores = listaVendedores + "<li>";
+    listaVendedores = listaVendedores + vendedores[i].cedula + " | ";
+    listaVendedores = listaVendedores + vendedores[i].nombre + " ";
+    listaVendedores = listaVendedores + vendedores[i].apellido + " | ventas: ";
+    listaVendedores = listaVendedores + vendedores[i].ventas;
+    listaVendedores = listaVendedores + "</li>";
+
+    totalVentas = totalVentas + vendedores[i].ventas;
+  }
+
+  listaVendedores = listaVendedores + "</ul>";
+
+  mostrarHtmlEnDiv("contenedorIzquierda", listaVendedores);
+  mostrarTextoEnDiv("totalVentas", totalVentas);
+  mostrarTextoEnDiv("contadorVendedores", vendedores.length);
+}
+
+inicializar = function() {
+  pintarListaVendedores();
 }
 
 
