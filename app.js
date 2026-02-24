@@ -64,6 +64,7 @@ agregarVendedorAction = function() {
 
     agregarVendedor(vendedor);
     pintarListaVendedores();
+    limpiar();
     document.getElementById("mensaje").style.display = "none";
   }
 }
@@ -99,6 +100,7 @@ moverAction = function() {
   vendedor.nivel = nivel;
   vendedoresVIP.push(vendedor);
   vendedores.splice(posicion, 1);
+  deshabilitarComponente("btnMover");
   pintarListaVendedores();
   pintarListaVendedoresVIP();
 }
@@ -121,6 +123,13 @@ calcularTotalVentas = function() {
     total = total + vendedores[i].ventas;
   }
   return total;
+}
+
+limpiar = function() {
+  mostrarTextoEnCaja("txtCedula", "");
+  mostrarTextoEnCaja("txtNombre", "");
+  mostrarTextoEnCaja("txtApellido", "");
+  mostrarTextoEnCaja("txtVentas", "");
 }
 
 // =========================
