@@ -57,18 +57,26 @@ agregarVendedor = function (vendedor) {
 
 agregarVendedorAction = function () {
   let cedula = recuperarTexto("txtCedula");
-  let nombre = recuperarTexto("txtNombre");
-  let apellido = recuperarTexto("txtApellido");
-  let ventas = recuperarEntero("txtVentas");
+  //ejercicio 8 
+  let resultadoBusqueda = buscarVendedor(cedula);
+  if (resultadoBusqueda != -1) {
+    alert("Ya existe el vendedor, no se puede agregar");
+  } else {
+    let nombre = recuperarTexto("txtNombre");
+    let apellido = recuperarTexto("txtApellido");
+    let ventas = recuperarEntero("txtVentas");
 
-  let nuevoVendedor = {
-    cedula: cedula,
-    nombre: nombre,
-    apellido: apellido,
-    ventas: ventas,
-    nivel: ""
-  };
-  agregarVendedor(nuevoVendedor);
+    let nuevoVendedor = {
+      cedula: cedula,
+      nombre: nombre,
+      apellido: apellido,
+      ventas: ventas,
+      nivel: ""
+    };
+    agregarVendedor(nuevoVendedor);
+    alert("Vendedor agregado correctamente!!")
+  }
+  
 }
 
 //a)
@@ -98,45 +106,45 @@ buscarVendedorAction = function () {
 
 //ejercicio 4
 function moverAction() {
-    let cedulaABuscar = recuperarTexto("txtBuscarCedula");
-    let resultadoBusqueda = buscarVendedor(cedulaABuscar);
-    // validar si el vendedor existe 
-    if (resultadoBusqueda != -1) {
-        let vendedorRecuperado = vendedores[resultadoBusqueda];
-        let nivelCalculado = calcularNivel(vendedorRecuperado.ventas);
-        vendedorRecuperado.nivel = nivelCalculado;
-        vendedoresVIP.push(vendedorRecuperado);
-        //Borrar el vendedor del arreglo vendedores usando splice 
-        vendedores.splice(resultadoBusqueda, 1);
-        // 6. Refrescar en pantalla las dos listas para ver los cambios 
-        pintarListaVendedores();
-        pintarListaVendedoresVIP();
-    }
+  let cedulaABuscar = recuperarTexto("txtBuscarCedula");
+  let resultadoBusqueda = buscarVendedor(cedulaABuscar);
+  // validar si el vendedor existe 
+  if (resultadoBusqueda != -1) {
+    let vendedorRecuperado = vendedores[resultadoBusqueda];
+    let nivelCalculado = calcularNivel(vendedorRecuperado.ventas);
+    vendedorRecuperado.nivel = nivelCalculado;
+    vendedoresVIP.push(vendedorRecuperado);
+    //Borrar el vendedor del arreglo vendedores usando splice 
+    vendedores.splice(resultadoBusqueda, 1);
+    // 6. Refrescar en pantalla las dos listas para ver los cambios 
+    pintarListaVendedores();
+    pintarListaVendedoresVIP();
+  }
 }
 
 //ejercicio 5
 function calcularNivel(ventas) {
-    let nivel = "";
-    if (ventas >= 10 && ventas <= 12) {
-        nivel = "bronce";
-    } else if (ventas >= 13 && ventas <= 15) {
-        nivel = "plata";
-    } else if (ventas > 15) {
-        nivel = "oro";
-    } else {
-        nivel = "sin nivel";
-    }  
-    return nivel;
+  let nivel = "";
+  if (ventas >= 10 && ventas <= 12) {
+    nivel = "bronce";
+  } else if (ventas >= 13 && ventas <= 15) {
+    nivel = "plata";
+  } else if (ventas > 15) {
+    nivel = "oro";
+  } else {
+    nivel = "sin nivel";
+  }
+  return nivel;
 }
 
 //ejercicio 6
 function calcularTotalVentas() {
-    let totalVentas = 0;
-    //recorrer el arreglo y sumar las ventas
-    for (let i = 0; i < vendedores.length; i++) {
-        totalVentas = totalVentas + vendedores[i].ventas;
-    }
-    return totalVentas;
+  let totalVentas = 0;
+  //recorrer el arreglo y sumar las ventas
+  for (let i = 0; i < vendedores.length; i++) {
+    totalVentas = totalVentas + vendedores[i].ventas;
+  }
+  return totalVentas;
 }
 
 
