@@ -64,6 +64,34 @@ function pintarListaVendedoresVIP() {
   mostrarHtmlEnDiv("contenedorDerecha", html);
 }
 
+// =========================
+// agregar Vendedor y Vendedor de Accion
+// =========================
+
+function agregarVendedor(vendedor) {
+  vendedores.push(vendedor);
+}
+
+function agregarVendedorAction() {
+
+  
+  let cedula = document.getElementById("txtCedula").value;
+  let nombre = document.getElementById("txtNombre").value;
+  let apellido = document.getElementById("txtApellido").value;
+  let ventas = parseInt(document.getElementById("txtVentas").value);
+
+  
+  let vendedor = {};
+  vendedor.cedula = cedula;
+  vendedor.nombre = nombre;
+  vendedor.apellido = apellido;
+  vendedor.ventas = ventas;
+  vendedor.nivel = "";
+
+  agregarVendedor(vendedor);
+  
+  pintarListaVendedores();
+}
 
 // =========================
 // Búsqueda / movimiento
