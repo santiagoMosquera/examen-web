@@ -120,6 +120,15 @@ calcularNivel=function(ventas){
   return nivel;
 }
 
+calcularTotalVentas=function(){
+  let elementoVendedor;
+  let totalVentas=0;
+  for(let i=0;i<vendedores.length;i++){
+    elementoVendedor=vendedores[i];
+    totalVentas+=elementoVendedor.ventas;
+  }
+  return totalVentas;
+}
 
 // =========================
 // Búsqueda / movimiento
