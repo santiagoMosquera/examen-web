@@ -45,4 +45,6 @@ function pintarListaVendedoresVIP(){
   }tabla+="</ul>";
   mostrarHtmlEnDiv("contenedorDerecha",tabla);
 }
-
+function agregarVendedor(vendedor){
+  vendedores.push(vendedor);
+}
