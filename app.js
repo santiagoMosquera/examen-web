@@ -40,6 +40,7 @@ let vendedoresVIP = [
 ];
 
 // Función para pintar la lista de vendedores
+
 function pintarListaVendedores() {
   let html = "<ul class='list'>";
   for (let i = 0; i < vendedores.length; i++) {
@@ -57,6 +58,8 @@ function pintarListaVendedores() {
   }
   html += "</ul>";
   mostrarHtmlEnDiv("contenedorIzquierda", html);
+  let totalVentas = calcularTotalVentas();
+  mostrarTextoEnDiv("totalVentas", "Total de ventas: " + totalVentas);
 }
 
 inicializar = function () {
@@ -128,6 +131,44 @@ function buscarVendedorAction() {
         "</span>",
     );
   }
+}
+
+function moverAction() {
+  let cedula = recuperarTexto("cedulaBuscar");
+  let indiceEncontrado = buscarVendedor(cedula);
+  if (indiceEncontrado !== -1) {
+    let vendedorEncontrado = vendedores[indiceEncontrado];
+    vendedoresVIP.push(vendedorEncontrado);
+    vendedores.splice(indiceEncontrado, 1);
+    let nivelVendedor = calcularNivel(vendedorEncontrado.ventas);
+    vendedorEncontrado.nivel = nivelVendedor;
+    pintarListaVendedores();
+    pintarListaVendedoresVIP();
+  } else {
+    mostrarHtmlEnDiv(
+      "resultadoBusqueda",
+      "<span class='error'>El vendedor con dicha cédula no existe</span>",
+    );
+  }
+}
+function calcularNivel(ventas) {
+  if (ventas <= 12 && ventas > 10) {
+    return "bronce";
+  } else if (ventas >= 13 && ventas <= 15) {
+    return "plata";
+  } else if (ventas > 15) {
+    {
+      return "oro";
+    }
+  }
+}
+
+function calcularTotalVentas() {
+  let totalVentas = 0;
+  for (let i = 0; i < vendedores.length; i++) {
+    totalVentas += vendedores[i].ventas;
+  }
+  return totalVentas;
 }
 
 // =========================
