@@ -84,6 +84,7 @@ buscarVendedorAction=function(){
   if(posicionVendedor!=-1){
     let elementoVendedor=vendedores[posicionVendedor];
     mostrarTextoEnDiv("resultadoBusqueda",elementoVendedor.nombre+" "+elementoVendedor.apellido);
+    habilitarComponente("btnMover");
   }else{
     mostrarTextoEnDiv("resultadoBusqueda","El vendedor con dicha cedula no existe");
   }
