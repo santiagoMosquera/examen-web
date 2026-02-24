@@ -23,6 +23,9 @@ function pintarListaVendedores() {
     }
     
     html += "</ul>";
+
+    //mostrar contador (ejercicio 7)
+    mostrarTextoEnDiv("contadorVendedores", vendedores.length);
     
     mostrarHtmlEnDiv("contenedorIzquierda", html);
 
@@ -42,7 +45,10 @@ function pintarListaVendedoresVIP() {
     html += "</ul>";
     
     mostrarHtmlEnDiv("contenedorDerecha", html);
-}
+
+      //mostrar contador VIP (ejercicio 7)
+      mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length);
+  }
 
 //EJERCICIO 3
 function agregarVendedor(vendedor) {
