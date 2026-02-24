@@ -126,6 +126,18 @@ calcularNivel = function(numeroVentas) {
   return nivel;
 }
 
+calcularTotalVentas = function() {
+
+  let totalVentas = 0;
+
+  for (let i = 0; i < vendedores.length; i++) {
+    totalVentas = totalVentas + vendedores[i].ventas;
+  }
+
+  return totalVentas;
+}
+
+
 pintarListaVendedores = function () {
 
   let listaVendedores = "<ul class='list'>";
