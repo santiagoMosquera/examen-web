@@ -118,6 +118,9 @@ calcularNivel = function(numeroVentas) {
   } 
   else if (numeroVentas > 15) {
     nivel = "oro";
+  } 
+  else {
+    nivel = "sin nivel";
   }
 
   return nivel;
