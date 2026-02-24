@@ -32,9 +32,12 @@ pintarListaVendedores = function () {
         vendedor = vendedores[i];
         contenidoHtml += "<li>" + vendedor.cedula + " | " + vendedor.nombre + " " + vendedor.apellido + " | ventas: " + vendedor.ventas + "</li>";
     }
-
+    
     contenidoHtml += "</ul>";
     mostrarHtmlEnDiv("contenedorIzquierda", contenidoHtml);
+
+    let total = calcularTotalVentas();
+    mostrarTextoEnDiv("totalVentas", total);
 }
 
 pintarListaVendedoresVIP = function () {
@@ -136,4 +139,15 @@ calcularNivel = function(ventas) {
         nivel = "oro";
     }
     return nivel;
+} 
+
+calcularTotalVentas = function() {
+    let ventasTotales = 0;
+    let vendedor;
+
+    for (let i = 0; i < vendedores.length; i++) {
+        vendedor = vendedores[i];
+        ventasTotales = ventasTotales + vendedor.ventas;
+    }
+    return ventasTotales;
 }
