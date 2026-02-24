@@ -13,7 +13,7 @@ let vendedoresVIP = [
 ];
 
 inicializar=function(){
-  
+  pintarListaVendedores();
 }
 
 
@@ -31,3 +31,12 @@ function limpiarBusqueda() {
 
 
 
+pintarListaVendedores = function () {
+    let contenidoHtml = "<ul class='list'>";
+    for (let i = 0; i < vendedores.length; i++) {
+        let v = vendedores[i];
+        contenidoHtml += "<li>" + v.cedula + " | " + v.nombre + " " + v.apellido + " | ventas: " + v.ventas + "</li>";
+    }
+    contenidoHtml += "</ul>";
+    mostrarHtmlEnDiv("contenedorIzquierda", contenidoHtml);
+}
