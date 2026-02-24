@@ -117,6 +117,20 @@ moverAction = function () {
   }
 }
 
+calcularNivel = function (ventas) {
+  if (ventas >= 10 && ventas <= 12) {
+    return "bronce";
+  } else if (ventas >= 13 && ventas <= 15) {
+    return "plata";
+  } else if (ventas > 15) {
+    return "oro";
+  } else {
+    return ""; 
+  }
+}
+
+
+
 inicializar = function () {
   pintarListaVendedores();
   pintarListaVendedoresVIP();
