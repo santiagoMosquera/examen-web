@@ -43,4 +43,4 @@ deshabilitarComponente = function (idComponente){
     componente = document.getElementById(idComponente);
     componente.disabled=true;
 }
-
+//combio de pureuba
