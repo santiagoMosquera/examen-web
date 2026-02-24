@@ -72,3 +72,47 @@ function pintarListaVendedoresVip(){
     HTML += "</ul>;";
     mostrarHtmlEnDiv(contenedorDerecha,HTML);
 }
+
+function agragarVendedor(vendedor){
+    vendedores.push(vendedor);
+}
+
+function agregarVendedoresAction(){
+    let cedula = recuperaTexto("txtCedula");
+    let nombre = recuperaTexto("txtNombre");
+    let ventas = recuperarEntero("txtVentas");
+
+    let vendedor = {
+        cedula: cedula,
+        nombre: nombre,
+        ventas: ventas
+    }
+
+    agragarVendedor(vendedor);
+    pintarListaVendedores();
+}
+
+function buscarVendedor(cedula){
+    let posicion = -1;
+     for (let i=0; i<vendedores.length;i++){
+        if(vendedores[i].cedula === cedula){
+            posicion = i;
+        }
+     }
+     return posicion;
+}
+
+function buscarVendedorAction(){
+    let cedula = recuperaTexto("txtBuscarCedula");
+    let posicion = buscarVendedor(cedula);
+
+    if (posicion === -1){
+        mostrarTextoEnDiv("resultadoBusqueda","el vendedor con dicha cedula no existe ");
+    }else{
+        let vendedor = vendedores[posicion];
+        mostrarTextoEnDiv("resultadoBusqueda",vendedor.nombre);
+        habilitarComponente("btnMover");
+    };
+    
+
+}
