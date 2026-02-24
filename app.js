@@ -1,6 +1,8 @@
 // =========================
 // Datos (arreglos)
 // =========================
+
+
 let vendedores = [
   { cedula:"1714616123",nombre: "Santiago", apellido: "Mosquera", ventas:10, nivel:""},
   { cedula:"1708934242",nombre: "Paúl", apellido: "Torres", ventas:12, nivel:""},
