@@ -45,7 +45,31 @@ agregarVendedorAction = function() {
     pintarListaVendedores();
 };
 
+/*=================================================
+la función buscarVendedor, recibe como parámetro la cédula y retorna -1 
+===================================================*/
+buscarVendedor = function(cedulaBuscar) {
+    for (let i = 0; i < vendedores.length; i++) {
+        if (vendedores[i].cedula == cedulaBuscar) {
+            return i;
+        }
+    }
+    return -1;
+};
 
+/*=================================================
+la función buscarVendedorAction, que será invocada desde el botón Buscar
+===================================================*/
+buscarVendedorAction = function() {
+    let cedula = recuperarTexto("txtBuscarCedula");
+    let resultadoBusqueda = buscarVendedor(cedula);
+    if (resultadoBusqueda == -1) {
+        mostrarTextoEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe");
+    } else {
+        let mensaje = vendedores[resultadoBusqueda].nombre + " " + vendedores[resultadoBusqueda].apellido;
+        mostrarTextoEnDiv("resultadoBusqueda", mensaje);
+    }
+};
 
 
 /*=================================================
