@@ -28,6 +28,7 @@ pintarListaVendedoresVIP = function () {
   }
   lista += "</ul>"
   mostrarHtmlEnDiv("contenedorDerecha", lista);
+  mostrarHtmlEnDiv("contadorVendedoresVIP",vendedoresVIP.length);
 }
 pintarListaVendedores = function () {
   let lista;
@@ -39,6 +40,8 @@ pintarListaVendedores = function () {
   }
   lista += "</ul>"
   mostrarHtmlEnDiv("contenedorIzquierda", lista);
+  mostrarHtmlEnDiv("totalVentas", calcularTotalVentas());
+  mostrarHtmlEnDiv("contadorVendedores",vendedores.length);
 }
 agregarVendedorAction = function () {
   let txtCedula = recuperarTexto("txtCedula");
@@ -106,6 +109,13 @@ if(numeroVentas>15){
   resultado="oro";
 }
 return resultado;
+}
+calcularTotalVentas=function(){
+  let resultado = 0;
+    for (let i = 0; i < vendedores.length; i++) { 
+       resultado+= vendedores[i].ventas;
+    } 
+  return resultado;
 }
 function limpiarBusqueda() {
   indiceEncontrado = -1;
