@@ -14,9 +14,8 @@ let vendedoresVIP = [
 
 inicializar=function(){
   pintarListaVendedores();
+  pintarListaVendedoresVIP();
 }
-
-
 
 // =========================
 // Búsqueda / movimiento
@@ -40,5 +39,15 @@ pintarListaVendedores=function(){
   mostrarHtmlEnDiv("contenedorIzquierda", html);
 }
 
+pintarListaVendedoresVIP=function(){
+  let html = "<ul class = 'list'>";
 
+  for (let i=0; i<vendedoresVIP.length;i++){
+    let v = vendedoresVIP[i];
+    html += "<li>" + v.cedula+ " | " + v.nombre + " " + v.apellido + " | ventas: " + v.ventas + "</li>";
+
+  }
+  html += "</ul>";
+  mostrarHtmlEnDiv("contenedorDerecha", html); 
+}
 
