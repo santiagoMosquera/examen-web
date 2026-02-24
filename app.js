@@ -31,6 +31,9 @@ function pintarListaVendedores(){
   }
   tabla+="</table>";
   mostrarHtmlEnDiv("contenedorIzquierda", tabla);
+
+  let totalVentas = calcularTotalVentas();
+  mostrarTextoEnDiv("totalVentas", totalVentas);
 }
 
 function pintarListaVendedoresVIP(){
@@ -108,6 +111,14 @@ function calcularNivel(ventas){
   } else {
     return "oro";
   }
+}
+
+function calcularTotalVentas(){
+  let sumaTotal=0;
+  for(let i=0;i<vendedores.length;i++){
+    sumaTotal+=vendedores[i].ventas;
+  }
+  return sumaTotal;
 }
 
 // =========================
