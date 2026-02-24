@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Examen Web</title>
+  <link rel="stylesheet" href="styles.css">
+   <script src="app.js"></script>
+   <script src="utilitarios.js"></script>
+</head>
+<body onload="inicializar()">
+
+  <div class="container">
+    <header class="header">
+      <div>
+        <h2>Ejercicio: Vendedores</h2>
+        <p class="muted">JS: arreglos, for, funciones, condicionales, listas/tablas.</p>
+      </div>
+
+    </header>
+
+    <!-- SECCIÓN SUPERIOR -->
+    <section class="card">
+      <h3>Agregar vendedor</h3>
+
+      <div class="row">
+        <input id="txtCedula" class="input" placeholder="Cédula" />
+        <input id="txtNombre" class="input" placeholder="Nombre" />
+        <input id="txtApellido" class="input" placeholder="Apellido" />
+      </div>
+
+      <div class="row">
+        <input id="txtVentas" type="number" class="input" placeholder="Ventas" />
+        <button id="btnAgregar" class="btn btn-primary" onclick="">Agregar</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <h3>Buscar en lista izquierda por teléfono</h3>
+      <div class="row">
+        <input id="txtBuscarCedula" class="input" placeholder="Cédula a Buscar" />
+        <button id="btnBuscar" class="btn btn-secondary" onclick="">Buscar</button>
+        <button id="btnMover" class="btn btn-success" onclick="" disabled>Mover →</button>
+      </div>
+
+      <div id="resultadoBusqueda" class="result">
+        <span class="muted">Sin búsqueda aún</span>
+      </div>
+
+      <div id="mensaje" class="message muted" style="display:none;"></div>
+    </section>
+
+    <!-- LISTAS -->
+    <section class="grid">
+      <div class="card">
+        <div class="card-title">
+          <h3>VENDEDORES</h3>
+          <span class="badge" id="contadorVendedores">0</span>
+        </div>
+
+        <div id="contenedorIzquierda"></div>
+        <h2>TOTAL VENTAS: <span id="totalVentas"></span></h2>
+  
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <h3>VENDEDORES VIP</h3>
+          <span class="badge" id="contadorVendedoresVIP">0</span>
+        </div>
+
+        <div id="contenedorDerecha"></div>
+      </div>
+    </section>
+  </div>
+
+ 
+</body>
+</html>
