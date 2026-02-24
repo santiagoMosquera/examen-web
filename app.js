@@ -31,6 +31,8 @@ pintarListaVendedores=function(){
     contenidoLista+="</ul>";
     
     mostrarHtmlEnDiv("contenedorIzquierda",contenidoLista);
+    totalVentas=calcularTotalVentas();
+    mostrarTextoEnDiv("totalVentas",totalVentas);
 }
 
 pintarListaVendedoresVIP=function(){
