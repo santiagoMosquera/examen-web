@@ -63,7 +63,7 @@ inicializar = function() {
 
 
 function buscarVendedor(cedula) {
-    for (let i = 0; i < vendedores.length; i++) { [cite: 42]
+    for (let i = 0; i < vendedores.length; i++) { 
         if (vendedores[i].cedula === cedula) {
             return i; 
         }
@@ -72,18 +72,44 @@ function buscarVendedor(cedula) {
 }
 
 function buscarVendedorAction() {
-    let cedulaBuscar = recuperarTexto("txtBuscarCedula"); [cite: 44]
-    let indiceEncontrado = buscarVendedor(cedulaBuscar); [cite: 44]
+    let cedulaBuscar = recuperarTexto("txtBuscarCedula"); 
+    let indiceEncontrado = buscarVendedor(cedulaBuscar); 
 
-    if (indiceEncontrado !== -1) { [cite: 45]
-        let v = vendedores[indiceEncontrado]; [cite: 45]
-        mostrarHtmlEnDiv("resultadoBusqueda", v.nombre + " " + v.apellido); [cite: 44]
+    if (indiceEncontrado !== -1) { 
+        let v = vendedores[indiceEncontrado]; 
+        mostrarHtmlEnDiv("resultadoBusqueda", v.nombre + " " + v.apellido); 
         
-        habilitarComponente("btnMover"); [cite: 47]
+        habilitarComponente("btnMover"); 
     } else {
-        mostrarHtmlEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe"); [cite: 44]
+        mostrarHtmlEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe"); 
+        deshabilitarComponente("btnMover");
     }
 }
+
+
+function agregarVendedor(vendedor) {
+    vendedores.push(vendedor); 
+}
+
+function agregarVendedorAction() {
+    let cedula = recuperarTexto("txtCedula"); 
+    let nombre = recuperarTexto("txtNombre"); 
+    let apellido = recuperarTexto("txtApellido"); 
+    let ventas = recuperarEntero("txtVentas"); 
+
+    let nuevoVendedor = {
+        cedula: cedula,
+        nombre: nombre,
+        apellido: apellido,
+        ventas: ventas,
+        nivel: ""
+    }; 
+
+    agregarVendedor(nuevoVendedor); 
+    
+    pintarListaVendedores(); 
+}
+
 
 
 
