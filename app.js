@@ -71,21 +71,33 @@ agregarVendedor=function(vendedor) {
 }
 function agregarVendedorAction() {
 
-
     let cedula = document.getElementById("txtCedula").value;
     let nombre = document.getElementById("txtNombre").value;
     let apellido = document.getElementById("txtApellido").value;
     let ventas = parseInt(document.getElementById("txtVentas").value);
 
-    
+    let posicion = buscarVendedor(cedula);
+
+    if (posicion !== -1) {
+
+        document.getElementById("mensaje").style.display = "block";
+        document.getElementById("mensaje").innerHTML = "Ya existe un vendedor con esa cédula";
+        return;
+    }
+
     let nuevoVendedor = {
         cedula: cedula,
         nombre: nombre,
         apellido: apellido,
         ventas: ventas
     };
+
     agregarVendedor(nuevoVendedor);
+
     pintarListaVendedores();
+
+    document.getElementById("mensaje").style.display = "none";
+
     document.getElementById("txtCedula").value = "";
     document.getElementById("txtNombre").value = "";
     document.getElementById("txtApellido").value = "";
@@ -184,6 +196,7 @@ if (posicion !== -1) {
     document.getElementById("mensaje").innerHTML = "Ya existe un vendedor con esa cédula";
     return;
 }
+
 // =========================
 // Búsqueda / movimiento
 // =========================
