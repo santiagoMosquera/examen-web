@@ -65,3 +65,11 @@ agregarVendedorAction = function(){
 
   agregarVendedor(vendedor);
 }
+buscarVendedor = function(cedula){
+  for(let i=0;i<vendedores.length;i++){
+    if(vendedores[i].cedula == cedula){
+      return i;
+    }
+  }
+  return -1;
+}
