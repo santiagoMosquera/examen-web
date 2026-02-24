@@ -62,12 +62,12 @@ pintarListaVendedoresVIP = function() {
 
   //EJERCICIO 3
 
-  // Función que recibe un vendedor y lo agrega al arreglo
+
 agregarVendedor = function(vendedor) {
     vendedores.push(vendedor);
 }
 
-// Función que se invoca desde el botón Agregar
+
 agregarVendedorAction = function() {
     // a) Tomar valores de las cajas de texto
     let cedula = recuperarTexto("txtCedula");
@@ -110,6 +110,45 @@ agregarVendedorAction = function() {
     pintarListaVendedores();
     
 }
+
+// Ejercicio 3--parte 2
+
+// a) Función que busca vendedor por cédula
+buscarVendedor = function(cedula) {
+    for(let i = 0; i < vendedores.length; i++) {
+        if(vendedores[i].cedula == cedula) {
+            return i; 
+        }
+    }
+    return -1; 
+}
+
+// b) Función que se invoca desde el botón Buscar
+buscarVendedorAction = function() {
+    let cedulaBuscar = recuperarTexto("txtBuscarCedula");
+    
+    if(cedulaBuscar === "") {
+        mostrarTextoEnDiv("resultadoBusqueda", "Ingrese una cédula para buscar");
+        desHabilitarComponente("btnMover");
+        indiceEncontrado = -1;
+        return;
+    }
+    
+    let posicion = buscarVendedor(cedulaBuscar);
+    indiceEncontrado = posicion; 
+    
+    if(posicion === -1) {
+        mostrarTextoEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe");
+        desHabilitarComponente("btnMover");
+    } else {
+        let vendedor = vendedores[posicion];
+        mostrarTextoEnDiv("resultadoBusqueda", vendedor.nombre + vendedor.apellido+ " - " + "Ventas:"+ vendedor.ventas);
+        // d) Habilitar botón Mover
+        habilitarComponente("btnMover");
+    }
+}
+
+
 // =========================
 // Búsqueda / movimiento
 // =========================
