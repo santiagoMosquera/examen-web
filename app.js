@@ -1,60 +1,77 @@
-//jhosep teran
-// =========================
-// Datos (arreglos)
-// =========================
+//jhosep TERAn
 let vendedores = [
-  { cedula:"1714616123",nombre: "Santiago", apellido: "Mosquera", ventas:10, nivel:""},
-  { cedula:"1708934242",nombre: "Paúl", apellido: "Torres", ventas:12, nivel:""},
- ];
+    { cedula: "1714616123", nombre: "Santiago", apellido: "Mosquera", ventas: 10, nivel: "" },
+    { cedula: "1708934242", nombre: "Paúl", apellido: "Torres", ventas: 12, nivel: "" }
+];
 
 let vendedoresVIP = [
-    { cedula:"0720304056",nombre: "Josselyn", apellido: "Pillajo", ventas:17, nivel:"oro"},
-    { cedula:"1945504089",nombre: "Alexandra", apellido: "Analuisa", ventas:10, nivel:"bronce"},
-
+    { cedula: "0720304056", nombre: "Josselyn", apellido: "Pillajo", ventas: 17, nivel: "oro" },
+    { cedula: "1945504089", nombre: "Alexandra", apellido: "Analuisa", ventas: 10, nivel: "bronce" }
 ];
-function pintarListaVendedores() {
-    let html = "<ul class='list'>";
-    for (let i = 0; i < vendedores.length; i++) {
-        let v = vendedores[i];
-        // Propiedades correctas según tu imagen image_000e24.png
-        html += `<li>${v.cedula} | ${v.nombre} ${v.apellido} | ventas: ${v.ventas}</li>`;
-    }
-    html += "</ul>";
-
-    // El ID "contenedorIzquierda" SÍ existe en tu línea 61 del HTML.
-    mostrarHtmlEnDiv(html, "contenedorIzquierda"); 
-}
-
-function pintarListaVendedoresVIP() {
-    let html = "<ul class='list'>";
-    for (let i = 0; i < vendedoresVIP.length; i++) {
-        let v = vendedoresVIP[i];
-        // Formato solicitado: Nombre Apellido >> nivel: Oro/Bronce
-        html += `<li>${v.nombre} ${v.apellido} >> nivel: ${v.nivel}</li>`;
-    }
-    html += "</ul>";
-
-    // Según tu index.html línea 72, el ID es contenedorDerecha
-    mostrarHtmlEnDiv(html, "contenedorDerecha");
-}
 
 function inicializar() {
     pintarListaVendedores();
     pintarListaVendedoresVIP();
 }
 
-
-
-
-// =========================
-// Búsqueda / movimiento
-// =========================
-function limpiarBusqueda() {
-  indiceEncontrado = -1;
-  btnMover.disabled = true;
-  resultadoBusquedaEl.innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
-  telefonoBuscarEl.value = "";
+function pintarListaVendedores() {
+    let html = "<ul class='list'>";
+    for (let i = 0; i < vendedores.length; i++) {
+        let v = vendedores[i];
+        html += `<li>${v.cedula} | ${v.nombre} ${v.apellido} | ventas: ${v.ventas}</li>`;
+    }
+    html += "</ul>";
+    mostrarHtmlEnDiv("contenedorIzquierda", html); 
+    mostrarTextoEnDiv("totalVentas", calcularTotalVentas()); 
+    mostrarTextoEnDiv("contadorVendedores", vendedores.length); 
 }
+
+function pintarListaVendedoresVIP() {
+    let html = "<ul class='list'>";
+    for (let i = 0; i < vendedoresVIP.length; i++) {
+        let v = vendedoresVIP[i];
+        html += `<li>${v.nombre} ${v.apellido} >> nivel: ${v.nivel}</li>`;
+    }
+    html += "</ul>";
+    mostrarHtmlEnDiv("contenedorDerecha", html); 
+    mostrarTextoEnDiv("contadorVendedoresVIP", vendedoresVIP.length); 
+}
+
+function agregarVendedorAction() {
+    let cedula = recuperarTexto("txtCedula");
+    let nombre = recuperarTexto("txtNombre");
+    let apellido = recuperarTexto("txtApellido");
+    let ventas = recuperarEntero("txtVentas");
+
+    if (buscarVendedor(cedula) !== -1) { 
+        alert("Ya existe el vendedor, no se puede agregar");
+    } else {
+        let nuevo = { cedula, nombre, apellido, ventas, nivel: "" };
+        vendedores.push(nuevo);
+        pintarListaVendedores();
+        limpiar(); // [cite: 67]
+    }
+}
+
+function buscarVendedor(cedula) { // 
+    for (let i = 0; i < vendedores.length; i++) {
+        if (vendedores[i].cedula === cedula) return i;
+    }
+    return -1;
+}
+
+function buscarVendedorAction() {
+    let cedula = recuperarTexto("txtBuscarCedula");
+    let indice = buscarVendedor(cedula);
+    if (indice !== -1) {
+        let v = vendedores[indice];
+        mostrarHtmlEnDiv("resultadoBusqueda", `${v.nombre} ${v.apellido}`);
+        habilitarComponente("btnMover"); 
+    } else {
+        mostrarHtmlEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe");
+    }
+}
+
 
 
 
