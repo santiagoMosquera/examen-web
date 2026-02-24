@@ -15,8 +15,23 @@ let vendedoresVIP = [
 ];
 
 inicializar = function() {
-
+    pintarListaVendedores();
 }
+
+/*=================================================
+función pintarListaVendedores, no recibe y no retorna
+===================================================*/
+pintarListaVendedores = function() {
+    let contenidoLista = "<ul>";
+    for (let vendedor of vendedores) {
+        contenidoLista += "<li>" + vendedor.cedula + " | " + vendedor.nombre + " " + vendedor.apellido + " | " + vendedor.ventas + "</li>";
+
+    }
+    contenidoLista += "</ul>";
+    mostrarHtmlEnDiv("contenedorIzquierda", contenidoLista)
+};
+
+
 
 
 
