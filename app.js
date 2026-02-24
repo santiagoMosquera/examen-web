@@ -71,7 +71,33 @@ inicializar=function(){
 agregarVendedor=function(vendedor) {
     vendedores.push(vendedor);
 }
+function agregarVendedorAction() {
 
+
+    let cedula = document.getElementById("txtCedula").value;
+    let nombre = document.getElementById("txtNombre").value;
+    let apellido = document.getElementById("txtApellido").value;
+    let ventas = parseInt(document.getElementById("txtVentas").value);
+
+    
+    let nuevoVendedor = {
+        cedula: cedula,
+        nombre: nombre,
+        apellido: apellido,
+        ventas: ventas
+    };
+
+   
+    agregarVendedor(nuevoVendedor);
+
+   
+    pintarListaVendedores();
+
+    document.getElementById("txtCedula").value = "";
+    document.getElementById("txtNombre").value = "";
+    document.getElementById("txtApellido").value = "";
+    document.getElementById("txtVentas").value = "";
+}
 
 
 // =========================
