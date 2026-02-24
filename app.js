@@ -20,6 +20,35 @@ inicializar = function() {
 }
 
 /*=================================================
+función agregarVendedor, recibe como parámetro un vendedor y lo agrega al arreglo de vendedores.
+===================================================*/
+agregarVendedor = function(vendedor) {
+    vendedores.push(vendedor);
+};
+
+/*=================================================
+función agregarVendedorAction, no recibe y no retorna
+===================================================*/
+agregarVendedorAction = function() {
+    let cedula = recuperarTexto("txtCedula");
+    let nombre = recuperarTexto("txtNombre");
+    let apellido = recuperarTexto("txtApellido");
+    let ventas = recuperarEntero("txtVentas");
+
+    let vendedorNuevo = {};
+    vendedorNuevo.cedula = cedula;
+    vendedorNuevo.nombre = nombre;
+    vendedorNuevo.apellido = apellido;
+    vendedorNuevo.ventas = ventas;
+
+    agregarVendedor(vendedorNuevo);
+    pintarListaVendedores();
+};
+
+
+
+
+/*=================================================
 función pintarListaVendedores, no recibe y no retorna
 ===================================================*/
 pintarListaVendedores = function() {
@@ -44,9 +73,6 @@ pintarListaVendedoresVIP = function() {
     contenidoLista += "</ul>";
     mostrarHtmlEnDiv("contenedorDerecha", contenidoLista)
 };
-
-
-
 
 // =========================
 // Búsqueda / movimiento
