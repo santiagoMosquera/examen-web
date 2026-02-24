@@ -126,7 +126,28 @@ function buscarVendedorAction() {
         botonMover.disabled = false;
     }
 }
+function moverAction() {
 
+    let cedulaBuscar = document.getElementById("txtBuscarCedula").value;
+
+    let posicion = buscarVendedor(cedulaBuscar);
+
+    if (posicion !== -1) {
+
+        let vendedor = vendedores[posicion];
+
+        vendedoresVIP.push(vendedor);
+
+        vendedores.splice(posicion, 1);
+        
+        pintarListaVendedores();
+        pintarListaVendedoresVIP();
+
+        document.getElementById("btnMover").disabled = true;
+
+        document.getElementById("resultadoBusqueda").innerHTML = "Movido correctamente";
+    }
+}
 // =========================
 // Búsqueda / movimiento
 // =========================
