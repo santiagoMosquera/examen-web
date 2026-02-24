@@ -75,7 +75,7 @@ buscarVendedor = function(cedula){
 }
 
 buscarVendedorAction = function(){
-  let cedula = recuperarTexto("txtBuscarCedula")
+  let cedula = recuperarTexto("txtBuscarCedula");
   pos = buscarVendedor(cedula);
   if (pos != (-1)){
     mostrarTextoEnDiv("resultadoBusqueda", `${vendedores[pos].nombre} ${vendedores[pos].apellido}` );
@@ -83,4 +83,13 @@ buscarVendedorAction = function(){
   }else{
     mostrarTextoEnDiv("resultadoBusqueda", "El vendedor con dicha cédula no existe!");
   }
+}
+
+moverAction = function(){
+  let cedula = recuperarTexto("txtBuscarCedula");
+  pos = buscarVendedor(cedula);
+  vendedoresVIP.push(vendedores[pos]);
+  vendedores.splice(pos,1);
+  pintarListaVendedores();
+  pintarListaVendedoresVIP();
 }
