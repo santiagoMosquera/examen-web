@@ -92,6 +92,9 @@ moverAction = function() {
   }
 
   let vendedorMover = vendedores[posicion];
+  let nivelCalculado = calcularNivel(vendedorMover.ventas);
+  vendedorMover.nivel = nivelCalculado;
+
   vendedoresVIP.push(vendedorMover);
   vendedores.splice(posicion, 1);
 
@@ -101,6 +104,23 @@ moverAction = function() {
   mostrarTextoEnCaja("txtBuscarCedula", "");
   mostrarTextoEnDiv("resultadoBusqueda", "Sin búsqueda aún");
   deshabilitarComponente("btnMover");
+}
+
+calcularNivel = function(numeroVentas) {
+
+  let nivel = "";
+
+  if (numeroVentas >= 10 && numeroVentas <= 12) {
+    nivel = "bronce";
+  } 
+  else if (numeroVentas >= 13 && numeroVentas <= 15) {
+    nivel = "plata";
+  } 
+  else if (numeroVentas > 15) {
+    nivel = "oro";
+  }
+
+  return nivel;
 }
 
 pintarListaVendedores = function () {
