@@ -47,3 +47,7 @@ pintarListaVendedoresVIP=function(){
   console.log(html)
   mostrarHtmlEnDiv("contenedorDerecha", html);
 }
+agregarVendedor = function(vendedor){
+  vendedores.push(vendedor);
+  pintarListaVendedores();
+}
