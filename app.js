@@ -47,8 +47,6 @@ agregarVendedor = function (vendedor) {
 }
 
 
-
-
 agregarVendedorAction = function () {
   let cedula = recuperarTexto("txtCedula");
   let nombre = recuperarTexto("txtNombre");
@@ -90,7 +88,21 @@ buscarVendedorAction = function () {
   }
 }
 
-
+//ejercicio 4
+function moverAction() {
+    let cedulaABuscar = recuperarTexto("txtBuscarCedula");
+    let resultadoBusqueda = buscarVendedor(cedulaABuscar);
+    // validar si el vendedor existe 
+    if (resultadoBusqueda != -1) {
+        let vendedorRecuperado = vendedores[resultadoBusqueda];
+        vendedoresVIP.push(vendedorRecuperado);
+        //Borrar el vendedor del arreglo vendedores usando splice 
+        vendedores.splice(resultadoBusqueda, 1);
+        // 6. Refrescar en pantalla las dos listas para ver los cambios 
+        pintarListaVendedores();
+        pintarListaVendedoresVIP();
+    }
+}
 
 
 
