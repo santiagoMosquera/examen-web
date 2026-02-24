@@ -60,6 +60,7 @@ function pintarListaVendedores(){
     mostrarHtmlEnDiv(contenedorIzquierda,HTML);
     let totalVentas = calcularTotalVentas();
     mostrarTextoEnDiv("totalVentas",totalVentas);
+    mostrarTextoEnDiv("contadorVendedores",vendedores.length);
 }
 
 function pintarListaVendedoresVip(){
@@ -73,6 +74,7 @@ function pintarListaVendedoresVip(){
     }
     HTML += "</ul>;";
     mostrarHtmlEnDiv(contenedorDerecha,HTML);
+    mostrarTextoEnDiv("contadorVendedoresVIP",vendedoresVIP.length);
 }
 
 function agragarVendedor(vendedor){
@@ -152,3 +154,4 @@ function calcularTotalVentas(){
     }
     return total;
 }
+
