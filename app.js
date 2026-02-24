@@ -104,6 +104,28 @@ function buscarVendedor(cedula) {
 
     return -1;
 }
+function buscarVendedorAction() {
+
+    let cedulaBuscar = document.getElementById("txtBuscarCedula").value;
+
+    let posicion = buscarVendedor(cedulaBuscar);
+
+    let resultado = document.getElementById("resultadoBusqueda");
+    let botonMover = document.getElementById("btnMover");
+
+    if (posicion === -1) {
+
+        resultado.innerHTML = "El vendedor con dicha cédula no existe";
+        botonMover.disabled = true;
+
+    } else {
+
+        let vendedor = vendedores[posicion];
+
+        resultado.innerHTML = vendedor.nombre + " " + vendedor.apellido;
+        botonMover.disabled = false;
+    }
+}
 
 // =========================
 // Búsqueda / movimiento
