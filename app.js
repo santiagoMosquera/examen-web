@@ -68,6 +68,9 @@ inicializar=function(){
     pintarListaVendedores();
     pintarListaVendedoresVIP();
 }
+agregarVendedor=function(vendedor) {
+    vendedores.push(vendedor);
+}
 
 
 
