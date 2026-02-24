@@ -111,3 +111,16 @@ buscarVendedorAction = function() {
         habilitarComponente("btnMover"); 
     }
 }
+moverAction = function() {
+    let cedulaABuscar = recuperarTexto("txtBuscarCedula");
+    let indice = buscarVendedor(cedulaABuscar);
+    let vendedorAMover = vendedores[indice];
+ 
+    vendedoresVIP.push(vendedorAMover);
+    vendedores.splice(indice, 1); // splice elimina un elemento del arreglo
+
+    pintarListaVendedores();
+    pintarListaVendedoresVIP();
+    limpiarBusqueda();
+}
+
