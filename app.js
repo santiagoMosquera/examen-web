@@ -145,6 +145,21 @@ function calcularNivel(ventas) {
     }
 }
 
+function moverAction() {
+    let cedulaABuscar = recuperarTexto("txtBuscarCedula");
+    let indice = buscarVendedor(cedulaABuscar);
+    if (indice !== -1) {
+        let vendedorRecuperado = vendedores[indice];
+        let nivelCalculado = calcularNivel(vendedorRecuperado.ventas);
+        vendedorRecuperado.nivel = nivelCalculado;
+        vendedoresVIP.push(vendedorRecuperado);
+        vendedores.splice(indice, 1);
+        pintarListaVendedores();
+        pintarListaVendedoresVIP();
+        deshabilitarComponente("btnMover");
+    }
+}
+
 
 
 
