@@ -204,6 +204,7 @@ function limpiar() {
   
     document.getElementById("txtNombre").focus();
 }
+
 // =========================
 // Búsqueda / movimiento
 // =========================
