@@ -1,10 +1,8 @@
 //Ismael Hernandez
-pintarListaVendedores=function(){
+pintarListaVendedores = function(){
 
     let html = "<ul class='list'>";
-    let total = 0;
 
-  
     for (let i = 0; i < vendedores.length; i++) {
 
         let v = vendedores[i];
@@ -14,17 +12,17 @@ pintarListaVendedores=function(){
             + v.nombre + " " + v.apellido 
             + " | ventas: " + v.ventas 
             + "</li>";
+    }
 
-        total += v.ventas;
-    }
-    }
-     html += "</ul>";
+    html += "</ul>";
 
     mostrarHtmlEnDiv("contenedorIzquierda", html);
 
-    document.getElementById("totalVentas").innerText = total;
+    let totalVentas = calcularTotalVentas();
+    document.getElementById("totalVentas").innerText = totalVentas;
     
     document.getElementById("contadorVendedores").innerText = vendedores.length;
+}
 
 pintarListaVendedoresVIP=function() {
 
