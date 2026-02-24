@@ -57,22 +57,30 @@ function agregarVendedorActivo(){
   agregarVendedor(vendedor);
 }//esta incompleta no se muestra el nuebo vendedor en pantalla
 function buscarVendedor(cedula){
-  let vendedor={};
+  let vendedor=-1;
   for(let i=0;i<vendedores.length;i++){
-    let vendedor=0;
         if(vendedores[i].cedula==cedula){
             return vendedor=vendedores[i];
             break;
         }
     }
-    return -1;
+    return vendedor;
 }
 function buscarVendedorActivo(){
   let buscarCedula=recuperarTexto("txtBuscarCedula");
   let encontrado=buscarVendedor(buscarCedula);
   if (encontrado!=-1){
     mostrarTextoEnDiv("resultadoBusqueda",encontrado.nombre);
+    habilitarComponente("btnMover");
   }else{
     mostrarTextoEnDiv("resultadoBusqueda","El vendedor con dicha cedula no existe");
+  }
+}
+function moverAction(){
+  let cedula=recuperarTexto("txtBuscarCedula")
+  let vendedor=buscarVendedor(cedula);
+  if (vendedor!=-1){
+    vendedoresVIP.push(vendedor);
+    vendedores.splice(vendedor,1);
   }
 }
