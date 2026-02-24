@@ -104,6 +104,20 @@ function moverAction() {
     }
 }
 
+//ejercicio 5
+function calcularNivel(ventas) {
+    let nivel = "";
+    if (ventas >= 10 && ventas <= 12) {
+        nivel = "bronce";
+    } else if (ventas >= 13 && ventas <= 15) {
+        nivel = "plata";
+    } else if (ventas > 15) {
+        nivel = "oro";
+    } else {
+        nivel = "sin nivel";
+    }  
+    return nivel;
+}
 
 
 inicializar = function () {
