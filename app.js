@@ -148,6 +148,41 @@ buscarVendedorAction = function() {
     }
 }
 
+// Ejercicio 4
+
+moverAction = function() {
+    // 1. Recuperar texto de búsqueda
+    let cedulaBuscar = recuperarTexto("txtBuscarCedula");
+    
+    // 2. Invocar a buscarVendedor
+    let posicion = buscarVendedor(cedulaBuscar);
+    
+    if(posicion === -1) {
+        mostrarTextoEnDiv("resultadoBusqueda", "El vendedor ya no existe");
+        desHabilitarComponente("btnMover");
+        return;
+    }
+    
+    // 3. Recuperar el vendedor del arreglo
+    let vendedorEncontrado = vendedores[posicion];
+    
+    // 4. Agregar al arreglo vendedoresVIP
+    vendedoresVIP.push(vendedorEncontrado);
+    
+    // 5. Borrar del arreglo vendedores usando splice
+    vendedores.splice(posicion, 1);
+    
+    // 6. Refrescar pantalla
+    pintarListaVendedores();
+    pintarListaVendedoresVIP();
+    
+    // Limpiar búsqueda y deshabilitar botón
+    mostrarTextoEnDiv("resultadoBusqueda", "Vendedor movido exitosamente");
+    desHabilitarComponente("btnMover");
+    mostrarTextoEnCaja("txtBuscarCedula", "");
+    
+}
+
 
 // =========================
 // Búsqueda / movimiento
