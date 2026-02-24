@@ -115,7 +115,7 @@ function buscarVendedorAction(){
     };   
 }
 
-function moverActivo (){
+function moverAction(){
     let cedula = recuperarTexto("txtBuscarCedula");
     let posicion = buscarVendedor(cedula);
 
