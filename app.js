@@ -44,9 +44,12 @@ function pintarListaVendedores() {
     html = html + "</ul>";
 
     mostrarHtmlEnDiv("contenedorIzquierda", html);
-    
+
     let totalVentas = calcularTotalVentas();
     mostrarTextoEnDiv("totalVentas", totalVentas);
+
+    let cantidad = vendedores.length;
+    mostrarTextoEnDiv("contadorVendedores", cantidad);
 };
 
 function pintarListaVendedoresVIP() {
@@ -64,6 +67,9 @@ function pintarListaVendedoresVIP() {
     html = html + "</ul>";
 
     mostrarHtmlEnDiv("contenedorDerecha", html);
+
+    let cantidad = vendedoresVIP.length;
+    mostrarTextoEnDiv("contadorVendedoresVIP", cantidad);
 };
 
 
@@ -134,7 +140,6 @@ function moverAction() {
 
         pintarListaVendedores();
         pintarListaVendedoresVIP();
-
         mostrarHtmlEnDiv("resultadoBusqueda", "<span class='muted'>Sin búsqueda aún</span>");
         mostrarTextoEnCaja("txtBuscarCedula", "");
         deshabilitarComponente("btnMover");
@@ -167,4 +172,7 @@ function calcularTotalVentas() {
 
     return total;
 };
+
+
+
 
