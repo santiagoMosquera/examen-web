@@ -88,6 +88,7 @@ agregarVendedorAction = function() {
 
         agregarVendedor(nuevoVendedor);
         pintarListaVendedores();
+        limpiar();
     } else {
         alert("Ya existe el vendedor, no se puede agregar");
     }
@@ -134,6 +135,8 @@ moverAction = function() {
     pintarListaVendedores();
     pintarListaVendedoresVIP();
     limpiarBusqueda();
+    deshabilitarComponente("btnMover");
+    limpiarBusqueda();
 }
 
 calcularNivel = function(ventas) {
@@ -159,6 +162,12 @@ calcularTotalVentas = function() {
     return ventasTotales;
 } 
 
+limpiar = function() {
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtVentas", "");
+}
 
 
 
