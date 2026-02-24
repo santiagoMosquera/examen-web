@@ -1,4 +1,5 @@
 //Muestra el mensaje en el div 
+
 mostrarTextoEnDiv = function (idComponenteDiv, mensaje) {
     let componente;
     componente = document.getElementById(idComponenteDiv);
@@ -18,7 +19,7 @@ mostrarTextoEnCaja = function (idComponenteCaja, mensaje) {
     componente = document.getElementById(idComponenteCaja);
     componente.value = mensaje;
 }
-//recupera el texto del componente
+//recupera el texto del componente:
 recuperarTexto = function (idComponente) {
     let componente;
     let valorIngresado;
@@ -26,12 +27,15 @@ recuperarTexto = function (idComponente) {
     valorIngresado = componente.value;
     return valorIngresado;
 }
+
 //recupera el texto del componente como entero
 recuperarEntero = function (idComponente) {
     let valorCaja = recuperarTexto(idComponente);
     let valorEntero = parseInt(valorCaja);
     return valorEntero;
 }
+
+
 //habilita el componente
 habilitarComponente = function (idComponente){
     let componente;

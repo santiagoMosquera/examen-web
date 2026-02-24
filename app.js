@@ -8,6 +8,7 @@ let vendedores = [
   { cedula:"1708934242",nombre: "Paúl", apellido: "Torres", ventas:12, nivel:""},
  ];
 
+
 let vendedoresVIP = [
     { cedula:"0720304056",nombre: "Josselyn", apellido: "Pillajo", ventas:17, nivel:"oro"}, 
     { cedula:"1945504089",nombre: "Alexandra", apellido: "Analuisa", ventas:10, nivel:"bronce"},
@@ -15,7 +16,7 @@ let vendedoresVIP = [
 ];
 
 inicializar=function(){
-  //pintarListaVendedores();
+  pintarListaVendedores();
   pintarListaVendedoresVIP();
 }
 
@@ -64,7 +65,38 @@ pintarListaVendedoresVIP = function(){
     html += "</ul>";
   mostrarHtmlEnDiv("contenedorDerecha", html);
   mostrarTextoEnDiv("contadorVendedoresVIP", vendedores.length);
-  
+
+}
+
+
+// ejercicio 3: 
+
+agregarVendedor = function(vendedor){
+  vendedores.push(vendedor);
+}
+
+agregarVendedorAction = function(){
+  let cedula = recuperarTexto("txtCedula");
+  let nombre = recuperarTexto("txtNombre");
+  let apellido = recuperarTexto("txtApellido");
+  let ventas = recuperarEntero("txtVentas")
+
+  // objeto con vendendor, vacio y agrego con atributos:  { cedula:"1708934242",nombre: "Paúl", apellido: "Torres", ventas:12, nivel:""},
+  let vendedor = {};
+  vendedor.cedula = cedula;
+  vendedor.nombre = nombre;
+  vendedor.apellido = apellido;
+  vendedor.ventas = ventas;
+  vendedor.nivel = "";
+
+  agregarVendedor(vendedor); 
+  pintarListaVendedores();
+
+  mostrarTextoEnCaja("txtCedula", "");
+  mostrarTextoEnCaja("txtNombre", "");
+  mostrarTextoEnCaja("txtApellido", "");
+  mostrarTextoEnCaja("txtVentas", "");
+
 }
 
 
