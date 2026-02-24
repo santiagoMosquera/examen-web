@@ -4,7 +4,7 @@
 // Datos (arreglos)
 // =========================
 let vendedores = [
-    { cedula: "1714616123", nombre: "Santiago", apellido: "Mosquera", ventas: 10, nivel: "" },
+    { cedula: "1714616123", nombre: "Santiago", apellido: "Mosquera", ventas: 15, nivel: "" },
     { cedula: "1708934242", nombre: "Paúl", apellido: "Torres", ventas: 12, nivel: "" },
 ];
 
@@ -97,6 +97,11 @@ moverAction = function() {
     let cedula = recuperarTexto("txtBuscarCedula");
     let posicion = buscarVendedor(cedula);
     recuperarVendedor = vendedores[posicion];
+
+
+    let nivel = calcularNivel(recuperarVendedor.ventas);
+    recuperarVendedor.nivel = nivel;
+
     vendedoresVIP.push(recuperarVendedor);
     vendedores.splice(posicion, 1);
 
@@ -105,8 +110,21 @@ moverAction = function() {
 
 };
 
+/*=================================================
+función calcularNivel, va a determinar el nivel de los vendedores en función de sus ventas.
+===================================================*/
+calcularNivel = function(numeroVentas) {
+    if (numeroVentas > 10 && numeroVentas <= 12) {
+        return "Bronce";
+    }
+    if (numeroVentas > 13 && numeroVentas <= 15) {
+        return "plata";
+    }
+    if (numeroVentas > 15) {
+        return "Bronce";
+    }
 
-
+};
 
 
 
