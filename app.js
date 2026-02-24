@@ -48,16 +48,6 @@ pintarListaVendedoresVIP = function() {
     for(let i = 0; i < vendedoresVIP.length; i++) {
         vendedor = vendedoresVIP[i];
         
-        // Agregar clase según el nivel para darle estilo
-        let claseNivel = "";
-        if(vendedor.nivel === "oro") {
-            claseNivel = "tag vip";
-        } else if(vendedor.nivel === "plata") {
-            claseNivel = "tag plata";
-        } else if(vendedor.nivel === "bronce") {
-            claseNivel = "tag bronce";
-        }
-        
         tabla += "<tr>" + 
                  "<td>" + " * "+ vendedor.nombre+" "+vendedor.apellido + "</td>" +
                  "<td>"+"nivel" + ">>" + vendedor.nivel + "</td>" +
@@ -69,6 +59,15 @@ pintarListaVendedoresVIP = function() {
     mostrarHtmlEnDiv("contenedorDerecha", tabla);
     
   }
+
+  //EJERCICIO 3
+
+  // Función que recibe un vendedor y lo agrega al arreglo
+agregarVendedor = function(vendedor) {
+    vendedores.push(vendedor);
+}
+
+
 // =========================
 // Búsqueda / movimiento
 // =========================
