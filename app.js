@@ -18,13 +18,15 @@ inicializar = function () {
   pintarListaVendedoresVIP();
 }
 
-pintarListaVendedores = function () {
+pintarListaVendedores = function() {
   let html = "<ul class='list'>";
   for (let i = 0; i < vendedores.length; i++) {
     html += "<li>" + vendedores[i].cedula + " | " + vendedores[i].nombre + " " + vendedores[i].apellido + " | ventas: " + vendedores[i].ventas + "</li>";
   }
   html += "</ul>";
   mostrarHtmlEnDiv("contenedorIzquierda", html);
+  let total = calcularTotalVentas();
+  mostrarTextoEnDiv("totalVentas", total);
 }
 
 pintarListaVendedoresVIP = function() {
@@ -102,6 +104,14 @@ calcularNivel = function(ventas) {
     nivel = "oro";
   }
   return nivel;
+}
+
+calcularTotalVentas = function() {
+  let total = 0;
+  for (let i = 0; i < vendedores.length; i++) {
+    total = total + vendedores[i].ventas;
+  }
+  return total;
 }
 
 // =========================
