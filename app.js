@@ -103,7 +103,7 @@ moverAction = function() {
     pintarListaVendedores();
     pintarListaVendedoresVIP();
     deshabilitarComponente("btnMover");
-
+    limpiarBusqueda();
 };
 
 /*=================================================
@@ -170,9 +170,10 @@ pintarListaVendedoresVIP = function() {
 // Búsqueda / movimiento
 // =========================
 function limpiarBusqueda() {
-    indiceEncontrado = -1;
-    btnMover.disabled = true;
-    resultadoBusquedaEl.innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
+    //indiceEncontrado = -1;
+    //btnMover.disabled = true;
+    mostrarTextoEnCaja("txtBuscarCedula", "");
+    resultadoBusqueda.innerHTML = "<span class='muted'>Sin búsqueda aún</span>";
     telefonoBuscarEl.value = "";
 }
 
