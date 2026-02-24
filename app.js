@@ -14,9 +14,6 @@ let vendedoresVIP = [
 ];
 
 
-
-
-
 // =========================
 // Búsqueda / movimiento
 // =========================
@@ -59,4 +56,30 @@ inicializar=function(){
  pintarListaVendedores();
  pintarListaVendedoresVIP();
 }
+
+agregarVendedor = function(vendedor) {
+    vendedores.push(vendedor);
+} 
+
+agregarVendedorAction = function() {
+    
+    let cedula = recuperarTexto("txtCedula");
+    let nombre = recuperarTexto("txtNombre");
+    let apellido = recuperarTexto("txtApellido");
+    let ventas = recuperarEntero("txtVentas");
+
+    
+    let nuevoVendedor = {
+        cedula: cedula,
+        nombre: nombre,
+        apellido: apellido,
+        ventas: ventas,
+        nivel: "" 
+    };
+
+    agregarVendedor(nuevoVendedor);
+
+    pintarListaVendedores();
+} 
+
 
