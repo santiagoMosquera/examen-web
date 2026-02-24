@@ -196,7 +196,14 @@ if (posicion !== -1) {
     document.getElementById("mensaje").innerHTML = "Ya existe un vendedor con esa cédula";
     return;
 }
-
+function limpiar() {
+    document.getElementById("txtNombre").value = "";
+    document.getElementById("txtApellido").value = "";
+    document.getElementById("txtEdad").value = "";
+    
+  
+    document.getElementById("txtNombre").focus();
+}
 // =========================
 // Búsqueda / movimiento
 // =========================
