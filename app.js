@@ -53,3 +53,23 @@ pintarListaVendedoresVIP = function () {
     contenidoHtml += "</ul>";
     mostrarHtmlEnDiv("contenedorDerecha", contenidoHtml);
 }
+
+
+agregarVendedor=function(vendedor){
+  vendedores.push(vendedor);
+  pintarListaVendedores();  
+}
+
+agregarVendedorAction=function(){
+  let cedula=recuperarTexto("txtCedula");
+  let nombre=recuperarTexto("txtNombre");
+  let apellido=recuperarTexto("txtApellido");
+  let ventas=recuperarEntero("txtVentas");
+  
+  let vendedor={
+    cedula: cedula, nombre: nombre, apellido: apellido, ventas: ventas, nivel: ""
+  };
+  agregarVendedor(vendedor);
+  
+
+}
