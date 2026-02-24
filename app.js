@@ -62,6 +62,7 @@ function agregarVendedorAction(){
   vendedor.ventas = ventas;
 
   agregarVendedor(vendedor);
+  pintarListaVendedores();
 }
 
 
