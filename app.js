@@ -112,7 +112,18 @@ function buscarVendedorAction(){
         let vendedor = vendedores[posicion];
         mostrarTextoEnDiv("resultadoBusqueda",vendedor.nombre);
         habilitarComponente("btnMover");
-    };
-    
+    };   
+}
 
+function moverActivo (){
+    let cedula = recuperarTexto("txtBuscarCedula");
+    let posicion = buscarVendedor(cedula);
+
+    if (posicion !== -1){
+        let vendedor = vendedores[posicion];
+        vendedoresVIP.push(vendedor);
+        vendedores.splice(posicion,1);
+        pintarListaVendedores();
+        pintarListaVendedoresVip();
+    }
 }
