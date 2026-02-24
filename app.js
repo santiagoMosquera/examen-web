@@ -190,7 +190,12 @@ function calcularTotalVentas() {
 }
 
 
-
+function limpiar() {
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtVentas", "");
+}
 
 
 
