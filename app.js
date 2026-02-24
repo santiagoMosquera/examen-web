@@ -1,11 +1,10 @@
 // =========================
-//ANGEL MORALALES MALES
+// Alumno: Paul Arias
 // =========================
 
 
 // =========================
 // Datos (arreglos)
-//Estudiante: Mateo Molina
 // =========================
 let vendedores = [
   { cedula:"1714616123",nombre: "Santiago", apellido: "Mosquera", ventas:10, nivel:""},
