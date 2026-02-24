@@ -86,16 +86,21 @@ function agregarVendedoresAction(){
     let nombre = recuperaTexto("txtNombre");
     let ventas = recuperarEntero("txtVentas");
 
+    let posicion = buscarVendedor(cedula);
+    if (posicion !== -1){
+        alert('El vendedor ya existe, no se puede agragar');
+
+    }else{
     let vendedor = {
         cedula: cedula,
         nombre: nombre,
         ventas: ventas
-    }
+    };
 
     agragarVendedor(vendedor);
     pintarListaVendedores();
+    }
 }
-
 function buscarVendedor(cedula){
     let posicion = -1;
      for (let i=0; i<vendedores.length;i++){
