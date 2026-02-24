@@ -99,12 +99,28 @@ buscarVendedorAction = function () {
 
 moverAction = function () {
   let cedulaBuscar = recuperarTexto("txtBuscarCedula");
-  let indice=buscarVendedor(cedulaBuscar);
-  if(indice!=-1){
-    let vendedorRecuperador=vendedores[indice];
+  let indice = buscarVendedor(cedulaBuscar);
+  if (indice != -1) {
+    let vendedorRecuperador = vendedores[indice];
+    let nivelCalculado = calcularNivel(vendedorRecuperador.ventas);
+    vendedorRecuperador.nivel = nivelCalculado;
     vendedoresVIP.push(vendedorRecuperador);
-    vendedores.splice(indice,1);
+    vendedores.splice(indice, 1);
+
     pintarListaVendedores();
     pintarListaVendedoresVIP();
   }
+
+}
+
+calcularNivel = function (ventas) {
+
+  if (ventas >= 10 && ventas <= 12) {
+    return "bronce";
+  } else if (ventas >= 13 && ventas <= 15) {
+    return "plata";
+  } else if (ventas > 15) {
+    return "oro";
+  }
+  return " ";
 }
