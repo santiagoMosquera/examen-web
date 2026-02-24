@@ -70,6 +70,29 @@ agregarVendedorAction=function(){
     cedula: cedula, nombre: nombre, apellido: apellido, ventas: ventas, nivel: ""
   };
   agregarVendedor(vendedor);
-  
+}
 
+buscarVendedor=function(cedula){
+  let indiceEncontrado=-1;
+  for (let i=0; i<vendedores.length;i++){
+    if(vendedores[i].cedula==cedula){
+      indiceEncontrado=i;
+      break;
+    }
+  }
+  return indiceEncontrado;
+}
+
+buscarVendedorAction=function(){
+  let cedula = recuperarTexto("txtBuscarCedula");
+  let posicionVendedor=buscarVendedor(cedula);
+  if(posicionVendedor!=-1){
+    let v = vendedores[posicionVendedor];
+    nombreCompleto= v.nombre + " "+v.apellido;
+    mostrarHtmlEnDiv("resultadoBusqueda", nombreCompleto);
+    habilitarComponente("btnMover");
+  }else{
+    mostrarHtmlEnDiv("resultadoBusqueda","El vendedor con dicha cedula no existe");
+    deshabilitarComponente("btnMover");
+  }
 }
