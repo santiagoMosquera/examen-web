@@ -81,6 +81,25 @@ function pintarListaVendedoresVIP() {
   mostrarHtmlEnDiv("contenedorDerecha", html);
 }
 
+
+function agregarVendedor() {
+  let cedula = recuperarTexto("cedula");
+  let nombre = recuperarTexto("nombre");
+  let apellido = recuperarTexto("apellido");
+  let ventas = recuperarEntero("ventas");
+  let nuevoVendedor = {
+    cedula: cedula,
+    nombre: nombre,
+    apellido: apellido,
+    ventas: ventas,
+    nivel: "",
+  };
+  vendedores.push(nuevoVendedor);
+  pintarListaVendedores();
+  }
+
+
+  
 // =========================
 // Búsqueda / movimiento
 // =========================
