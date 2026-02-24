@@ -49,6 +49,10 @@ pintarListaVendedoresVIP=function(){
 
 }
 
+agregarVenderdor=function(nuevoVendedor){
+  vendedores.push(nuevoVendedor);
+}
+
 
 
 
